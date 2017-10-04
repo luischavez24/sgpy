@@ -5,6 +5,7 @@ import java.util.Date;
 public class PytoDocs {
     protected int codPyto;
     protected int corrdocs;
+
     private int codFase;
     private int codNivel;
     protected Date fecIni;
@@ -19,7 +20,10 @@ public class PytoDocs {
     private int corrEntreg;
     private int codEsp;
     private int codResp;
+
     protected String vigente;
+
+    public PytoDocs() { }
 
     public PytoDocs(int codPyto, int corrdocs, int codFase, int codNivel, Date fecIni, Date fecFin, double costoEst, int codDoc, String rutaDoc, String verDoc, String observac, int estPyto, int tipoEntreg, int corrEntreg, int codEsp, int codResp, String vigente) {
         this.codPyto = codPyto;
