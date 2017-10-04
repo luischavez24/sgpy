@@ -1,5 +1,5 @@
 package edu.unmsm.sistemas.sgpy.entities;
 
-public class Documento {
+public class PytoDocs {
     
 }
