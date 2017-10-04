@@ -9,12 +9,12 @@ public class DAOConnection {
     private final static DAOConnection CONNECTION;
     private Connection miConexion;
     
-    private DAOConnection() {
-        miConexion = null;
-    }
-
     static {
         CONNECTION = new DAOConnection();
+    }
+    
+    private DAOConnection() {
+        miConexion = null;
     }
 
     public static DAOConnection getInstance() {
