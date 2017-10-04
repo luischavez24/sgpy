@@ -40,13 +40,13 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private void initComponents() {
 
         panelFondo = new javax.swing.JLayeredPane();
-        panelInsertar = new javax.swing.JPanel();
+        panelBuscar1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         caja_busqueda = new javax.swing.JTextField();
         btnQuery = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaDocs = new javax.swing.JTable();
-        panelBuscar = new javax.swing.JPanel();
+        panelInsertar = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jInsertarDocumento = new javax.swing.JMenu();
         btnBuscar = new javax.swing.JMenuItem();
@@ -54,6 +54,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Documentos del Proyecto");
 
         panelFondo.setLayout(new java.awt.CardLayout());
 
@@ -65,6 +66,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         btnQuery.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnQuery.setText("Buscar");
 
+        tablaDocs.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tablaDocs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -76,51 +78,53 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaDocs.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
         jScrollPane1.setViewportView(tablaDocs);
 
-        javax.swing.GroupLayout panelInsertarLayout = new javax.swing.GroupLayout(panelInsertar);
-        panelInsertar.setLayout(panelInsertarLayout);
-        panelInsertarLayout.setHorizontalGroup(
-            panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInsertarLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelBuscar1Layout = new javax.swing.GroupLayout(panelBuscar1);
+        panelBuscar1.setLayout(panelBuscar1Layout);
+        panelBuscar1Layout.setHorizontalGroup(
+            panelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBuscar1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelInsertarLayout.createSequentialGroup()
-                        .addComponent(caja_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1007, Short.MAX_VALUE)
+                    .addGroup(panelBuscar1Layout.createSequentialGroup()
+                        .addGroup(panelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(caja_busqueda))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(btnQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
         );
-        panelInsertarLayout.setVerticalGroup(
-            panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInsertarLayout.createSequentialGroup()
+        panelBuscar1Layout.setVerticalGroup(
+            panelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscar1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(caja_busqueda)
-                    .addComponent(btnQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                .addGroup(panelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caja_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
-        panelFondo.add(panelInsertar, "card3");
+        panelFondo.add(panelBuscar1, "card3");
 
-        javax.swing.GroupLayout panelBuscarLayout = new javax.swing.GroupLayout(panelBuscar);
-        panelBuscar.setLayout(panelBuscarLayout);
-        panelBuscarLayout.setHorizontalGroup(
-            panelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
+        javax.swing.GroupLayout panelInsertarLayout = new javax.swing.GroupLayout(panelInsertar);
+        panelInsertar.setLayout(panelInsertarLayout);
+        panelInsertarLayout.setHorizontalGroup(
+            panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1059, Short.MAX_VALUE)
         );
-        panelBuscarLayout.setVerticalGroup(
-            panelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
+        panelInsertarLayout.setVerticalGroup(
+            panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 551, Short.MAX_VALUE)
         );
 
-        panelFondo.add(panelBuscar, "card2");
+        panelFondo.add(panelInsertar, "card2");
 
         jInsertarDocumento.setText("Operaciones");
 
@@ -151,7 +155,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo)
+            .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,10 +167,15 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        panelInsertar.setVisible(false);
+        panelBuscar1.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
+
+        panelInsertar.setVisible(true);
+        panelBuscar1.setVisible(false);
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     /**
@@ -214,7 +223,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel panelBuscar;
+    private javax.swing.JPanel panelBuscar1;
     private javax.swing.JLayeredPane panelFondo;
     private javax.swing.JPanel panelInsertar;
     private javax.swing.JTable tablaDocs;
