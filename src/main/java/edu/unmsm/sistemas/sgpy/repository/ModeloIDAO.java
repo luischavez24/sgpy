@@ -2,7 +2,7 @@ package edu.unmsm.sistemas.sgpy.repository;
 
 import java.util.List;
 
-public interface ModeloIDAO<T extends Comparable<T>> {
+public interface ModeloIDAO<T> {
 
     public List<T> listar();
 

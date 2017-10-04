@@ -3,23 +3,23 @@ package edu.unmsm.sistemas.sgpy.entities;
 import java.util.Date;
 
 public class PytoDocs {
-    private int codPyto;
-    private int corrdocs;
+    protected int codPyto;
+    protected int corrdocs;
     private int codFase;
     private int codNivel;
-    private Date fecIni;
-    private Date fecFin;
-    private double costoEst;
+    protected Date fecIni;
+    protected Date fecFin;
+    protected double costoEst;
     private int codDoc;
     private String rutaDoc;
-    private String verDoc;
+    protected String verDoc;
     private String observac;
     private int estPyto;
     private int tipoEntreg;
     private int corrEntreg;
     private int codEsp;
     private int codResp;
-    private String vigente;
+    protected String vigente;
 
     public PytoDocs(int codPyto, int corrdocs, int codFase, int codNivel, Date fecIni, Date fecFin, double costoEst, int codDoc, String rutaDoc, String verDoc, String observac, int estPyto, int tipoEntreg, int corrEntreg, int codEsp, int codResp, String vigente) {
         this.codPyto = codPyto;
@@ -40,8 +40,23 @@ public class PytoDocs {
         this.codResp = codResp;
         this.vigente = vigente;
     }
+    
+    
 
-    public int getCodPyto() {
+    public PytoDocs(int codPyto, int corrdocs, Date fecIni, Date fecFin, double costoEst, String verDoc,
+			String vigente) {
+		super();
+		this.codPyto = codPyto;
+		this.corrdocs = corrdocs;
+		this.fecIni = fecIni;
+		this.fecFin = fecFin;
+		this.costoEst = costoEst;
+		this.verDoc = verDoc;
+		this.vigente = vigente;
+	}
+
+
+	public int getCodPyto() {
         return codPyto;
     }
 
