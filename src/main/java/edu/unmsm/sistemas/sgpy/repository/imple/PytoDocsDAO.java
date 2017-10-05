@@ -82,11 +82,12 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
         String msj = "Se insertaron los datos correctamente.";
         Connection conn = miDao.getConexion(nomb_bd, user, pass);
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
+        String sql = "INSERT INTO PYTODOCS VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             conn.setAutoCommit(false);
-
-            PreparedStatement consulta = conn.prepareStatement("INSERT INTO PYTODOCS VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement consulta = conn.prepareStatement(sql);
+            
             consulta.setInt(1, nuevo.getCodPyto());
             consulta.setInt(2, nuevo.getCorrdocs());
             consulta.setInt(3, nuevo.getCodFase());
@@ -122,33 +123,22 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
     public String actualizar(PytoDocs modificacion) {
         // TODO Auto-generated method stub
         String msj = "Se actualizaron los datos correctamente.";
-        /*Connection conn = miDao.getConexion(nomb_bd, user, pass);
-		SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
-		insertar(nuevo);
-		
-		try {
+        Connection conn = miDao.getConexion(nomb_bd, user, pass);
+        
+        String mensaje;
+
+        String sql = "UPDATE proyecto SET Vigente=?, CostoEst=? WHERE cod_tesis = '"
+                + modificacion.getCodDoc() + "'";
+        
+        actualizar(modificacion);
+	
+	try {
             conn.setAutoCommit(false);
-            
-            PreparedStatement consulta = conn.prepareStatement("INSERT INTO PYTODOCS VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            consulta.setInt(1, nuevo.getCodPyto());
-            consulta.setInt(2, nuevo.getCorrdocs());
-            consulta.setInt(3, nuevo.getCodFase());
-            consulta.setInt(4, nuevo.getCodNivel());
-            consulta.setString(5, format_fecha.format(nuevo.getFecIni()));
-            consulta.setString(6, format_fecha.format(nuevo.getFecFin()));
-            consulta.setDouble(7, nuevo.getCostoEst());   
-            consulta.setInt(8, nuevo.getCodDoc());
-            consulta.setString(9, nuevo.getRutaDoc());
-            consulta.setString(10, nuevo.getVerDoc());
-            consulta.setString(11, nuevo.getObservac());
-            consulta.setInt(12, nuevo.getEstPyto());
-            consulta.setInt(13, nuevo.getTipoEntreg());
-            consulta.setInt(14, nuevo.getCorrEntreg());
-            consulta.setInt(15, nuevo.getCodEsp());
-            consulta.setInt(16, nuevo.getCodResp());
-            consulta.setString(17, nuevo.getVigente());
+            PreparedStatement consulta = conn.prepareStatement(sql);
+            consulta.setString(1, modificacion.getVigente());
+            consulta.setDouble(2, modificacion.getCostoEst());
            
-            msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la inserción" : "Correcto";
+            msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualizaron de datos" : "Correcto";
 
             consulta.close();
             conn.commit();
@@ -157,7 +147,7 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
         } catch (SQLException ex) {
         	System.out.println(ex);
         }
-         */
+         
         return msj;
     }
 
