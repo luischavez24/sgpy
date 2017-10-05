@@ -11,16 +11,17 @@ import edu.unmsm.sistemas.sgpy.repository.ModeloIDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Alexander
  */
-public class NivelDAO implements ModeloIDAO<Nivel> {
+public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
     @Override
     public List<Nivel> listar() {
-        List<Nivel> miLista = new List<>();//Indica implementar todos sus métodos
+        List<Nivel> miLista = new ArrayList<>(); //Indica implementar todos sus métodos
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "SELECT * FROM Nivel", DesNivel, Fase, Vigente;
         Integer CodFase,CodNivel;

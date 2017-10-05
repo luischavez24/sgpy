@@ -7,7 +7,7 @@ package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs_View;
-import edu.unmsm.sistemas.sgpy.repository.impl.PytoDocsDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAO;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

@@ -1,4 +1,4 @@
-package edu.unmsm.sistemas.sgpy.repository.impl;
+package edu.unmsm.sistemas.sgpy.repository.imple;
 
 import java.sql.Connection;
 import java.sql.Date;

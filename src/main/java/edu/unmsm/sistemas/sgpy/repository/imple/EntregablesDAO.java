@@ -11,17 +11,18 @@ import edu.unmsm.sistemas.sgpy.repository.ModeloIDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Alexander
  */
-public class EntregablesDAO implements ModeloIDAO<Entregables> {
+public class EntregablesDAO implements ModeloIDAO<Entregables,Entregables> {
 
     @Override
     public List<Entregables> listar() {
-        List<Entregables> miLista = new List<>();
+        List<Entregables> miLista = new ArrayList<>();
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "SELECT * FROM Entregables", DesEntreg, DesCortaEntreg;
         Integer TipoEntreg,CorrEntreg;

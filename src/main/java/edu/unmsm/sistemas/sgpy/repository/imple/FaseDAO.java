@@ -11,16 +11,19 @@ import edu.unmsm.sistemas.sgpy.repository.ModeloIDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Alexander
  */
-public class FaseDAO implements ModeloIDAO<Fase> {
+public class FaseDAO implements ModeloIDAO<Fase,Fase> {
 
     public List<Fase> listar() {
-        List<Fase> miLista = new List<>();
+        // Aqui estaba un error Raul, la clase list es abstracta
+        // Tienes que usar ArrayList o LinkedList
+        List<Fase> miLista = new ArrayList<>();
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "SELECT * FROM Fase", DesFase, Vigencia;
         Integer CodFase;//me guie del proyecto de estructura
