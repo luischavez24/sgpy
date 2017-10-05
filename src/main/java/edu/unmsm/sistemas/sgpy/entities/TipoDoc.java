@@ -9,6 +9,7 @@ package edu.unmsm.sistemas.sgpy.entities;
  *
  * @author lucho
  */
+
 public class TipoDoc {
     private int codDoc;
     private String desTDoc;
