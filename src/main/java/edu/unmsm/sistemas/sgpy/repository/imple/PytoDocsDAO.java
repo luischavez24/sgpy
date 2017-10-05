@@ -2,7 +2,7 @@ package edu.unmsm.sistemas.sgpy.repository.imple;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
+import oracle.jdbc.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -14,6 +14,7 @@ import edu.unmsm.sistemas.sgpy.entities.PytoDocs_View;
 import edu.unmsm.sistemas.sgpy.repository.DAOConnection;
 import edu.unmsm.sistemas.sgpy.repository.ModeloIDAO;
 import java.sql.CallableStatement;
+import javax.swing.JOptionPane;
 
 public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
     public static final PytoDocsDAO PYTODOCSDAO;
@@ -33,41 +34,47 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
     
     @Override
     public List<PytoDocs_View> listar() {
-        // TODO Auto-generated method stub
-
+        
+        // ArrayList donde se guardan los documentos
         ArrayList<PytoDocs_View> misProyectos = new ArrayList<>();
 
         try {
+            // Chapa la conexion
             Connection conn = miDao.getConexion(nomb_bd, user, pass);
 
-            PreparedStatement consulta = conn.prepareStatement("SELECT * FROM LISTAR_PYTODOCS");
-            ResultSet resultado = consulta.executeQuery();
-
-            PytoDocs_View temp;
-
-            String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
-            int codPyto, corrdocs;
-            Date fecIni, fecFin;
-            double costoEst;
-
-            while (resultado.next()) {
-
-                codPyto = resultado.getInt("CodPyto");
-                corrdocs = resultado.getInt("Corrdocs");
-                fecIni = resultado.getDate("FecIni");
-                fecFin = resultado.getDate("FecFin");
-                costoEst = resultado.getDouble("CostoEst");  //
-                verDoc = resultado.getString("VerDoc");   //version documentos
-                vigente = resultado.getString("Vigente");
-                desFase = resultado.getString("DesFase");
-                desNivel = resultado.getString("DesNivel");
-                desTDoc = resultado.getString("DesTDoc");
-                desEntreg = resultado.getString("DesEntreg");
-
-                temp = new PytoDocs_View(codPyto, corrdocs, fecIni, fecFin, costoEst,
-                        verDoc, vigente, desFase, desNivel, desTDoc, desEntreg);
-
-                misProyectos.add(temp);
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_PYTODOCS (?) }")) {
+                consulta.registerOutParameter(1, OracleTypes.CURSOR);
+                consulta.execute();
+                
+                try (ResultSet resultado = ((OracleCallableStatement)consulta).getCursor(1)) {
+                    
+                    PytoDocs_View temp = null;
+                    
+                    String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
+                    int codPyto, corrdocs;
+                    Date fecIni, fecFin;
+                    double costoEst;
+                    
+                    while (resultado.next()) {
+                      
+                        codPyto = resultado.getInt("CodPyto");
+                        corrdocs = resultado.getInt("Corrdocs");
+                        fecIni = resultado.getDate("FecIni");
+                        fecFin = resultado.getDate("FecFin");
+                        costoEst = resultado.getDouble("CostoEst");  //
+                        verDoc = resultado.getString("VerDoc");   //version documentos
+                        vigente = resultado.getString("Vigente");
+                        desFase = resultado.getString("DesFase");
+                        desNivel = resultado.getString("DesNivel");
+                        desTDoc = resultado.getString("DesTDoc");
+                        desEntreg = resultado.getString("DesEntreg");
+                        
+                        temp = new PytoDocs_View(codPyto, corrdocs, fecIni, fecFin, costoEst,
+                                verDoc, vigente, desFase, desNivel, desTDoc, desEntreg);
+                        
+                        misProyectos.add(temp);
+                    }
+                }
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -88,7 +95,7 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
             conn.setAutoCommit(false);
 
             try ( //PreparedStatement consulta = conn.prepareStatement("INSERT INTO PYTODOCS VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                    CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_PYDOCS(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
+                CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_PYDOCS (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodPyto());
                 consulta.setInt(2, nuevo.getCodFase());
                 consulta.setInt(3, nuevo.getCodNivel());
