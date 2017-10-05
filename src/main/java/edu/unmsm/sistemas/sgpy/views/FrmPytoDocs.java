@@ -6,6 +6,8 @@
 package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
+import edu.unmsm.sistemas.sgpy.entities.PytoDocs_View;
+import edu.unmsm.sistemas.sgpy.repository.impl.PytoDocsDAO;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -22,13 +24,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
      */
     public FrmPytoDocs() {
         initComponents();
-        List<PytoDocs> listaDocs = new ArrayList<>();
-        listaDocs.add(new PytoDocs(1, 1, 1, 1, GregorianCalendar.getInstance().getTime(), GregorianCalendar.getInstance().getTime(), 1, 1, "hola", "hola", "hola", 1, 1, 1, 1, 1, "no"));
+        List<PytoDocs_View> listaDocs = PytoDocsDAO.getInstance().listar();
         llenarTabla(listaDocs);
     }
     
-    private void llenarTabla(List<PytoDocs> listaDocs) {
-        tablaDocs.setModel(TableModelCreator.createTableModel(PytoDocs.class, listaDocs));
+    private void llenarTabla(List<PytoDocs_View> listaDocs) {
+        tablaDocs.setModel(TableModelCreator.createTableModel(PytoDocs_View.class, listaDocs));
     }
     /**
      * This method is called from within the constructor to initialize the form.

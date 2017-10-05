@@ -2,9 +2,9 @@ package edu.unmsm.sistemas.sgpy.repository;
 
 import java.util.List;
 
-public interface ModeloIDAO<T> {
+public interface ModeloIDAO <T,K> {
 
-    public List<T> listar();
+    public List<K> listar();
 
     public String insertar(T nuevo);
 
