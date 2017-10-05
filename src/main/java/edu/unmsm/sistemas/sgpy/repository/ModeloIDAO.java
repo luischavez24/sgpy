@@ -17,6 +17,6 @@ public interface ModeloIDAO <T,K> {
 
     public String actualizar(T modificacion);
 
-    public String eliminar(String codigo);
+    public String eliminar(int codigo);
     
 }

@@ -82,7 +82,6 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
         String msj = "Se insertaron los datos correctamente.";
         Connection conn = miDao.getConexion(nomb_bd, user, pass);
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
-        insertar(nuevo);
 
         try {
             conn.setAutoCommit(false);
@@ -163,7 +162,7 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
     }
 
     @Override
-    public String eliminar(String codigo) {
+    public String eliminar(int codigo) {
         // TODO Auto-generated method stub
         return null;
     }

@@ -6,7 +6,6 @@ public class PytoDocs {
 
     protected int codPyto;
     protected int corrdocs;
-
     private int codFase;
     private int codNivel;
     protected Date fecIni;

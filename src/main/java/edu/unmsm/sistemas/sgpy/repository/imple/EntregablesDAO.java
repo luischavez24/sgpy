@@ -97,14 +97,15 @@ public class EntregablesDAO implements ModeloIDAO<Entregables,Entregables> {
     }
 
     @Override
-    public String eliminar(String TipoEntreg) {
+    public String eliminar(int TipoEntreg) {
         String rpta = "Eliminacion Completada";
         DAOConnection acceso = DAOConnection.getInstance();
-        String sql = "DELETE FROM Entregables WHERE TipoEntreg = '" + TipoEntreg +"'";//Lucho revisa este where si esta bien pq no entiendo la BD del profe :v
+        String sql = "DELETE FROM Entregables WHERE TipoEntreg = ?";//Lucho revisa este where si esta bien pq no entiendo la BD del profe :v
 
         try {
 
             PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            comando.setInt(1, TipoEntreg);
             int eliminar = comando.executeUpdate();
             if (eliminar == 0) {
                 rpta = "Error Eliminar";

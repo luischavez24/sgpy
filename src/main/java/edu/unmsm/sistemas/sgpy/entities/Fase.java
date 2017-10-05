@@ -47,7 +47,7 @@ public class Fase {
 
     @Override
     public String toString() {
-        return "Fase{" + "CodFase=" + CodFase + ", DesFase=" + DesFase + ", Vigencia=" + Vigencia + '}';
+        return DesFase;
     }
     
 }

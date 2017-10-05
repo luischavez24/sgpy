@@ -17,6 +17,11 @@
             <version>12.1.0.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+          <groupId>com.google.apis</groupId>
+          <artifactId>google-api-services-drive</artifactId>
+          <version>v2-rev280-1.23.0</version>
+        </dependency>
     </dependencies>
     <!-- Repositorio del driver de oracle -->
     <repositories>
@@ -36,6 +41,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>
 </project>

@@ -19,6 +19,13 @@ import java.util.List;
  * @author Alexander
  */
 public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
+    
+    private static final NivelDAO NIVELDAO = new NivelDAO();
+    
+    public static NivelDAO getInstance () {
+        return NIVELDAO;
+    }
+    
     @Override
     public List<Nivel> listar() {
         List<Nivel> miLista = new ArrayList<>(); //Indica implementar todos sus métodos
@@ -99,19 +106,19 @@ public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
     }
 
     @Override
-    public String eliminar(String CodFase) {
+    public String eliminar(int CodFase) {
         String rpta = "Eliminacion Completada";
         DAOConnection acceso = DAOConnection.getInstance();
-        String sql = "DELETE FROM Nivel WHERE CodFase = '" + CodFase +"'";//Lucho revisa este where si esta bien pq no entiendo la BD del profe :v
+        String sql = "DELETE FROM Nivel WHERE CodFase = ?";//Lucho revisa este where si esta bien pq no entiendo la BD del profe :v
 
         try {
 
             PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            comando.setInt(1, CodFase);
             int eliminar = comando.executeUpdate();
             if (eliminar == 0) {
                 rpta = "Error Eliminar";
             }
-
         } catch (SQLException ex) {
             rpta = ex.getMessage();
         } finally {

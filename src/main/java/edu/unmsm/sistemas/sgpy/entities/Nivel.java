@@ -66,7 +66,7 @@ public class Nivel {
 
     @Override
     public String toString() {
-        return "Nivel{" + "CodFase=" + CodFase + ", CodNivel=" + CodNivel + ", DesNivel=" + DesNivel + ", Fase=" + Fase + ", Vigente=" + Vigente + '}';
+        return DesNivel;
     }
         
 }

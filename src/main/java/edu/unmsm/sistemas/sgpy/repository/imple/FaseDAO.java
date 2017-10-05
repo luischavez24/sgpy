@@ -19,7 +19,13 @@ import java.util.List;
  * @author Alexander
  */
 public class FaseDAO implements ModeloIDAO<Fase,Fase> {
-
+    
+    private static final FaseDAO FASEDAO = new FaseDAO();
+    
+    public static FaseDAO getInstance() {
+        return FASEDAO;
+    }
+    
     public List<Fase> listar() {
         // Aqui estaba un error Raul, la clase list es abstracta
         // Tienes que usar ArrayList o LinkedList
@@ -71,14 +77,14 @@ public class FaseDAO implements ModeloIDAO<Fase,Fase> {
     public String actualizar(Fase actualizacion) {
         String rpta = "Actualizacion Completada";
         DAOConnection acceso = DAOConnection.getInstance();
-        String sql = "UPDATE Fase SET CodFase=?,DesFase=?,Vigencia=?  WHERE CodFase = '"
-                + actualizacion.getCodFase()+ "'";//Lucho revisa ese where si esta bien pq no entiendo la BD del profe :v
+        String sql = "UPDATE Fase SET CodFase=?,DesFase=?,Vigencia=?  WHERE CodFase = ?";//Lucho revisa ese where si esta bien pq no entiendo la BD del profe :v
         try {
 
             PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
             comando.setString(1, String.valueOf(actualizacion.getCodFase()));
             comando.setString(3, actualizacion.getDesFase());
             comando.setString(4, actualizacion.getVigencia());
+            comando.setInt(5, actualizacion.getCodFase());
             int actualizar = comando.executeUpdate();
             if (actualizar == 0) {
                 rpta = "Error al actualizar";
@@ -93,14 +99,15 @@ public class FaseDAO implements ModeloIDAO<Fase,Fase> {
     }
 
     @Override
-    public String eliminar(String codFase) {
+    public String eliminar(int codFase) {
         String rpta = "Eliminacion Completada";
         DAOConnection acceso = DAOConnection.getInstance();
-        String sql = "DELETE FROM Fase WHERE CodFase = '" + codFase +"'";//Lucho revisa este where si esta bien pq no entiendo la BD del profe :v
+        String sql = "DELETE FROM Fase WHERE CodFase = ?";
 
         try {
 
             PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            comando.setInt(1, codFase);
             int eliminar = comando.executeUpdate();
             if (eliminar == 0) {
                 rpta = "Error Eliminar";
