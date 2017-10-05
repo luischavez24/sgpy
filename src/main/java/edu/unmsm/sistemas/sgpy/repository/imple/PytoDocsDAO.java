@@ -48,7 +48,7 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
                 
                 try (ResultSet resultado = ((OracleCallableStatement)consulta).getCursor(1)) {
                     
-                    PytoDocs_View temp = null;
+                    PytoDocs_View temp;
                     
                     String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
                     int codPyto, corrdocs;
