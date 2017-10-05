@@ -13,6 +13,7 @@ import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs_View;
 import edu.unmsm.sistemas.sgpy.repository.DAOConnection;
 import edu.unmsm.sistemas.sgpy.repository.ModeloIDAO;
+import java.sql.CallableStatement;
 
 public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
     public static final PytoDocsDAO PYTODOCSDAO;
@@ -86,28 +87,27 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs,PytoDocs_View> {
         try {
             conn.setAutoCommit(false);
 
-            PreparedStatement consulta = conn.prepareStatement("INSERT INTO PYTODOCS VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            consulta.setInt(1, nuevo.getCodPyto());
-            consulta.setInt(2, nuevo.getCorrdocs());
-            consulta.setInt(3, nuevo.getCodFase());
-            consulta.setInt(4, nuevo.getCodNivel());
-            consulta.setString(5, format_fecha.format(nuevo.getFecIni()));
-            consulta.setString(6, format_fecha.format(nuevo.getFecFin()));
-            consulta.setDouble(7, nuevo.getCostoEst());
-            consulta.setInt(8, nuevo.getCodDoc());
-            consulta.setString(9, nuevo.getRutaDoc());
-            consulta.setString(10, nuevo.getVerDoc());
-            consulta.setString(11, nuevo.getObservac());
-            consulta.setInt(12, nuevo.getEstPyto());
-            consulta.setInt(13, nuevo.getTipoEntreg());
-            consulta.setInt(14, nuevo.getCorrEntreg());
-            consulta.setInt(15, nuevo.getCodEsp());
-            consulta.setInt(16, nuevo.getCodResp());
-            consulta.setString(17, nuevo.getVigente());
-
-            msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la inserción" : "Correcto";
-
-            consulta.close();
+            try ( //PreparedStatement consulta = conn.prepareStatement("INSERT INTO PYTODOCS VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_PYDOCS(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
+                consulta.setInt(1, nuevo.getCodPyto());
+                consulta.setInt(2, nuevo.getCodFase());
+                consulta.setInt(3, nuevo.getCodNivel());
+                consulta.setString(4, format_fecha.format(nuevo.getFecIni()));
+                consulta.setString(5, format_fecha.format(nuevo.getFecFin()));
+                consulta.setDouble(6, nuevo.getCostoEst());
+                consulta.setInt(7, nuevo.getCodDoc());
+                consulta.setString(8, nuevo.getRutaDoc());
+                consulta.setString(9, nuevo.getVerDoc());
+                consulta.setString(10, nuevo.getObservac());
+                consulta.setInt(11, nuevo.getEstPyto());
+                consulta.setInt(12, nuevo.getTipoEntreg());
+                consulta.setInt(13, nuevo.getCorrEntreg());
+                consulta.setInt(14, nuevo.getCodEsp());
+                consulta.setInt(15, nuevo.getCodResp());
+                consulta.setString(16, nuevo.getVigente());
+                
+                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la inserción" : "Correcto";
+            }
             conn.commit();
             conn.close();
 

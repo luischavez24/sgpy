@@ -12,12 +12,17 @@ import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
 import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAO;
 import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAO;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
+import java.awt.Font;
+import java.io.File;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableModel;
-
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author lucho
@@ -26,7 +31,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     public FrmPytoDocs() {
         initComponents();
-        
+
         llenarTabla(PytoDocsDAO.getInstance().listar());
         configurarSpinners(spnFInicio, "dd/MM/yy");
         configurarSpinners(spnFFin, "dd/MM/yy");
@@ -54,6 +59,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         lbObservaciones = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtObs = new javax.swing.JTextArea();
+        lbVersion = new javax.swing.JLabel();
+        txtVersion = new javax.swing.JTextField();
         panelDatosPyto = new javax.swing.JPanel();
         cmbProyecto = new javax.swing.JComboBox<>();
         lbProyecto = new javax.swing.JLabel();
@@ -74,6 +81,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         chkVigencia = new javax.swing.JCheckBox();
         spnFInicio = new javax.swing.JSpinner();
         spnFFin = new javax.swing.JSpinner();
+        btnInsertarDocs = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jInsertarDocumento = new javax.swing.JMenu();
         btnBuscar = new javax.swing.JMenuItem();
@@ -156,6 +164,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         btnSubDoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnSubDoc.setText("Seleccione el documento para subirlo");
+        btnSubDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubDocActionPerformed(evt);
+            }
+        });
 
         lbObservaciones.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbObservaciones.setText("Observaciones");
@@ -165,6 +178,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         txtObs.setRows(5);
         jScrollPane2.setViewportView(txtObs);
 
+        lbVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbVersion.setText("Version");
+
+        txtVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtVersion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVersionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelSubidaLayout = new javax.swing.GroupLayout(panelSubida);
         panelSubida.setLayout(panelSubidaLayout);
         panelSubidaLayout.setHorizontalGroup(
@@ -172,17 +195,25 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             .addGroup(panelSubidaLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelSubidaLayout.createSequentialGroup()
+                        .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtVersion))
                     .addComponent(jScrollPane2)
                     .addComponent(lbObservaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSubDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         panelSubidaLayout.setVerticalGroup(
             panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSubidaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143)
+                .addGap(64, 64, 64)
+                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbVersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
                 .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,6 +223,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         panelDatosPyto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información del documento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
 
         cmbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cmbProyecto.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         lbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbProyecto.setText("Proyecto");
@@ -226,16 +258,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         lbTEntregable.setText("Tipo de entregable");
 
         cmbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbTEntregable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTEntregable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         lbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbEspecialista.setText("Especialista");
 
         cmbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbEspecialista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEspecialista.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         cmbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbResponsable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbResponsable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         lbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbResponsable.setText("Responsable");
@@ -340,6 +372,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnInsertarDocs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnInsertarDocs.setText("Insertar");
+
         javax.swing.GroupLayout panelInsertarLayout = new javax.swing.GroupLayout(panelInsertar);
         panelInsertar.setLayout(panelInsertarLayout);
         panelInsertarLayout.setHorizontalGroup(
@@ -348,19 +383,22 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelInsertarLayout.createSequentialGroup()
+                        .addComponent(lbTituloInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnInsertarDocs, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                    .addGroup(panelInsertarLayout.createSequentialGroup()
                         .addComponent(panelDatosPyto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(42, 42, 42)
-                        .addComponent(panelSubida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(33, 33, 33))
-                    .addGroup(panelInsertarLayout.createSequentialGroup()
-                        .addComponent(lbTituloInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))))
+                        .addComponent(panelSubida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(33, 33, 33))
         );
         panelInsertarLayout.setVerticalGroup(
             panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInsertarLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lbTituloInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbTituloInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(btnInsertarDocs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelDatosPyto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -433,18 +471,37 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkVigenciaActionPerformed
 
+    private void btnSubDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubDocActionPerformed
+        // TODO add your handling code here:
+        JFileChooser exploradorArchivos = new JFileChooser(System.getProperty("user.desktop"));
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF", "pdf");
+        exploradorArchivos.setFileFilter(filtro);
+        exploradorArchivos.setMultiSelectionEnabled(false);
+        exploradorArchivos.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        exploradorArchivos.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        int opcion = exploradorArchivos.showOpenDialog(this);
+        File archivoSeleccionado = exploradorArchivos.getSelectedFile();
+        if (archivoSeleccionado != null && opcion == JFileChooser.APPROVE_OPTION) {
+            JOptionPane.showMessageDialog(rootPane, "La ruta seleccionada es: " + archivoSeleccionado.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnSubDocActionPerformed
+
+    private void txtVersionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVersionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVersionActionPerformed
+
     private void configurarSpinners(JSpinner timeSpinner, String dateFormat) {
         timeSpinner.setModel(new SpinnerDateModel());
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(timeSpinner, dateFormat);
         timeSpinner.setEditor(timeEditor);
         timeSpinner.setValue(new Date()); // will only show the current time
     }
-    
+
     private void llenarTabla(List<PytoDocs_View> listaDocs) {
         TableModel modeloTabla = TableModelCreator.createTableModel(PytoDocs_View.class, listaDocs);
         tablaDocs.setModel(modeloTabla);
     }
-    
+
     private void llenarCombos() {
         FaseDAO.getInstance().listar().forEach((item) -> cmbFase.addItem(item));
         NivelDAO.getInstance().listar().forEach((Nivel item) -> cmbNivel.addItem(item));
@@ -455,16 +512,17 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnBuscar;
     private javax.swing.JMenuItem btnEliminarDocs;
     private javax.swing.JMenuItem btnInsertar;
+    private javax.swing.JButton btnInsertarDocs;
     private javax.swing.JButton btnQuery;
     private javax.swing.JButton btnSubDoc;
     private javax.swing.JTextField caja_busqueda;
     private javax.swing.JCheckBox chkVigencia;
-    private javax.swing.JComboBox<String> cmbEspecialista;
+    private javax.swing.JComboBox<Integer> cmbEspecialista;
     private javax.swing.JComboBox<Fase> cmbFase;
     private javax.swing.JComboBox<Nivel> cmbNivel;
-    private javax.swing.JComboBox<Fase> cmbProyecto;
-    private javax.swing.JComboBox<String> cmbResponsable;
-    private javax.swing.JComboBox<String> cmbTEntregable;
+    private javax.swing.JComboBox<Integer> cmbProyecto;
+    private javax.swing.JComboBox<Integer> cmbResponsable;
+    private javax.swing.JComboBox<Integer> cmbTEntregable;
     private javax.swing.JMenu jInsertarDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
@@ -482,6 +540,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel lbResponsable;
     private javax.swing.JLabel lbTEntregable;
     private javax.swing.JLabel lbTituloInsertar;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JPopupMenu menuOps;
     private javax.swing.JPanel panelBuscar;
     private javax.swing.JPanel panelDatosPyto;
@@ -493,5 +552,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JTable tablaDocs;
     private javax.swing.JTextField txtCostoEstimado;
     private javax.swing.JTextArea txtObs;
+    private javax.swing.JTextField txtVersion;
     // End of variables declaration//GEN-END:variables
 }
