@@ -7,16 +7,23 @@ package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.Fase;
 import edu.unmsm.sistemas.sgpy.entities.Nivel;
+import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs_View;
 import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
 import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAO;
 import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAO;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
+import java.awt.Font;
+import java.io.File;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableModel;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -26,7 +33,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     public FrmPytoDocs() {
         initComponents();
-        
+
         llenarTabla(PytoDocsDAO.getInstance().listar());
         configurarSpinners(spnFInicio, "dd/MM/yy");
         configurarSpinners(spnFFin, "dd/MM/yy");
@@ -54,6 +61,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         lbObservaciones = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtObs = new javax.swing.JTextArea();
+        lbVersion = new javax.swing.JLabel();
+        txtVersion = new javax.swing.JTextField();
         panelDatosPyto = new javax.swing.JPanel();
         cmbProyecto = new javax.swing.JComboBox<>();
         lbProyecto = new javax.swing.JLabel();
@@ -74,11 +83,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         chkVigencia = new javax.swing.JCheckBox();
         spnFInicio = new javax.swing.JSpinner();
         spnFFin = new javax.swing.JSpinner();
+        btnInsertarDocs = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jInsertarDocumento = new javax.swing.JMenu();
         btnBuscar = new javax.swing.JMenuItem();
         btnInsertar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         btnActualizarDocs.setText("Actualizar");
         menuOps.add(btnActualizarDocs);
@@ -156,6 +172,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         btnSubDoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnSubDoc.setText("Seleccione el documento para subirlo");
+        btnSubDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubDocActionPerformed(evt);
+            }
+        });
 
         lbObservaciones.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbObservaciones.setText("Observaciones");
@@ -165,6 +186,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         txtObs.setRows(5);
         jScrollPane2.setViewportView(txtObs);
 
+        lbVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbVersion.setText("Version");
+
+        txtVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtVersion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVersionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelSubidaLayout = new javax.swing.GroupLayout(panelSubida);
         panelSubida.setLayout(panelSubidaLayout);
         panelSubidaLayout.setHorizontalGroup(
@@ -172,17 +203,25 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             .addGroup(panelSubidaLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelSubidaLayout.createSequentialGroup()
+                        .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtVersion))
                     .addComponent(jScrollPane2)
                     .addComponent(lbObservaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSubDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         panelSubidaLayout.setVerticalGroup(
             panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSubidaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143)
+                .addGap(64, 64, 64)
+                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbVersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
                 .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,6 +231,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         panelDatosPyto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información del documento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
 
         cmbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cmbProyecto.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         lbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbProyecto.setText("Proyecto");
@@ -226,16 +266,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         lbTEntregable.setText("Tipo de entregable");
 
         cmbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbTEntregable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTEntregable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         lbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbEspecialista.setText("Especialista");
 
         cmbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbEspecialista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEspecialista.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         cmbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbResponsable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbResponsable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         lbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbResponsable.setText("Responsable");
@@ -340,6 +380,14 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnInsertarDocs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnInsertarDocs.setText("Insertar");
+        btnInsertarDocs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarDocsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelInsertarLayout = new javax.swing.GroupLayout(panelInsertar);
         panelInsertar.setLayout(panelInsertarLayout);
         panelInsertarLayout.setHorizontalGroup(
@@ -348,19 +396,22 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelInsertarLayout.createSequentialGroup()
+                        .addComponent(lbTituloInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnInsertarDocs, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                    .addGroup(panelInsertarLayout.createSequentialGroup()
                         .addComponent(panelDatosPyto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(42, 42, 42)
-                        .addComponent(panelSubida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(33, 33, 33))
-                    .addGroup(panelInsertarLayout.createSequentialGroup()
-                        .addComponent(lbTituloInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))))
+                        .addComponent(panelSubida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(33, 33, 33))
         );
         panelInsertarLayout.setVerticalGroup(
             panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInsertarLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lbTituloInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbTituloInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(btnInsertarDocs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelDatosPyto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -395,6 +446,55 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         jMenu2.setText("Tablas de Soporte");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        jMenuItem1.setText("Entregrables");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem3.setText("Estado");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem2.setText("Fases");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem4.setText("Niveles");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Tipos de documento");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("Tipo de entregable");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -433,18 +533,239 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkVigenciaActionPerformed
 
+    private void btnSubDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubDocActionPerformed
+        // TODO add your handling code here:
+        JFileChooser exploradorArchivos = new JFileChooser(System.getProperty("user.desktop"));
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF", "pdf");
+        exploradorArchivos.setFileFilter(filtro);
+        exploradorArchivos.setMultiSelectionEnabled(false);
+        exploradorArchivos.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        exploradorArchivos.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        int opcion = exploradorArchivos.showOpenDialog(this);
+        File archivoSeleccionado = exploradorArchivos.getSelectedFile();
+        if (archivoSeleccionado != null && opcion == JFileChooser.APPROVE_OPTION) {
+            JOptionPane.showMessageDialog(rootPane, "La ruta seleccionada es: " + archivoSeleccionado.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnSubDocActionPerformed
+
+    private void txtVersionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVersionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVersionActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TSNivel().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TSEntregables().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:    }                                          
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TSEstado().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TSFase().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+                /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TSTipoDoc().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+                /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TSTipoEntreg().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void btnInsertarDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarDocsActionPerformed
+        // TODO add your handling code here:
+        PytoDocs pytoDocs = new PytoDocs();
+        pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
+        pytoDocs.setCodFase(((Fase) cmbFase.getSelectedItem()).getCodFase());
+        //pytoDocs.setCodNivel(((Nivel) cmbNivel.getSelectedItem()).getCodNivel());
+    }//GEN-LAST:event_btnInsertarDocsActionPerformed
+
     private void configurarSpinners(JSpinner timeSpinner, String dateFormat) {
         timeSpinner.setModel(new SpinnerDateModel());
         JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(timeSpinner, dateFormat);
         timeSpinner.setEditor(timeEditor);
         timeSpinner.setValue(new Date()); // will only show the current time
     }
-    
+
     private void llenarTabla(List<PytoDocs_View> listaDocs) {
         TableModel modeloTabla = TableModelCreator.createTableModel(PytoDocs_View.class, listaDocs);
         tablaDocs.setModel(modeloTabla);
     }
-    
+
     private void llenarCombos() {
         FaseDAO.getInstance().listar().forEach((item) -> cmbFase.addItem(item));
         NivelDAO.getInstance().listar().forEach((Nivel item) -> cmbNivel.addItem(item));
@@ -455,20 +776,27 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnBuscar;
     private javax.swing.JMenuItem btnEliminarDocs;
     private javax.swing.JMenuItem btnInsertar;
+    private javax.swing.JButton btnInsertarDocs;
     private javax.swing.JButton btnQuery;
     private javax.swing.JButton btnSubDoc;
     private javax.swing.JTextField caja_busqueda;
     private javax.swing.JCheckBox chkVigencia;
-    private javax.swing.JComboBox<String> cmbEspecialista;
+    private javax.swing.JComboBox<Integer> cmbEspecialista;
     private javax.swing.JComboBox<Fase> cmbFase;
     private javax.swing.JComboBox<Nivel> cmbNivel;
-    private javax.swing.JComboBox<Fase> cmbProyecto;
-    private javax.swing.JComboBox<String> cmbResponsable;
-    private javax.swing.JComboBox<String> cmbTEntregable;
+    private javax.swing.JComboBox<Integer> cmbProyecto;
+    private javax.swing.JComboBox<Integer> cmbResponsable;
+    private javax.swing.JComboBox<Integer> cmbTEntregable;
     private javax.swing.JMenu jInsertarDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbCostoEstimado;
@@ -482,6 +810,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel lbResponsable;
     private javax.swing.JLabel lbTEntregable;
     private javax.swing.JLabel lbTituloInsertar;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JPopupMenu menuOps;
     private javax.swing.JPanel panelBuscar;
     private javax.swing.JPanel panelDatosPyto;
@@ -493,5 +822,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JTable tablaDocs;
     private javax.swing.JTextField txtCostoEstimado;
     private javax.swing.JTextArea txtObs;
+    private javax.swing.JTextField txtVersion;
     // End of variables declaration//GEN-END:variables
 }

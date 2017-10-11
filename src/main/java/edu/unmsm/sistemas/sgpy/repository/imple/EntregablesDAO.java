@@ -20,6 +20,12 @@ import java.util.List;
  */
 public class EntregablesDAO implements ModeloIDAO<Entregables,Entregables> {
 
+    private static final EntregablesDAO ENTREGABLESDAO = new EntregablesDAO();
+    
+    public static EntregablesDAO getInstance() {
+        return ENTREGABLESDAO;
+    }
+    
     @Override
     public List<Entregables> listar() {
         List<Entregables> miLista = new ArrayList<>();

@@ -126,4 +126,5 @@ public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
         }
         return rpta;
     }
+
 }
