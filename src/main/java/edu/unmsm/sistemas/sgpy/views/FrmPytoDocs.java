@@ -8,10 +8,10 @@ package edu.unmsm.sistemas.sgpy.views;
 import edu.unmsm.sistemas.sgpy.entities.Fase;
 import edu.unmsm.sistemas.sgpy.entities.Nivel;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
-import edu.unmsm.sistemas.sgpy.entities.PytoDocs_View;
+import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
 import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAO;
-import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.awt.Font;
 import java.io.File;
@@ -34,7 +34,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     public FrmPytoDocs() {
         initComponents();
 
-        llenarTabla(PytoDocsDAO.getInstance().listar());
+        llenarTabla(PytoDocsDAOImple.getInstance().listar());
         configurarSpinners(spnFInicio, "dd/MM/yy");
         configurarSpinners(spnFFin, "dd/MM/yy");
         llenarCombos();
@@ -761,8 +761,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         timeSpinner.setValue(new Date()); // will only show the current time
     }
 
-    private void llenarTabla(List<PytoDocs_View> listaDocs) {
-        TableModel modeloTabla = TableModelCreator.createTableModel(PytoDocs_View.class, listaDocs);
+    private void llenarTabla(List<PytoDocsView> listaDocs) {
+        TableModel modeloTabla = TableModelCreator.createTableModel(PytoDocsView.class, listaDocs);
         tablaDocs.setModel(modeloTabla);
     }
 

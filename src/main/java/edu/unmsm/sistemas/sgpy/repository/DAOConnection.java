@@ -33,7 +33,7 @@ public class DAOConnection {
     public Connection getConexion(String database, String user, String password) {
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            String url = "jdbc:oracle:thin:@localhost:1521:" + database;
+            String url = "jdbc:oracle:thin:@192.168.1.48:1521:" + database;
             miConexion = DriverManager.getConnection(url, user, password);
 
         } catch(ClassNotFoundException | SQLException ex) {

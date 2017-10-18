@@ -2,13 +2,12 @@ package edu.unmsm.sistemas.sgpy.repository.imple;
 
 import edu.unmsm.sistemas.sgpy.constants.BDConstants;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
-import edu.unmsm.sistemas.sgpy.entities.PytoDocs_View;
+import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.repository.DAOConnection;
-import edu.unmsm.sistemas.sgpy.repository.ModeloIDAO;
+import edu.unmsm.sistemas.sgpy.repository.PytoDocsDAO;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,22 +19,22 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PytoDocsDAO implements ModeloIDAO<PytoDocs, PytoDocs_View> {
+public class PytoDocsDAOImple implements PytoDocsDAO {
 
     // Crea una instancia de la clase al momento de lanzar la apliacion
-    private static final PytoDocsDAO PYTODOCSDAO = new PytoDocsDAO();
+    private static final PytoDocsDAOImple PYTODOCSDAO = new PytoDocsDAOImple();
     // Recoge el objeto DAOConnection
     private final DAOConnection miDao = DAOConnection.getInstance();
 
-    public static PytoDocsDAO getInstance() {
+    public static PytoDocsDAOImple getInstance() {
         return PYTODOCSDAO;
     }
 
     @Override
-    public List<PytoDocs_View> listar() {
+    public List<PytoDocsView> listar() {
 
         // ArrayList donde se guardan los documentos
-        ArrayList<PytoDocs_View> misProyectos = new ArrayList<>();
+        ArrayList<PytoDocsView> misProyectos = new ArrayList<>();
 
         try {
             // Obtener la conexion
@@ -50,7 +49,7 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs, PytoDocs_View> {
 
                 try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(1)) {
 
-                    PytoDocs_View temp;
+                    PytoDocsView temp;
                     String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
                     int codPyto, corrdocs;
                     Date fecIni, fecFin;
@@ -70,7 +69,7 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs, PytoDocs_View> {
                         desTDoc = resultado.getString("DesTDoc");
                         desEntreg = resultado.getString("DesEntreg");
 
-                        temp = new PytoDocs_View(codPyto, corrdocs, fecIni, fecFin, costoEst,
+                        temp = new PytoDocsView(codPyto, corrdocs, fecIni, fecFin, costoEst,
                                 verDoc, vigente, desFase, desNivel, desTDoc, desEntreg);
 
                         misProyectos.add(temp);
@@ -129,14 +128,25 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs, PytoDocs_View> {
     public String actualizar(PytoDocs modificacion) {
         String msj = "Se actualizaron los datos correctamente.";
         Connection conn = miDao.getConexion(BDConstants.SID, BDConstants.USER, BDConstants.PASSWORD);
-        String sql = "UPDATE proyecto SET Vigente=?, CostoEst=? WHERE cod_tesis = '"
-                + modificacion.getCodDoc() + "'";
+        String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
 
         try {
             conn.setAutoCommit(false);
-            try (PreparedStatement consulta = conn.prepareStatement(sql)) {
-                consulta.setString(1, modificacion.getVigente());
-                consulta.setDouble(2, modificacion.getCostoEst());
+            try (CallableStatement consulta = conn.prepareCall(sql)) {
+                consulta.setInt(1, modificacion.getCodPyto());
+                consulta.setInt(2, modificacion.getCorrdocs());
+                consulta.setInt(3, modificacion.getCodFase());
+                consulta.setInt(4, modificacion.getCodNivel());
+                consulta.setInt(5, modificacion.getEstPyto());
+                consulta.setString(6, format_fecha.format(modificacion.getFecFin()));
+                consulta.setDouble(7, modificacion.getCostoEst());
+                consulta.setString(8, modificacion.getRutaDoc());
+                consulta.setString(9, modificacion.getVerDoc());
+                consulta.setString(10, modificacion.getObservac());
+                consulta.setInt(11, modificacion.getCodEsp());
+                consulta.setInt(12, modificacion.getCodResp());
+                consulta.setString(13, modificacion.getVigente());
 
                 msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualizaron de datos" : "Correcto";
             }
@@ -151,8 +161,8 @@ public class PytoDocsDAO implements ModeloIDAO<PytoDocs, PytoDocs_View> {
     }
 
     @Override
-    public String eliminar(int codigo) {
-        // TODO Auto-generated method stub
-        return null;
+    public String eliminar(int cod_pyto, int cod_doc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
 }

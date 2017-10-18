@@ -2,7 +2,7 @@ package edu.unmsm.sistemas.sgpy.entities;
 
 import java.util.Date;
 
-public class PytoDocs_View {
+public class PytoDocsView {
 
     protected int codPyto;
     protected int corrdocs;
@@ -16,7 +16,7 @@ public class PytoDocs_View {
     private String desTDoc;
     private String desentreg;
 
-    public PytoDocs_View(int codPyto, int corrdocs, Date fecIni, Date fecFin, double costoEst, String verDoc, String vigente, String desFase, String desNivel, String desTDoc, String desentreg) {
+    public PytoDocsView(int codPyto, int corrdocs, Date fecIni, Date fecFin, double costoEst, String verDoc, String vigente, String desFase, String desNivel, String desTDoc, String desentreg) {
         this.codPyto = codPyto;
         this.corrdocs = corrdocs;
         this.fecIni = fecIni;
