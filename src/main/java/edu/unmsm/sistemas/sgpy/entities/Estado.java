@@ -8,7 +8,8 @@ public class Estado {
 
     private String desEstado;
     private String vigente;
-
+    
+    public Estado() { }
     public Estado(int codFase, int codNivel, int estPyto, String desEstado, String vigente) {
         this.codFase = codFase;
         this.codNivel = codNivel;

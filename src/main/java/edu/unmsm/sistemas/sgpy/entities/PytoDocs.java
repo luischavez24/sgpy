@@ -4,23 +4,23 @@ import java.util.Date;
 
 public class PytoDocs {
 
-    protected int codPyto;
-    protected int corrdocs;
+    private int codPyto;
+    private int corrdocs;
     private int codFase;
     private int codNivel;
-    protected Date fecIni;
-    protected Date fecFin;
-    protected double costoEst;
+    private Date fecIni;
+    private Date fecFin;
+    private double costoEst;
     private int codDoc;
     private String rutaDoc;
-    protected String verDoc;
+    private String verDoc;
     private String observac;
     private int estPyto;
     private int tipoEntreg;
     private int corrEntreg;
     private int codEsp;
     private int codResp;
-    protected String vigente;
+    private String vigente;
 
     public PytoDocs() {
     }

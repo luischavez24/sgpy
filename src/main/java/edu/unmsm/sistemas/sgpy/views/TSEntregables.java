@@ -3,7 +3,6 @@ package edu.unmsm.sistemas.sgpy.views;
 import edu.unmsm.sistemas.sgpy.entities.*;
 import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAO;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
