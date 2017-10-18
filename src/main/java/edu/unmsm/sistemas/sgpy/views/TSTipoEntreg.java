@@ -338,7 +338,7 @@ public class TSTipoEntreg extends javax.swing.JFrame {
             jTabbedPane1.setSelectedIndex(2);
 
         } else {
-            JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla" , "Incorrecto", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -353,7 +353,7 @@ public class TSTipoEntreg extends javax.swing.JFrame {
 
             llenarTabla(lista);
 
-            JOptionPane.showMessageDialog(null,"Borrado Exitoso", "Correcto",  JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Borrado Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
 
         } else {
             JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);

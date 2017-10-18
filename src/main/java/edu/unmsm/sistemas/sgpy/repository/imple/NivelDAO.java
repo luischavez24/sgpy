@@ -19,21 +19,21 @@ import java.util.List;
  * @author Alexander
  */
 public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
-    
+
     private static final NivelDAO NIVELDAO = new NivelDAO();
-    
-    public static NivelDAO getInstance () {
+
+    public static NivelDAO getInstance() {
         return NIVELDAO;
     }
-    
+
     @Override
     public List<Nivel> listar() {
         List<Nivel> miLista = new ArrayList<>(); //Indica implementar todos sus métodos
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "SELECT * FROM Nivel", DesNivel, Fase, Vigente;
-        Integer CodFase,CodNivel;
+        Integer CodFase, CodNivel;
         try {
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             ResultSet resultado = comando.executeQuery();
             while (resultado.next()) {
                 CodFase = resultado.getInt(1);
@@ -56,7 +56,7 @@ public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "INSERT INTO Nivel VALUES (?,?,?,?,?)";
         try {
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
 
             comando.setString(1, String.valueOf(nuevo.getCodFase()));
             comando.setString(2, String.valueOf(nuevo.getCodNivel()));
@@ -83,10 +83,10 @@ public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
         String rpta = "Actualizacion Completada";
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "UPDATE Nivel SET CodFase=?,CodNivel=?,DesNivel=?,Fase=?,Vigente=?  WHERE CodFase = '"
-                + actualizacion.getCodFase()+ "'";//Lucho revisa ese where si esta bien pq no entiendo la BD del profe :v
+                + actualizacion.getCodFase() + "'";//Lucho revisa ese where si esta bien pq no entiendo la BD del profe :v
         try {
 
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             comando.setString(1, String.valueOf(actualizacion.getCodFase()));
             comando.setString(2, String.valueOf(actualizacion.getCodNivel()));
             comando.setString(3, actualizacion.getDesNivel());
@@ -113,7 +113,7 @@ public class NivelDAO implements ModeloIDAO<Nivel, Nivel> {
 
         try {
 
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             comando.setInt(1, CodFase);
             int eliminar = comando.executeUpdate();
             if (eliminar == 0) {

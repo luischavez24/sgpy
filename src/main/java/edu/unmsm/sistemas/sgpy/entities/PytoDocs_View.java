@@ -29,7 +29,7 @@ public class PytoDocs_View {
         this.desTDoc = desTDoc;
         this.desentreg = desentreg;
     }
-    
+
     public String getDesFase() {
         return desFase;
     }
@@ -122,5 +122,5 @@ public class PytoDocs_View {
     public String toString() {
         return "PytoDocs_View{" + "codPyto=" + codPyto + ", corrdocs=" + corrdocs + ", fecIni=" + fecIni + ", fecFin=" + fecFin + ", costoEst=" + costoEst + ", verDoc=" + verDoc + ", vigente=" + vigente + ", desFase=" + desFase + ", desNivel=" + desNivel + ", desTDoc=" + desTDoc + ", desentreg=" + desentreg + '}';
     }
-   
+
 }

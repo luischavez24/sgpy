@@ -10,6 +10,7 @@ package edu.unmsm.sistemas.sgpy.entities;
  * @author lucho
  */
 public class Fase {
+
     private int CodFase;
     private String DesFase;
     private String Vigencia;
@@ -19,8 +20,7 @@ public class Fase {
         this.DesFase = DesFase;
         this.Vigencia = Vigencia;
     }
-    
-    
+
     public int getCodFase() {
         return CodFase;
     }
@@ -49,5 +49,5 @@ public class Fase {
     public String toString() {
         return DesFase;
     }
-    
+
 }
