@@ -1,6 +1,5 @@
 package edu.unmsm.sistemas.sgpy.repository.imple;
 
-import edu.unmsm.sistemas.sgpy.constants.BDConstants;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.repository.DAOConnection;
@@ -162,7 +161,25 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public String eliminar(int cod_pyto, int cod_doc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    
+        String msj = "Se actualizaron los datos correctamente.";
+        Connection conn = miDao.getConexion();
+        String sql = "{ CALL SP_DELETE_PYTODOCS (?,?) }";
+
+        try {
+            conn.setAutoCommit(false);
+            try (CallableStatement consulta = conn.prepareCall(sql)) {
+                consulta.setInt(1, cod_pyto);
+                consulta.setInt(2, cod_doc);
+            
+                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la eliminación de datos" : "Correcto";
+            }
+            conn.commit();
+            conn.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return msj;
     }
+    
 }

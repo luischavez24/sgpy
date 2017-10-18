@@ -72,21 +72,21 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         lbVersion = new javax.swing.JLabel();
         txtVersion = new javax.swing.JTextField();
         panelDatosPyto = new javax.swing.JPanel();
-        cmbProyecto = new javax.swing.JComboBox<>();
+        cmbProyecto = new javax.swing.JComboBox<Integer>();
         lbProyecto = new javax.swing.JLabel();
         lbFase = new javax.swing.JLabel();
-        cmbFase = new javax.swing.JComboBox<>();
+        cmbFase = new javax.swing.JComboBox<Fase>();
         lbNivel = new javax.swing.JLabel();
-        cmbNivel = new javax.swing.JComboBox<>();
+        cmbNivel = new javax.swing.JComboBox<Nivel>();
         lbFInicio = new javax.swing.JLabel();
         lbFFin = new javax.swing.JLabel();
         lbCostoEstimado = new javax.swing.JLabel();
         txtCostoEstimado = new javax.swing.JTextField();
         lbTEntregable = new javax.swing.JLabel();
-        cmbTEntregable = new javax.swing.JComboBox<>();
+        cmbTEntregable = new javax.swing.JComboBox<Integer>();
         lbEspecialista = new javax.swing.JLabel();
-        cmbEspecialista = new javax.swing.JComboBox<>();
-        cmbResponsable = new javax.swing.JComboBox<>();
+        cmbEspecialista = new javax.swing.JComboBox<Integer>();
+        cmbResponsable = new javax.swing.JComboBox<Integer>();
         lbResponsable = new javax.swing.JLabel();
         chkVigencia = new javax.swing.JCheckBox();
         spnFInicio = new javax.swing.JSpinner();
@@ -141,7 +141,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         btnInsertarDoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_donut_small_white_24dp.png"))); // NOI18N
         btnInsertarDoc.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -173,7 +172,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         btnBuscarDocs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_donut_small_white_24dp.png"))); // NOI18N
         btnBuscarDocs.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -199,7 +197,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         btnMantenimiento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_donut_small_white_24dp.png"))); // NOI18N
         btnMantenimiento.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -467,7 +464,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Ingresar");
-        btnIngresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, 48));
+        btnIngresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 110, 48));
 
         header1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 200, -1));
 
