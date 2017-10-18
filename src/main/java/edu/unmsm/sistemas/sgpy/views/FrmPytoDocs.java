@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.io.File;
 import java.util.Date;
 import java.util.List;
+import java.awt.Color;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -24,6 +25,7 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -47,15 +49,21 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         menuOps = new javax.swing.JPopupMenu();
         btnActualizarDocs = new javax.swing.JMenuItem();
         btnEliminarDocs = new javax.swing.JMenuItem();
-        panelFondo = new javax.swing.JLayeredPane();
-        panelBuscar = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        caja_busqueda = new javax.swing.JTextField();
-        btnQuery = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaDocs = new javax.swing.JTable();
+        background = new javax.swing.JPanel();
+        sideBar = new javax.swing.JPanel();
+        btnInsertarDoc = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnBuscarDocs = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        btnMantenimiento = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        mainPane = new javax.swing.JLayeredPane();
         panelInsertar = new javax.swing.JPanel();
-        lbTituloInsertar = new javax.swing.JLabel();
         panelSubida = new javax.swing.JPanel();
         btnSubDoc = new javax.swing.JButton();
         lbObservaciones = new javax.swing.JLabel();
@@ -83,18 +91,19 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         chkVigencia = new javax.swing.JCheckBox();
         spnFInicio = new javax.swing.JSpinner();
         spnFFin = new javax.swing.JSpinner();
-        btnInsertarDocs = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jInsertarDocumento = new javax.swing.JMenu();
-        btnBuscar = new javax.swing.JMenuItem();
-        btnInsertar = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        header1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        btnIngresar = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        panelBuscar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaDocs = new javax.swing.JTable();
+        header = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        caja_busqueda = new javax.swing.JTextField();
+        btnQuery = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
 
         btnActualizarDocs.setText("Actualizar");
         menuOps.add(btnActualizarDocs);
@@ -106,68 +115,109 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Documentos del Proyecto");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelFondo.setLayout(new java.awt.CardLayout());
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Buscar Documentos");
+        sideBar.setBackground(new java.awt.Color(57, 73, 171));
+        sideBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        caja_busqueda.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-
-        btnQuery.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnQuery.setText("Buscar");
-
-        tablaDocs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tablaDocs.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        btnInsertarDoc.setBackground(new java.awt.Color(57, 73, 171));
+        btnInsertarDoc.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnInsertarDoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInsertarDocMouseClicked(evt);
             }
-        ));
-        tablaDocs.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
-        tablaDocs.setComponentPopupMenu(menuOps);
-        jScrollPane1.setViewportView(tablaDocs);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInsertarDocMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInsertarDocMouseExited(evt);
+            }
+        });
+        btnInsertarDoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout panelBuscarLayout = new javax.swing.GroupLayout(panelBuscar);
-        panelBuscar.setLayout(panelBuscarLayout);
-        panelBuscarLayout.setHorizontalGroup(
-            panelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBuscarLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(panelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1007, Short.MAX_VALUE)
-                    .addGroup(panelBuscarLayout.createSequentialGroup()
-                        .addGroup(panelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(caja_busqueda))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22))
-        );
-        panelBuscarLayout.setVerticalGroup(
-            panelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBuscarLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caja_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnQuery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
-        );
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_donut_small_white_24dp.png"))); // NOI18N
+        btnInsertarDoc.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
-        panelFondo.add(panelBuscar, "card3");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Ingresar Documento");
+        btnInsertarDoc.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 48));
 
-        lbTituloInsertar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lbTituloInsertar.setText("Insertar Documentos");
+        sideBar.add(btnInsertarDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 260, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("SGPY");
+        sideBar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 200, 48));
+        sideBar.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, 10));
+
+        btnBuscarDocs.setBackground(new java.awt.Color(57, 73, 171));
+        btnBuscarDocs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarDocsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarDocsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarDocsMouseExited(evt);
+            }
+        });
+        btnBuscarDocs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_donut_small_white_24dp.png"))); // NOI18N
+        btnBuscarDocs.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Buscar Documento");
+        btnBuscarDocs.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 48));
+
+        sideBar.add(btnBuscarDocs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 260, -1));
+
+        btnMantenimiento.setBackground(new java.awt.Color(57, 73, 171));
+        btnMantenimiento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnMantenimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMantenimientoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMantenimientoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMantenimientoMouseExited(evt);
+            }
+        });
+        btnMantenimiento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_donut_small_white_24dp.png"))); // NOI18N
+        btnMantenimiento.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Mantenimiento");
+        btnMantenimiento.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 48));
+
+        sideBar.add(btnMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 260, -1));
+
+        background.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 600));
+
+        mainPane.setBackground(new java.awt.Color(255, 255, 255));
+        mainPane.setLayout(new java.awt.CardLayout());
+
+        panelInsertar.setBackground(new java.awt.Color(255, 255, 255));
+        panelInsertar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelSubida.setBackground(new java.awt.Color(255, 255, 255));
         panelSubida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones de subida", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
 
         btnSubDoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -201,33 +251,37 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         panelSubidaLayout.setHorizontalGroup(
             panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSubidaLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelSubidaLayout.createSequentialGroup()
-                        .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVersion))
-                    .addComponent(jScrollPane2)
-                    .addComponent(lbObservaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSubDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelSubidaLayout.createSequentialGroup()
+                            .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         panelSubidaLayout.setVerticalGroup(
             panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSubidaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbVersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(1, 1, 1)
                 .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
+        panelInsertar.add(panelSubida, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 450, 380));
+
+        panelDatosPyto.setBackground(new java.awt.Color(255, 255, 255));
         panelDatosPyto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información del documento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
 
         cmbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -380,150 +434,129 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnInsertarDocs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnInsertarDocs.setText("Insertar");
-        btnInsertarDocs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertarDocsActionPerformed(evt);
+        panelInsertar.add(panelDatosPyto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 390));
+
+        header1.setBackground(new java.awt.Color(159, 168, 218));
+        header1.setForeground(new java.awt.Color(255, 255, 255));
+        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Ingresar Documentos");
+        header1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 36));
+
+        btnIngresar.setBackground(new java.awt.Color(57, 73, 171));
+        btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseExited(evt);
             }
         });
+        btnIngresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout panelInsertarLayout = new javax.swing.GroupLayout(panelInsertar);
-        panelInsertar.setLayout(panelInsertarLayout);
-        panelInsertarLayout.setHorizontalGroup(
-            panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInsertarLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelInsertarLayout.createSequentialGroup()
-                        .addComponent(lbTituloInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnInsertarDocs, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                    .addGroup(panelInsertarLayout.createSequentialGroup()
-                        .addComponent(panelDatosPyto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(42, 42, 42)
-                        .addComponent(panelSubida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(33, 33, 33))
-        );
-        panelInsertarLayout.setVerticalGroup(
-            panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInsertarLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbTituloInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(btnInsertarDocs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(panelInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelDatosPyto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelSubida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29))
-        );
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ic_donut_small_white_24dp.png"))); // NOI18N
+        btnIngresar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
-        panelFondo.add(panelInsertar, "card2");
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Ingresar");
+        btnIngresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, 48));
 
-        jInsertarDocumento.setText("Operaciones");
-        jInsertarDocumento.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        header1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 200, -1));
 
-        btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnBuscar.setText("Buscar Documento");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+        panelInsertar.add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 170));
+
+        mainPane.add(panelInsertar, "card2");
+
+        panelBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        panelBuscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(null);
+
+        tablaDocs.setAutoCreateRowSorter(true);
+        tablaDocs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tablaDocs.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jInsertarDocumento.add(btnBuscar);
+        tablaDocs.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        tablaDocs.setColumnSelectionAllowed(true);
+        tablaDocs.setComponentPopupMenu(menuOps);
+        tablaDocs.setGridColor(new java.awt.Color(255, 255, 255));
+        tablaDocs.setRowHeight(25);
+        tablaDocs.setSelectionBackground(new java.awt.Color(92, 107, 192));
+        tablaDocs.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tablaDocs.setSurrendersFocusOnKeystroke(true);
+        tablaDocs.getTableHeader().setResizingAllowed(false);
+        tablaDocs.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tablaDocs);
+        tablaDocs.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (tablaDocs.getColumnModel().getColumnCount() > 0) {
+            tablaDocs.getColumnModel().getColumn(3).setResizable(false);
+        }
 
-        btnInsertar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnInsertar.setText("Insertar Documento");
-        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+        panelBuscar.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 920, 340));
+
+        header.setBackground(new java.awt.Color(159, 168, 218));
+        header.setForeground(new java.awt.Color(255, 255, 255));
+        header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Buscar Documentos");
+        header.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 36));
+
+        caja_busqueda.setBackground(new java.awt.Color(159, 168, 218));
+        caja_busqueda.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        caja_busqueda.setForeground(new java.awt.Color(255, 255, 255));
+        caja_busqueda.setBorder(null);
+        header.add(caja_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 620, 29));
+
+        btnQuery.setBackground(new java.awt.Color(92, 107, 192));
+        btnQuery.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnQuery.setForeground(new java.awt.Color(255, 255, 255));
+        btnQuery.setText("Buscar");
+        btnQuery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertarActionPerformed(evt);
+                btnQueryActionPerformed(evt);
             }
         });
-        jInsertarDocumento.add(btnInsertar);
+        header.add(btnQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, 180, 40));
+        header.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 620, 10));
 
-        jMenuBar1.add(jInsertarDocumento);
+        panelBuscar.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 170));
 
-        jMenu2.setText("Tablas de Soporte");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        mainPane.add(panelBuscar, "card3");
 
-        jMenuItem1.setText("Entregrables");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
+        background.add(mainPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 0, 980, 600));
 
-        jMenuItem3.setText("Estado");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem2.setText("Fases");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem4.setText("Niveles");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Tipos de documento");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("Tipo de entregable");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo)
-        );
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-        panelInsertar.setVisible(false);
-        panelBuscar.setVisible(true);
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-        // TODO add your handling code here:
-        panelInsertar.setVisible(true);
-        panelBuscar.setVisible(false);
-    }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void txtCostoEstimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCostoEstimadoActionPerformed
         // TODO add your handling code here:
@@ -552,207 +585,80 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVersionActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TSNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TSNivel().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void btnInsertarDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarDocMouseClicked
         // TODO add your handling code here:
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TSEntregables.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        panelInsertar.setVisible(true);
+        panelBuscar.setVisible(false);
+    }//GEN-LAST:event_btnInsertarDocMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TSEntregables().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:    }                                          
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TSEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TSEstado().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TSFase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TSFase().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-                /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TSTipoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TSTipoDoc().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-                /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TSTipoEntreg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TSTipoEntreg().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void btnInsertarDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarDocsActionPerformed
+    private void btnBuscarDocsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarDocsMouseClicked
         // TODO add your handling code here:
+        panelInsertar.setVisible(false);
+        panelBuscar.setVisible(true);
+    }//GEN-LAST:event_btnBuscarDocsMouseClicked
+
+    private void btnQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQueryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQueryActionPerformed
+    //new java.awt.Color(26, 35, 126)
+    //new java.awt.Color(57, 73, 171)
+    private void btnBuscarDocsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarDocsMouseEntered
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
+    }//GEN-LAST:event_btnBuscarDocsMouseEntered
+
+    private void btnBuscarDocsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarDocsMouseExited
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(57, 73, 171));
+    }//GEN-LAST:event_btnBuscarDocsMouseExited
+
+    private void btnInsertarDocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarDocMouseEntered
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
+    }//GEN-LAST:event_btnInsertarDocMouseEntered
+
+    private void btnInsertarDocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarDocMouseExited
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(57, 73, 171));
+    }//GEN-LAST:event_btnInsertarDocMouseExited
+
+    private void btnMantenimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMantenimientoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMantenimientoMouseClicked
+
+    private void btnMantenimientoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMantenimientoMouseEntered
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
+    }//GEN-LAST:event_btnMantenimientoMouseEntered
+
+    private void btnMantenimientoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMantenimientoMouseExited
+        // TODO add your handling code here:
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(57, 73, 171));
+    }//GEN-LAST:event_btnMantenimientoMouseExited
+
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
         PytoDocs pytoDocs = new PytoDocs();
         pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
         pytoDocs.setCodFase(((Fase) cmbFase.getSelectedItem()).getCodFase());
+
+    }//GEN-LAST:event_btnIngresarMouseClicked
+
+    private void btnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseEntered
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
+    }//GEN-LAST:event_btnIngresarMouseEntered
+
+    private void btnIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseExited
+
         //pytoDocs.setCodNivel(((Nivel) cmbNivel.getSelectedItem()).getCodNivel());
-    }//GEN-LAST:event_btnInsertarDocsActionPerformed
+    }//GEN-LAST:event_btnIngresarMouseExited
+
+    private void hoverOn(JPanel boton, Color color) {
+        boton.setBackground(color);
+    }
+
+    private void hoverOff(JPanel boton, Color color) {
+
+        boton.setBackground(color);
+    }
 
     private void configurarSpinners(JSpinner timeSpinner, String dateFormat) {
         timeSpinner.setModel(new SpinnerDateModel());
@@ -772,11 +678,13 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
     private javax.swing.JMenuItem btnActualizarDocs;
-    private javax.swing.JMenuItem btnBuscar;
+    private javax.swing.JPanel btnBuscarDocs;
     private javax.swing.JMenuItem btnEliminarDocs;
-    private javax.swing.JMenuItem btnInsertar;
-    private javax.swing.JButton btnInsertarDocs;
+    private javax.swing.JPanel btnIngresar;
+    private javax.swing.JPanel btnInsertarDoc;
+    private javax.swing.JPanel btnMantenimiento;
     private javax.swing.JButton btnQuery;
     private javax.swing.JButton btnSubDoc;
     private javax.swing.JTextField caja_busqueda;
@@ -787,18 +695,23 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JComboBox<Integer> cmbProyecto;
     private javax.swing.JComboBox<Integer> cmbResponsable;
     private javax.swing.JComboBox<Integer> cmbTEntregable;
-    private javax.swing.JMenu jInsertarDocumento;
+    private javax.swing.JPanel header;
+    private javax.swing.JPanel header1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lbCostoEstimado;
     private javax.swing.JLabel lbEspecialista;
     private javax.swing.JLabel lbFFin;
@@ -809,14 +722,14 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel lbProyecto;
     private javax.swing.JLabel lbResponsable;
     private javax.swing.JLabel lbTEntregable;
-    private javax.swing.JLabel lbTituloInsertar;
     private javax.swing.JLabel lbVersion;
+    private javax.swing.JLayeredPane mainPane;
     private javax.swing.JPopupMenu menuOps;
     private javax.swing.JPanel panelBuscar;
     private javax.swing.JPanel panelDatosPyto;
-    private javax.swing.JLayeredPane panelFondo;
     private javax.swing.JPanel panelInsertar;
     private javax.swing.JPanel panelSubida;
+    private javax.swing.JPanel sideBar;
     private javax.swing.JSpinner spnFFin;
     private javax.swing.JSpinner spnFInicio;
     private javax.swing.JTable tablaDocs;

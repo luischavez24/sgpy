@@ -1,10 +1,11 @@
 package edu.unmsm.sistemas.sgpy.entities;
 
 public class Estado {
+
     private int codFase;
     private int codNivel;
     private int estPyto;
-    
+
     private String desEstado;
     private String vigente;
 
@@ -55,9 +56,9 @@ public class Estado {
     public void setVigente(String vigente) {
         this.vigente = vigente;
     }
-    
+
     @Override
-    public String toString()
-    {
-        return "Estado={CodFase:" + codFase + " CodNivel: " + codNivel + " EstPyto: " + estPyto + " DesEstado: " + desEstado + " Vigente: " + vigente +"}";    }
+    public String toString() {
+        return "Estado={CodFase:" + codFase + " CodNivel: " + codNivel + " EstPyto: " + estPyto + " DesEstado: " + desEstado + " Vigente: " + vigente + "}";
+    }
 }

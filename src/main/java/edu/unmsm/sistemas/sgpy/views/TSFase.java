@@ -425,7 +425,6 @@ public class TSFase extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-
     private Fase obj;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

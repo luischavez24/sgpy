@@ -1,6 +1,7 @@
 package edu.unmsm.sistemas.sgpy.entities;
 
 public class TipoEntreg {
+
     private int tipoEntreg;
     private String deEntreg;
     private String vigencia;
@@ -39,5 +40,5 @@ public class TipoEntreg {
     public String toString() {
         return "TipoEntreg{" + "tipoEntreg=" + tipoEntreg + ", deEntreg=" + deEntreg + ", vigencia=" + vigencia + '}';
     }
-    
+
 }

@@ -5,6 +5,7 @@
  */
 package edu.unmsm.sistemas.sgpy.repository.imple;
 
+import edu.unmsm.sistemas.sgpy.constants.BDConstants;
 import edu.unmsm.sistemas.sgpy.entities.Entregables;
 import edu.unmsm.sistemas.sgpy.repository.DAOConnection;
 import edu.unmsm.sistemas.sgpy.repository.ModeloIDAO;
@@ -18,22 +19,22 @@ import java.util.List;
  *
  * @author Alexander
  */
-public class EntregablesDAO implements ModeloIDAO<Entregables,Entregables> {
+public class EntregablesDAO implements ModeloIDAO<Entregables, Entregables> {
 
     private static final EntregablesDAO ENTREGABLESDAO = new EntregablesDAO();
-    
+
     public static EntregablesDAO getInstance() {
         return ENTREGABLESDAO;
     }
-    
+
     @Override
     public List<Entregables> listar() {
         List<Entregables> miLista = new ArrayList<>();
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "SELECT * FROM Entregables", DesEntreg, DesCortaEntreg;
-        Integer TipoEntreg,CorrEntreg;
+        Integer TipoEntreg, CorrEntreg;
         try {
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             ResultSet resultado = comando.executeQuery();
             while (resultado.next()) {
                 TipoEntreg = resultado.getInt(1);
@@ -55,7 +56,7 @@ public class EntregablesDAO implements ModeloIDAO<Entregables,Entregables> {
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "INSERT INTO Entregables VALUES (?,?,?,?)";
         try {
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
 
             comando.setString(1, String.valueOf(nuevo.getTipoEntreg()));
             comando.setString(2, String.valueOf(nuevo.getCorrEntreg()));
@@ -81,10 +82,10 @@ public class EntregablesDAO implements ModeloIDAO<Entregables,Entregables> {
         String rpta = "Actualizacion Completada";
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "UPDATE Entregables SET TipoEntreg=?,CorrEntreg=?,DesEntreg=?,DesCortaEntreg=?  WHERE TipoEntreg = '"
-                + actualizacion.getTipoEntreg()+ "'";//Lucho revisa ese where si esta bien pq no entiendo la BD del profe :v
+                + actualizacion.getTipoEntreg() + "'";//Lucho revisa ese where si esta bien pq no entiendo la BD del profe :v
         try {
 
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             comando.setString(1, String.valueOf(actualizacion.getTipoEntreg()));
             comando.setString(2, String.valueOf(actualizacion.getCorrEntreg()));
             comando.setString(3, actualizacion.getDesEntreg());
@@ -110,7 +111,7 @@ public class EntregablesDAO implements ModeloIDAO<Entregables,Entregables> {
 
         try {
 
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             comando.setInt(1, TipoEntreg);
             int eliminar = comando.executeUpdate();
             if (eliminar == 0) {

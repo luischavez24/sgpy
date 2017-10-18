@@ -18,14 +18,14 @@ import java.util.List;
  *
  * @author Alexander
  */
-public class FaseDAO implements ModeloIDAO<Fase,Fase> {
-    
+public class FaseDAO implements ModeloIDAO<Fase, Fase> {
+
     private static final FaseDAO FASEDAO = new FaseDAO();
-    
+
     public static FaseDAO getInstance() {
         return FASEDAO;
     }
-    
+
     public List<Fase> listar() {
         // Aqui estaba un error Raul, la clase list es abstracta
         // Tienes que usar ArrayList o LinkedList
@@ -34,7 +34,7 @@ public class FaseDAO implements ModeloIDAO<Fase,Fase> {
         String sql = "SELECT * FROM Fase", DesFase, Vigencia;
         Integer CodFase;//me guie del proyecto de estructura
         try {
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             ResultSet resultado = comando.executeQuery();
             while (resultado.next()) {
                 CodFase = resultado.getInt(1);
@@ -54,7 +54,7 @@ public class FaseDAO implements ModeloIDAO<Fase,Fase> {
         DAOConnection acceso = DAOConnection.getInstance();
         String sql = "INSERT INTO Fase VALUES (?,?,?)";
         try {
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
 
             comando.setString(1, String.valueOf(nuevo.getCodFase()));
             comando.setString(2, nuevo.getDesFase());
@@ -80,7 +80,7 @@ public class FaseDAO implements ModeloIDAO<Fase,Fase> {
         String sql = "UPDATE Fase SET CodFase=?,DesFase=?,Vigencia=?  WHERE CodFase = ?";//Lucho revisa ese where si esta bien pq no entiendo la BD del profe :v
         try {
 
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             comando.setString(1, String.valueOf(actualizacion.getCodFase()));
             comando.setString(3, actualizacion.getDesFase());
             comando.setString(4, actualizacion.getVigencia());
@@ -106,7 +106,7 @@ public class FaseDAO implements ModeloIDAO<Fase,Fase> {
 
         try {
 
-            PreparedStatement comando = acceso.getConexion("basedatos1", "sgpy", "Prueba$1").prepareStatement(sql);
+            PreparedStatement comando = acceso.getConexion().prepareStatement(sql);
             comando.setInt(1, codFase);
             int eliminar = comando.executeUpdate();
             if (eliminar == 0) {

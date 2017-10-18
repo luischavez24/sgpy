@@ -38,7 +38,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
         try {
             // Obtener la conexion
-            Connection conn = miDao.getConexion(BDConstants.SID, BDConstants.USER, BDConstants.PASSWORD);
+            Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_PYTODOCS
             try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_PYTODOCS (?) }")) {
@@ -88,7 +88,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
     public String insertar(PytoDocs nuevo) {
 
         String msj = "Se insertaron los datos correctamente.";
-        Connection conn = miDao.getConexion(BDConstants.SID, BDConstants.USER, BDConstants.PASSWORD);
+        Connection conn = miDao.getConexion();
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
 
         try {
@@ -127,7 +127,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
     @Override
     public String actualizar(PytoDocs modificacion) {
         String msj = "Se actualizaron los datos correctamente.";
-        Connection conn = miDao.getConexion(BDConstants.SID, BDConstants.USER, BDConstants.PASSWORD);
+        Connection conn = miDao.getConexion();
         String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
 

@@ -1,7 +1,7 @@
 package edu.unmsm.sistemas.sgpy.entities;
 
-
 public class Entregables {
+
     private int TipoEntreg;
     private int CorrEntreg;
     private String DesEntreg;
@@ -13,8 +13,7 @@ public class Entregables {
         this.DesEntreg = DesEntreg;
         this.DesCortaEntreg = DesCortaEntreg;
     }
-    
-    
+
     public int getTipoEntreg() {
         return TipoEntreg;
     }
@@ -51,6 +50,5 @@ public class Entregables {
     public String toString() {
         return "Entregables{" + "TipoEntreg=" + TipoEntreg + ", CorrEntreg=" + CorrEntreg + ", DesEntreg=" + DesEntreg + ", DesCortaEntreg=" + DesCortaEntreg + '}';
     }
-    
-    
+
 }

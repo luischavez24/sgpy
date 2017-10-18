@@ -10,11 +10,12 @@ package edu.unmsm.sistemas.sgpy.entities;
  * @author lucho
  */
 public class Nivel {
-        private int CodFase;
-        private int CodNivel;
-        private String DesNivel;
-        private String Fase;
-        private String Vigente;
+
+    private int CodFase;
+    private int CodNivel;
+    private String DesNivel;
+    private String Fase;
+    private String Vigente;
 
     public Nivel(int CodFase, int CodNivel, String DesNivel, String Fase, String Vigente) {
         this.CodFase = CodFase;
@@ -23,7 +24,7 @@ public class Nivel {
         this.Fase = Fase;
         this.Vigente = Vigente;
     }
-        
+
     public int getCodFase() {
         return CodFase;
     }
@@ -68,5 +69,5 @@ public class Nivel {
     public String toString() {
         return DesNivel;
     }
-        
+
 }
