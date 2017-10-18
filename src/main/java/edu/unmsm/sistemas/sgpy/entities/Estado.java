@@ -5,7 +5,6 @@ public class Estado {
     private int codFase;
     private int codNivel;
     private int estPyto;
-
     private String desEstado;
     private String vigente;
     
