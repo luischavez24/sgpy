@@ -677,6 +677,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             pytoDocs.setVigente((chkVigencia.isSelected()) ? "1" : "0");
             String mensaje = PytoDocsDAOImple.getInstance().insertar(pytoDocs);
             JOptionPane.showMessageDialog(rootPane, mensaje);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Debe elegir un archivo para subir", "No hay archivo de carga", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnIngresarMouseClicked
