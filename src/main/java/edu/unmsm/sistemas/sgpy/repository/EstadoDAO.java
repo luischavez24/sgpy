@@ -12,6 +12,11 @@ import java.util.List;
 public interface EstadoDAO {
 
     public List<EstadoView> listar();
+
+    
+    public List<Estado> listarEntity();
+
+
     public String insertar(Estado nuevo);
     public String actualizar(Estado modificacion);
     public String eliminar(int cod_fase, int cod_nivel, int est_pyto);

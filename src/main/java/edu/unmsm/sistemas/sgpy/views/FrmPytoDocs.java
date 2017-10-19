@@ -5,13 +5,17 @@
  */
 package edu.unmsm.sistemas.sgpy.views;
 
-import edu.unmsm.sistemas.sgpy.entities.Fase;
-import edu.unmsm.sistemas.sgpy.entities.Nivel;
+import edu.unmsm.sistemas.sgpy.entities.Entregables;
+import edu.unmsm.sistemas.sgpy.entities.Estado;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
-import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
-import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAO;
+import edu.unmsm.sistemas.sgpy.entities.TipoDoc;
+import edu.unmsm.sistemas.sgpy.entities.TipoEntreg;
+import edu.unmsm.sistemas.sgpy.repository.TipoEntregDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.EstadoDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAOImple;
+import edu.unmsm.sistemas.sgpy.repository.imple.TipoEntregDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.awt.Font;
 import java.io.File;
@@ -32,6 +36,8 @@ import javax.swing.JPanel;
  * @author lucho
  */
 public class FrmPytoDocs extends javax.swing.JFrame {
+
+    private String rutaDocumento;
 
     public FrmPytoDocs() {
         initComponents();
@@ -63,6 +69,14 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         mainPane = new javax.swing.JLayeredPane();
+        panelBuscar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaDocs = new javax.swing.JTable();
+        header = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        caja_busqueda = new javax.swing.JTextField();
+        btnQuery = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
         panelInsertar = new javax.swing.JPanel();
         panelSubida = new javax.swing.JPanel();
         btnSubDoc = new javax.swing.JButton();
@@ -72,38 +86,30 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         lbVersion = new javax.swing.JLabel();
         txtVersion = new javax.swing.JTextField();
         panelDatosPyto = new javax.swing.JPanel();
-        cmbProyecto = new javax.swing.JComboBox<Integer>();
+        cmbProyecto = new javax.swing.JComboBox<>();
         lbProyecto = new javax.swing.JLabel();
         lbFase = new javax.swing.JLabel();
-        cmbFase = new javax.swing.JComboBox<Fase>();
-        lbNivel = new javax.swing.JLabel();
-        cmbNivel = new javax.swing.JComboBox<Nivel>();
+        cmbEstado = new javax.swing.JComboBox<>();
         lbFInicio = new javax.swing.JLabel();
         lbFFin = new javax.swing.JLabel();
         lbCostoEstimado = new javax.swing.JLabel();
         txtCostoEstimado = new javax.swing.JTextField();
         lbTEntregable = new javax.swing.JLabel();
-        cmbTEntregable = new javax.swing.JComboBox<Integer>();
+        cmbTEntregable = new javax.swing.JComboBox<>();
         lbEspecialista = new javax.swing.JLabel();
-        cmbEspecialista = new javax.swing.JComboBox<Integer>();
-        cmbResponsable = new javax.swing.JComboBox<Integer>();
+        cmbEspecialista = new javax.swing.JComboBox<>();
+        cmbResponsable = new javax.swing.JComboBox<>();
         lbResponsable = new javax.swing.JLabel();
         chkVigencia = new javax.swing.JCheckBox();
         spnFInicio = new javax.swing.JSpinner();
         spnFFin = new javax.swing.JSpinner();
+        lbCostoEstimado1 = new javax.swing.JLabel();
+        cmbTDoc = new javax.swing.JComboBox<>();
         header1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        panelBuscar = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaDocs = new javax.swing.JTable();
-        header = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        caja_busqueda = new javax.swing.JTextField();
-        btnQuery = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
 
         btnActualizarDocs.setText("Actualizar");
         menuOps.add(btnActualizarDocs);
@@ -211,266 +217,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         mainPane.setBackground(new java.awt.Color(255, 255, 255));
         mainPane.setLayout(new java.awt.CardLayout());
 
-        panelInsertar.setBackground(new java.awt.Color(255, 255, 255));
-        panelInsertar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelSubida.setBackground(new java.awt.Color(255, 255, 255));
-        panelSubida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones de subida", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
-
-        btnSubDoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSubDoc.setText("Seleccione el documento para subirlo");
-        btnSubDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubDocActionPerformed(evt);
-            }
-        });
-
-        lbObservaciones.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbObservaciones.setText("Observaciones");
-
-        txtObs.setColumns(20);
-        txtObs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtObs.setRows(5);
-        jScrollPane2.setViewportView(txtObs);
-
-        lbVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbVersion.setText("Version");
-
-        txtVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtVersion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVersionActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelSubidaLayout = new javax.swing.GroupLayout(panelSubida);
-        panelSubida.setLayout(panelSubidaLayout);
-        panelSubidaLayout.setHorizontalGroup(
-            panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSubidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(panelSubidaLayout.createSequentialGroup()
-                            .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        panelSubidaLayout.setVerticalGroup(
-            panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSubidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-
-        panelInsertar.add(panelSubida, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 450, 380));
-
-        panelDatosPyto.setBackground(new java.awt.Color(255, 255, 255));
-        panelDatosPyto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información del documento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
-
-        cmbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbProyecto.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
-
-        lbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbProyecto.setText("Proyecto");
-
-        lbFase.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbFase.setText("Fase");
-
-        cmbFase.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-
-        lbNivel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbNivel.setText("Nivel");
-
-        cmbNivel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-
-        lbFInicio.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbFInicio.setText("Fecha de Inicio");
-
-        lbFFin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbFFin.setText("Fecha de Fin");
-
-        lbCostoEstimado.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbCostoEstimado.setText("Costo Estimado");
-
-        txtCostoEstimado.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtCostoEstimado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCostoEstimadoActionPerformed(evt);
-            }
-        });
-
-        lbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbTEntregable.setText("Tipo de entregable");
-
-        cmbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbTEntregable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
-
-        lbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbEspecialista.setText("Especialista");
-
-        cmbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbEspecialista.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
-
-        cmbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbResponsable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
-
-        lbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbResponsable.setText("Responsable");
-
-        chkVigencia.setText("¿Esta vigente?");
-        chkVigencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkVigenciaActionPerformed(evt);
-            }
-        });
-
-        spnFInicio.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-
-        spnFFin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-
-        javax.swing.GroupLayout panelDatosPytoLayout = new javax.swing.GroupLayout(panelDatosPyto);
-        panelDatosPyto.setLayout(panelDatosPytoLayout);
-        panelDatosPytoLayout.setHorizontalGroup(
-            panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addComponent(lbFFin, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spnFFin))
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addComponent(lbCostoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCostoEstimado))
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addComponent(lbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addComponent(lbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addComponent(lbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(chkVigencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbResponsable, javax.swing.GroupLayout.Alignment.TRAILING, 0, 312, Short.MAX_VALUE)))
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lbFInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addComponent(lbNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbFase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbFase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(cmbNivel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(spnFInicio))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelDatosPytoLayout.setVerticalGroup(
-            panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbFase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbFase, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(spnFInicio)
-                    .addComponent(lbFInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbFFin, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(spnFFin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbCostoEstimado, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(txtCostoEstimado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbTEntregable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbEspecialista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbResponsable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chkVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelInsertar.add(panelDatosPyto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 390));
-
-        header1.setBackground(new java.awt.Color(159, 168, 218));
-        header1.setForeground(new java.awt.Color(255, 255, 255));
-        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Ingresar Documentos");
-        header1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 36));
-
-        btnIngresar.setBackground(new java.awt.Color(57, 73, 171));
-        btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnIngresarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnIngresarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnIngresarMouseExited(evt);
-            }
-        });
-        btnIngresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnIngresar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Ingresar");
-        btnIngresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 110, 48));
-
-        header1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 200, -1));
-
-        panelInsertar.add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 170));
-
-        mainPane.add(panelInsertar, "card2");
-
         panelBuscar.setBackground(new java.awt.Color(255, 255, 255));
         panelBuscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -547,6 +293,271 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         mainPane.add(panelBuscar, "card3");
 
+        panelInsertar.setBackground(new java.awt.Color(255, 255, 255));
+        panelInsertar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelSubida.setBackground(new java.awt.Color(255, 255, 255));
+        panelSubida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones de subida", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
+
+        btnSubDoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnSubDoc.setText("Seleccione el documento para subirlo");
+        btnSubDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubDocActionPerformed(evt);
+            }
+        });
+
+        lbObservaciones.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbObservaciones.setText("Observaciones");
+
+        txtObs.setColumns(20);
+        txtObs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtObs.setRows(5);
+        jScrollPane2.setViewportView(txtObs);
+
+        lbVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbVersion.setText("Version");
+
+        txtVersion.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtVersion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVersionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelSubidaLayout = new javax.swing.GroupLayout(panelSubida);
+        panelSubida.setLayout(panelSubidaLayout);
+        panelSubidaLayout.setHorizontalGroup(
+            panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSubidaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelSubidaLayout.createSequentialGroup()
+                            .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        panelSubidaLayout.setVerticalGroup(
+            panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSubidaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSubDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelSubidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addComponent(lbObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        panelInsertar.add(panelSubida, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 450, 390));
+
+        panelDatosPyto.setBackground(new java.awt.Color(255, 255, 255));
+        panelDatosPyto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información del documento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 13))); // NOI18N
+
+        cmbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cmbProyecto.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
+
+        lbProyecto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbProyecto.setText("Proyecto");
+
+        lbFase.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbFase.setText("Estado Proyecto");
+
+        cmbEstado.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        lbFInicio.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbFInicio.setText("Fecha de Inicio");
+
+        lbFFin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbFFin.setText("Fecha de Fin");
+
+        lbCostoEstimado.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbCostoEstimado.setText("Costo Estimado");
+
+        txtCostoEstimado.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtCostoEstimado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCostoEstimadoActionPerformed(evt);
+            }
+        });
+
+        lbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbTEntregable.setText("Entregable");
+
+        cmbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        lbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbEspecialista.setText("Especialista");
+
+        cmbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cmbEspecialista.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
+
+        cmbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cmbResponsable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
+
+        lbResponsable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbResponsable.setText("Responsable");
+
+        chkVigencia.setBackground(new java.awt.Color(255, 255, 255));
+        chkVigencia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        chkVigencia.setText("¿Esta vigente?");
+        chkVigencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkVigenciaActionPerformed(evt);
+            }
+        });
+
+        spnFInicio.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        spnFFin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        lbCostoEstimado1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbCostoEstimado1.setText("Tipo");
+
+        cmbTDoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        javax.swing.GroupLayout panelDatosPytoLayout = new javax.swing.GroupLayout(panelDatosPyto);
+        panelDatosPyto.setLayout(panelDatosPytoLayout);
+        panelDatosPytoLayout.setHorizontalGroup(
+            panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                        .addComponent(lbFFin, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spnFFin))
+                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lbFInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(lbFase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spnFInicio)
+                            .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                                .addComponent(cmbProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(cmbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                        .addComponent(lbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbTEntregable, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                                .addComponent(lbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                                .addComponent(lbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(chkVigencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbResponsable, javax.swing.GroupLayout.Alignment.TRAILING, 0, 312, Short.MAX_VALUE)))
+                            .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                                .addComponent(lbCostoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCostoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbCostoEstimado1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbTDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelDatosPytoLayout.setVerticalGroup(
+            panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbFase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(spnFInicio)
+                    .addComponent(lbFInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbFFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spnFFin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbCostoEstimado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtCostoEstimado)
+                        .addComponent(lbCostoEstimado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbTDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbEspecialista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbResponsable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chkVigencia)
+                .addContainerGap())
+        );
+
+        panelInsertar.add(panelDatosPyto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, 390));
+
+        header1.setBackground(new java.awt.Color(159, 168, 218));
+        header1.setForeground(new java.awt.Color(255, 255, 255));
+        header1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Ingresar Documentos");
+        header1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 36));
+
+        btnIngresar.setBackground(new java.awt.Color(57, 73, 171));
+        btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseExited(evt);
+            }
+        });
+        btnIngresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnIngresar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Ingresar");
+        btnIngresar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 110, 48));
+
+        header1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 200, -1));
+
+        panelInsertar.add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 170));
+
+        mainPane.add(panelInsertar, "card2");
+
         background.add(mainPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 0, 980, 600));
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -574,6 +585,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         File archivoSeleccionado = exploradorArchivos.getSelectedFile();
         if (archivoSeleccionado != null && opcion == JFileChooser.APPROVE_OPTION) {
             JOptionPane.showMessageDialog(rootPane, "La ruta seleccionada es: " + archivoSeleccionado.getAbsolutePath());
+            rutaDocumento = archivoSeleccionado.getAbsolutePath();
         }
     }//GEN-LAST:event_btnSubDocActionPerformed
 
@@ -583,12 +595,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnInsertarDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarDocMouseClicked
         // TODO add your handling code here:
+        cmbTEntregable.removeAllItems();
+        cmbEstado.removeAllItems();
+        llenarCombos();
         panelInsertar.setVisible(true);
         panelBuscar.setVisible(false);
     }//GEN-LAST:event_btnInsertarDocMouseClicked
 
     private void btnBuscarDocsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarDocsMouseClicked
         // TODO add your handling code here:
+        llenarTabla(PytoDocsDAOImple.getInstance().listar());
         panelInsertar.setVisible(false);
         panelBuscar.setVisible(true);
     }//GEN-LAST:event_btnBuscarDocsMouseClicked
@@ -630,10 +646,28 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         // TODO add your handling code here:
-        hoverOff((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
-        PytoDocs pytoDocs = new PytoDocs();
-        pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
-        pytoDocs.setCodFase(((Fase) cmbFase.getSelectedItem()).getCodFase());
+        if (rutaDocumento != null) {
+            PytoDocs pytoDocs = new PytoDocs();
+            pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
+            Estado estado = (Estado) cmbEstado.getSelectedItem();
+            pytoDocs.setCodFase(estado.getCodFase());
+            pytoDocs.setCodNivel(estado.getCodNivel());
+            pytoDocs.setEstPyto(estado.getEstPyto());
+            pytoDocs.setFecIni((Date) spnFInicio.getModel().getValue());
+            pytoDocs.setFecFin((Date) spnFFin.getModel().getValue());
+            pytoDocs.setCostoEst(Double.parseDouble(txtCostoEstimado.getText()));
+            pytoDocs.setCodDoc(((TipoDoc) cmbTDoc.getSelectedItem()).getCodDoc());
+            pytoDocs.setRutaDoc(rutaDocumento);
+            pytoDocs.setVerDoc(txtVersion.getText());
+            pytoDocs.setObservac(txtObs.getText());
+            Entregables entregable = (Entregables) cmbTEntregable.getSelectedItem();
+            pytoDocs.setTipoEntreg(entregable.getTipoEntreg());
+            pytoDocs.setCorrEntreg(entregable.getCorrEntreg());
+            pytoDocs.setCodEsp(1);
+            pytoDocs.setCodResp(1);
+            pytoDocs.setVigente((chkVigencia.isSelected()) ? "1" : "0");
+            
+        }
 
     }//GEN-LAST:event_btnIngresarMouseClicked
 
@@ -643,8 +677,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarMouseEntered
 
     private void btnIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseExited
-
-        //pytoDocs.setCodNivel(((Nivel) cmbNivel.getSelectedItem()).getCodNivel());
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(57, 73, 171));
     }//GEN-LAST:event_btnIngresarMouseExited
 
     private void hoverOn(JPanel boton, Color color) {
@@ -669,8 +702,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }
 
     private void llenarCombos() {
-        FaseDAO.getInstance().listar().forEach((item) -> cmbFase.addItem(item));
-        NivelDAO.getInstance().listar().forEach((Nivel item) -> cmbNivel.addItem(item));
+        EstadoDAOImple.getInstance().listarEntity().forEach((item) -> cmbEstado.addItem(item));
+        EntregablesDAO.getInstance().listar().forEach((Entregables item) -> cmbTEntregable.addItem(item));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -686,11 +719,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JTextField caja_busqueda;
     private javax.swing.JCheckBox chkVigencia;
     private javax.swing.JComboBox<Integer> cmbEspecialista;
-    private javax.swing.JComboBox<Fase> cmbFase;
-    private javax.swing.JComboBox<Nivel> cmbNivel;
+    private javax.swing.JComboBox<Estado> cmbEstado;
     private javax.swing.JComboBox<Integer> cmbProyecto;
     private javax.swing.JComboBox<Integer> cmbResponsable;
-    private javax.swing.JComboBox<Integer> cmbTEntregable;
+    private javax.swing.JComboBox<TipoEntreg> cmbTDoc;
+    private javax.swing.JComboBox<Entregables> cmbTEntregable;
     private javax.swing.JPanel header;
     private javax.swing.JPanel header1;
     private javax.swing.JLabel jLabel1;
@@ -709,11 +742,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lbCostoEstimado;
+    private javax.swing.JLabel lbCostoEstimado1;
     private javax.swing.JLabel lbEspecialista;
     private javax.swing.JLabel lbFFin;
     private javax.swing.JLabel lbFInicio;
     private javax.swing.JLabel lbFase;
-    private javax.swing.JLabel lbNivel;
     private javax.swing.JLabel lbObservaciones;
     private javax.swing.JLabel lbProyecto;
     private javax.swing.JLabel lbResponsable;

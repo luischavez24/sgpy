@@ -7,7 +7,8 @@ public class Estado {
     private int estPyto;
     private String desEstado;
     private String vigente;
-
+    
+    public Estado() { }
     public Estado(int codFase, int codNivel, int estPyto, String desEstado, String vigente) {
         this.codFase = codFase;
         this.codNivel = codNivel;
@@ -58,6 +59,6 @@ public class Estado {
 
     @Override
     public String toString() {
-        return "Estado={CodFase:" + codFase + " CodNivel: " + codNivel + " EstPyto: " + estPyto + " DesEstado: " + desEstado + " Vigente: " + vigente + "}";
+        return desEstado;
     }
 }
