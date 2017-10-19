@@ -28,7 +28,6 @@ create or replace view listar_estadopyto as
       es.estpyto,
       nv.desnivel,
       fs.desfase,
-    
       es.desestado,
       es.vigente
   from 
@@ -40,9 +39,8 @@ create or replace view listar_estadopyto as
     inner join PYTODOCS pd
     on es.estpyto = pd.ESTPYTO
 ;
-  
- 
 
+select * from estado;
 CREATE SEQUENCE SQ_CORRDOC
     MINVALUE 1
     MAXVALUE 1000;

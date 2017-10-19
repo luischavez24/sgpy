@@ -47,6 +47,6 @@ public class TipoDoc {
 
     @Override
     public String toString() {
-        return "TipoDoc{" + "codDoc=" + codDoc + ", desTDoc=" + desTDoc + ", vigente=" + vigente + '}';
+        return desTDoc;
     }
 }
