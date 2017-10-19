@@ -89,9 +89,10 @@ public class EstadoDAOImple implements EstadoDAO{
 
                 try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(1)) {
 
-                    Estado estado = new Estado();
+                    
 
                     while (resultado.next()) {
+                        Estado estado = new Estado();
                         estado.setEstPyto(resultado.getInt("ESTPYTO"));
                         estado.setCodFase(resultado.getInt("CODFASE"));
                         estado.setCodNivel(resultado.getInt("CODNIVEL"));

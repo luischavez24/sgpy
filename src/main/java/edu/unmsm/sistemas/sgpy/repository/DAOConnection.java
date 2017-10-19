@@ -36,7 +36,7 @@ public class DAOConnection {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             //String url = "jdbc:oracle:thin:@localhost:1521:" + database;
            
-            String url = "jdbc:oracle:thin:@192.168.1.48:1521:" + BDConstants.SID;
+            String url = "jdbc:oracle:thin:@HOST1:1521:" + BDConstants.SID;
             miConexion = DriverManager.getConnection(url, BDConstants.USER, BDConstants.PASSWORD);
 
         } catch (ClassNotFoundException | SQLException ex) {
