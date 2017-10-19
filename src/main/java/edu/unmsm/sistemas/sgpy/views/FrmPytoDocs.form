@@ -11,6 +11,11 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
+        <MenuItem class="javax.swing.JMenuItem" name="btnDetalles">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Detalles"/>
+          </Properties>
+        </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="btnActualizarDocs">
           <Properties>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
@@ -504,17 +509,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lbVersion" min="-2" pref="118" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtVersion" min="-2" pref="289" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="btnSubDoc" min="-2" pref="411" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lbVersion" min="-2" pref="118" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txtVersion" min="-2" pref="289" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="lbObservaciones" alignment="0" min="-2" pref="411" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" alignment="0" min="-2" pref="411" max="-2" attributes="0"/>
+                                  <Component id="btnSubDoc" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbObservaciones" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbRuta" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="17" max="32767" attributes="0"/>
                           </Group>
@@ -525,7 +529,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSubDoc" min="-2" pref="34" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="lbRuta" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lbVersion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="txtVersion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -534,7 +540,7 @@
                               <Component id="lbObservaciones" min="-2" pref="28" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="188" max="-2" attributes="0"/>
-                              <EmptySpace pref="47" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -594,6 +600,13 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVersionActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lbRuta">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="13" style="0"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -914,7 +927,7 @@
                         </Property>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;TipoEntreg&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;TipoDoc&gt;"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>

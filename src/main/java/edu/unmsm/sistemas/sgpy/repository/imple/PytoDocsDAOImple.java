@@ -92,7 +92,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_PYDOCS (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_PYDOCS (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodPyto());
                 consulta.setInt(2, nuevo.getCodFase());
                 consulta.setInt(3, nuevo.getCodNivel());
@@ -110,13 +110,14 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                 consulta.setInt(15, nuevo.getCodResp());
                 consulta.setString(16, nuevo.getVigente());
 
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la inserción" : "Correcto";
+                msj = (consulta.execute()) ? "No se pudo ejecutar la inserción" : "Correcto";
             }
 
             conn.commit();
             miDao.close();
 
         } catch (SQLException ex) {
+            msj = ex.getMessage();
             System.out.println(ex);
         }
 
