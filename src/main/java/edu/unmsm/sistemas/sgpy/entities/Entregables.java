@@ -48,7 +48,7 @@ public class Entregables {
 
     @Override
     public String toString() {
-        return "Entregables{" + "TipoEntreg=" + TipoEntreg + ", CorrEntreg=" + CorrEntreg + ", DesEntreg=" + DesEntreg + ", DesCortaEntreg=" + DesCortaEntreg + '}';
+        return TipoEntreg + "-" + CorrEntreg;
     }
 
 }

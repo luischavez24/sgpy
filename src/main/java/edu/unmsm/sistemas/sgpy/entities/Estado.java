@@ -59,6 +59,6 @@ public class Estado {
 
     @Override
     public String toString() {
-        return "Estado={CodFase:" + codFase + " CodNivel: " + codNivel + " EstPyto: " + estPyto + " DesEstado: " + desEstado + " Vigente: " + vigente + "}";
+        return desEstado;
     }
 }

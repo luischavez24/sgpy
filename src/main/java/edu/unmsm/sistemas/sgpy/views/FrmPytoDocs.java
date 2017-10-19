@@ -5,16 +5,17 @@
  */
 package edu.unmsm.sistemas.sgpy.views;
 
+import edu.unmsm.sistemas.sgpy.entities.Entregables;
 import edu.unmsm.sistemas.sgpy.entities.Estado;
-import edu.unmsm.sistemas.sgpy.entities.Fase;
-import edu.unmsm.sistemas.sgpy.entities.Nivel;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.entities.TipoDoc;
 import edu.unmsm.sistemas.sgpy.entities.TipoEntreg;
-import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
-import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAO;
+import edu.unmsm.sistemas.sgpy.repository.TipoEntregDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.EstadoDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAOImple;
+import edu.unmsm.sistemas.sgpy.repository.imple.TipoEntregDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.awt.Font;
 import java.io.File;
@@ -102,8 +103,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         chkVigencia = new javax.swing.JCheckBox();
         spnFInicio = new javax.swing.JSpinner();
         spnFFin = new javax.swing.JSpinner();
-        lbTEntregable1 = new javax.swing.JLabel();
-        spnCorrEntregable = new javax.swing.JSpinner();
         lbCostoEstimado1 = new javax.swing.JLabel();
         cmbTDoc = new javax.swing.JComboBox<>();
         header1 = new javax.swing.JPanel();
@@ -392,10 +391,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         });
 
         lbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbTEntregable.setText("Tipo de entregable");
+        lbTEntregable.setText("Entregable");
 
         cmbTEntregable.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbTEntregable.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         lbEspecialista.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbEspecialista.setText("Especialista");
@@ -422,14 +420,10 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         spnFFin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        lbTEntregable1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbTEntregable1.setText("Corr. Entregable");
-
         lbCostoEstimado1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbCostoEstimado1.setText("Tipo");
 
         cmbTDoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cmbTDoc.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1}));
 
         javax.swing.GroupLayout panelDatosPytoLayout = new javax.swing.GroupLayout(panelDatosPyto);
         panelDatosPyto.setLayout(panelDatosPytoLayout);
@@ -437,21 +431,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosPytoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDatosPytoLayout.createSequentialGroup()
                         .addComponent(lbFFin, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spnFFin))
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addComponent(lbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addComponent(lbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(chkVigencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbResponsable, javax.swing.GroupLayout.Alignment.TRAILING, 0, 312, Short.MAX_VALUE)))
                     .addGroup(panelDatosPytoLayout.createSequentialGroup()
                         .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(lbFInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
@@ -465,26 +449,30 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(cmbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelDatosPytoLayout.createSequentialGroup()
-                                .addComponent(lbCostoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCostoEstimado))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelDatosPytoLayout.createSequentialGroup()
-                                .addComponent(lbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbTEntregable, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
                         .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                                .addComponent(lbTEntregable1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnCorrEntregable))
+                                .addComponent(cmbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                                .addComponent(lbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(chkVigencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbResponsable, javax.swing.GroupLayout.Alignment.TRAILING, 0, 312, Short.MAX_VALUE)))
+                            .addGroup(panelDatosPytoLayout.createSequentialGroup()
+                                .addComponent(lbCostoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCostoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbCostoEstimado1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmbTDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(cmbTDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDatosPytoLayout.setVerticalGroup(
@@ -513,17 +501,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                         .addComponent(txtCostoEstimado)
                         .addComponent(lbCostoEstimado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cmbTDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbTEntregable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelDatosPytoLayout.createSequentialGroup()
-                        .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(spnCorrEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbTEntregable1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cmbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTEntregable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(panelDatosPytoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbEspecialista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmbEspecialista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -613,12 +595,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnInsertarDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarDocMouseClicked
         // TODO add your handling code here:
+        cmbTEntregable.removeAllItems();
+        cmbEstado.removeAllItems();
+        llenarCombos();
         panelInsertar.setVisible(true);
         panelBuscar.setVisible(false);
     }//GEN-LAST:event_btnInsertarDocMouseClicked
 
     private void btnBuscarDocsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarDocsMouseClicked
         // TODO add your handling code here:
+        llenarTabla(PytoDocsDAOImple.getInstance().listar());
         panelInsertar.setVisible(false);
         panelBuscar.setVisible(true);
     }//GEN-LAST:event_btnBuscarDocsMouseClicked
@@ -674,8 +660,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             pytoDocs.setRutaDoc(rutaDocumento);
             pytoDocs.setVerDoc(txtVersion.getText());
             pytoDocs.setObservac(txtObs.getText());
-            pytoDocs.setTipoEntreg(((TipoEntreg) cmbTEntregable.getSelectedItem()).getTipoEntreg());
-            pytoDocs.setCorrEntreg((int) spnCorrEntregable.getValue());
+            Entregables entregable = (Entregables) cmbTEntregable.getSelectedItem();
+            pytoDocs.setTipoEntreg(entregable.getTipoEntreg());
+            pytoDocs.setCorrEntreg(entregable.getCorrEntreg());
             pytoDocs.setCodEsp(1);
             pytoDocs.setCodResp(1);
             pytoDocs.setVigente((chkVigencia.isSelected()) ? "1" : "0");
@@ -715,8 +702,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }
 
     private void llenarCombos() {
-        FaseDAO.getInstance().listar().forEach((item) -> cmbEstado.addItem(item));
-        NivelDAO.getInstance().listar().forEach((Nivel item) -> cmbNivel.addItem(item));
+        EstadoDAOImple.getInstance().listarEntity().forEach((item) -> cmbEstado.addItem(item));
+        EntregablesDAO.getInstance().listar().forEach((Entregables item) -> cmbTEntregable.addItem(item));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -735,8 +722,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JComboBox<Estado> cmbEstado;
     private javax.swing.JComboBox<Integer> cmbProyecto;
     private javax.swing.JComboBox<Integer> cmbResponsable;
-    private javax.swing.JComboBox<Integer> cmbTDoc;
-    private javax.swing.JComboBox<Integer> cmbTEntregable;
+    private javax.swing.JComboBox<TipoEntreg> cmbTDoc;
+    private javax.swing.JComboBox<Entregables> cmbTEntregable;
     private javax.swing.JPanel header;
     private javax.swing.JPanel header1;
     private javax.swing.JLabel jLabel1;
@@ -764,7 +751,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel lbProyecto;
     private javax.swing.JLabel lbResponsable;
     private javax.swing.JLabel lbTEntregable;
-    private javax.swing.JLabel lbTEntregable1;
     private javax.swing.JLabel lbVersion;
     private javax.swing.JLayeredPane mainPane;
     private javax.swing.JPopupMenu menuOps;
@@ -773,7 +759,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JPanel panelInsertar;
     private javax.swing.JPanel panelSubida;
     private javax.swing.JPanel sideBar;
-    private javax.swing.JSpinner spnCorrEntregable;
     private javax.swing.JSpinner spnFFin;
     private javax.swing.JSpinner spnFInicio;
     private javax.swing.JTable tablaDocs;
