@@ -1,7 +1,7 @@
 package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.*;
-import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +32,8 @@ public class TSEstado extends javax.swing.JFrame {
     }
 
     public void llenarCombo() {
-        NivelDAO.getInstance().listar().forEach((item) -> jComboBox1.addItem(item));
-        NivelDAO.getInstance().listar().forEach((item) -> jComboBox2.addItem(item));
+        NivelDAOImple.getInstance().listar().forEach((item) -> jComboBox1.addItem(item));
+        NivelDAOImple.getInstance().listar().forEach((item) -> jComboBox2.addItem(item));
     }
 
     /**

@@ -2,7 +2,7 @@ package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.*;
 import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
-import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class TSNivel extends javax.swing.JFrame {
         jTextField5.setEditable(false);
         jTextField6.setEditable(false);
         setResizable(false);
-        llenarTabla(NivelDAO.getInstance().listar());
+        llenarTabla(NivelDAOImple.getInstance().listar());
         llenarCombo();
         jTabbedPane1.setEnabledAt(2, false);
     }
@@ -402,7 +402,7 @@ public class TSNivel extends javax.swing.JFrame {
             obj = new Nivel(codFase, codNivel, desNivel, fase, vigente);
 
             //Insertar obj
-            NivelDAO.getInstance().insertar(obj);
+            NivelDAOImple.getInstance().insertar(obj);
 
             jComboBox1.setSelectedIndex(-1);
             jTextField1.setText("");
@@ -410,7 +410,7 @@ public class TSNivel extends javax.swing.JFrame {
             jTextField2.setText("");
             jTextField4.setText("");
 
-            llenarTabla(NivelDAO.getInstance().listar());
+            llenarTabla(NivelDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Registro Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -455,9 +455,9 @@ public class TSNivel extends javax.swing.JFrame {
             int codNivel = (Integer) jTable1.getValueAt(fila, 1);
 
             //eliminar obj
-            NivelDAO.getInstance().eliminar(codFase);
+            NivelDAOImple.getInstance().eliminar(codFase,codNivel);
 
-            llenarTabla(NivelDAO.getInstance().listar());
+            llenarTabla(NivelDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Borrado Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
 
@@ -495,9 +495,9 @@ public class TSNivel extends javax.swing.JFrame {
             obj = new Nivel(codFase, codNivel, desNivel, fase, vigente);
 
             //modificar obj
-            NivelDAO.getInstance().actualizar(obj);
+            NivelDAOImple.getInstance().actualizar(obj);
 
-            llenarTabla(NivelDAO.getInstance().listar());
+            llenarTabla(NivelDAOImple.getInstance().listar());
 
             jComboBox2.setSelectedIndex(-1);
             jLabel16.setText("");

@@ -1,7 +1,7 @@
 package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.*;
-import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -18,7 +18,7 @@ public class TSEntregables extends javax.swing.JFrame {
         jTextArea3.setEditable(false);
         jTextField5.setEditable(false);
         setResizable(false);
-        llenarTabla(EntregablesDAO.getInstance().listar());
+        llenarTabla(EntregablesDAOImple.getInstance().listar());
         llenarCombo();
         jTabbedPane1.setEnabledAt(2, false);
     }
@@ -368,9 +368,9 @@ public class TSEntregables extends javax.swing.JFrame {
             int corrEntreg = (Integer) jTable1.getValueAt(fila, 0);
 
             //eliminar obj
-            EntregablesDAO.getInstance().eliminar(tipoEntreg);
+            EntregablesDAOImple.getInstance().eliminar(tipoEntreg,corrEntreg);
 
-            llenarTabla(EntregablesDAO.getInstance().listar());
+            llenarTabla(EntregablesDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Borrado Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
 
@@ -405,9 +405,9 @@ public class TSEntregables extends javax.swing.JFrame {
             obj = new Entregables(tipoEntreg, corrEntreg, desEntreg, desCortaEntreg);
 
             //modificar obj
-            EntregablesDAO.getInstance().actualizar(obj);
+            EntregablesDAOImple.getInstance().actualizar(obj);
 
-            llenarTabla(EntregablesDAO.getInstance().listar());
+            llenarTabla(EntregablesDAOImple.getInstance().listar());
 
             jComboBox2.setSelectedIndex(-1);
             jLabel16.setText("");
@@ -456,14 +456,14 @@ public class TSEntregables extends javax.swing.JFrame {
             obj = new Entregables(tipoEntreg, corrEntreg, desEntreg, desCortaEntreg);
 
             //Insertar obj
-            EntregablesDAO.getInstance().insertar(obj);
+            EntregablesDAOImple.getInstance().insertar(obj);
 
             jComboBox1.setSelectedIndex(-1);
             jTextField1.setText("");
             jTextArea1.setText("");
             jTextField4.setText("");
 
-            llenarTabla(EntregablesDAO.getInstance().listar());
+            llenarTabla(EntregablesDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Registro Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {

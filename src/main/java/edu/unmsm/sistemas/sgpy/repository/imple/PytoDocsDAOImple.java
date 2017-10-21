@@ -31,31 +31,24 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public List<PytoDocsView> listar() {
-
         // ArrayList donde se guardan los documentos
         ArrayList<PytoDocsView> misProyectos = new ArrayList<>();
-
         try {
             // Obtener la conexion
             Connection conn = miDao.getConexion();
-
             // Se llama al procedimiento almacenado SP_LISTAR_PYTODOCS
             try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_PYTODOCS (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
                 consulta.execute();
-
                 try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(1)) {
-
                     PytoDocsView temp;
                     String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
                     int codPyto, corrdocs;
                     Date fecIni, fecFin;
                     double costoEst;
-
                     while (resultado.next()) {
-
                         codPyto = resultado.getInt("CodPyto");
                         corrdocs = resultado.getInt("Corrdocs");
                         fecIni = resultado.getDate("FecIni");
@@ -67,10 +60,8 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                         desNivel = resultado.getString("DesNivel");
                         desTDoc = resultado.getString("DesTDoc");
                         desEntreg = resultado.getString("DesEntreg");
-
                         temp = new PytoDocsView(codPyto, corrdocs, fecIni, fecFin, costoEst,
                                 verDoc, vigente, desFase, desNivel, desTDoc, desEntreg);
-
                         misProyectos.add(temp);
                     }
                 }
@@ -85,11 +76,9 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public String insertar(PytoDocs nuevo) {
-
-        String msj = "Se insertaron los datos correctamente.";
+        String msj;
         Connection conn = miDao.getConexion();
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
-
         try {
             conn.setAutoCommit(false);
             try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_PYDOCS (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
@@ -110,7 +99,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                 consulta.setInt(15, nuevo.getCodResp());
                 consulta.setString(16, nuevo.getVigente());
 
-                msj = (consulta.execute()) ? "No se pudo ejecutar la inserción" : "Correcto";
+                msj = (consulta.execute()) ? "No se pudo ejecutar la inserción" : "Se insertaron los datos correctamente.";
             }
 
             conn.commit();
@@ -126,7 +115,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public String actualizar(PytoDocs modificacion) {
-        String msj = "Se actualizaron los datos correctamente.";
+        String msj;
         Connection conn = miDao.getConexion();
         String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
@@ -148,12 +137,13 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                 consulta.setInt(12, modificacion.getCodResp());
                 consulta.setString(13, modificacion.getVigente());
 
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualizaron de datos" : "Correcto";
+                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualizaron de datos" : "Se actualizaron los datos correctamente.";
             }
             conn.commit();
             conn.close();
 
         } catch (SQLException ex) {
+            msj = ex.getMessage();
             System.out.println(ex);
         }
 
@@ -162,7 +152,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public String eliminar(int cod_pyto, int cod_doc) {
-        String msj = "Se actualizaron los datos correctamente.";
+        String msj;
         Connection conn = miDao.getConexion();
         String sql = "{ CALL SP_DELETE_PYTODOCS (?,?) }";
 
@@ -172,12 +162,13 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                 consulta.setInt(1, cod_pyto);
                 consulta.setInt(2, cod_doc);
             
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la eliminación de datos" : "Correcto";
+                msj = (consulta.execute()) ? "No se pudo ejecutar la eliminación de datos" : "Se actualizaron los datos correctamente.";
             }
             conn.commit();
             conn.close();
 
         } catch (SQLException ex) {
+            msj = ex.getMessage();
             System.out.println(ex);
         }
         return msj;
