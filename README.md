@@ -1,7 +1,7 @@
 # Sistema de Gestion de Proyectos
 Proyecto del cursos de BD2
 
-##Integrantes:
+## Integrantes
 * Guadalupe Palpán
 * Luis Chávez
 * Jose Carlos Bustamante
