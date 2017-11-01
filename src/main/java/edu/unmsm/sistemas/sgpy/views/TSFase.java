@@ -1,7 +1,7 @@
 package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.*;
-import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,13 @@ public class TSFase extends javax.swing.JFrame {
         jTextArea2.setEditable(false);
         jTextField3.setEditable(false);
         setResizable(false);
+<<<<<<< HEAD
+        llenarTabla(FaseDAOImple.getInstance().listar());
+        jTabbedPane1.setEnabledAt(2, false);
+=======
         llenarTabla(FaseDAO.getInstance().listar());
         TPaneFase.setEnabledAt(2, false);
+>>>>>>> refs/remotes/origin/master
     }
 
     public void llenarTabla(List<Fase> lista) {
@@ -339,13 +344,13 @@ public class TSFase extends javax.swing.JFrame {
             obj = new Fase(codFase, desFase, vigencia);
 
             //Insertar obj
-            FaseDAO.getInstance().insertar(obj);
+            FaseDAOImple.getInstance().insertar(obj);
 
             jTextField1.setText("");
             jTextArea1.setText("");
             jTextField2.setText("");
 
-            llenarTabla(FaseDAO.getInstance().listar());
+            llenarTabla(FaseDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Registro Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -383,9 +388,9 @@ public class TSFase extends javax.swing.JFrame {
             int codFase = (Integer) jTable1.getValueAt(fila, 0);
 
             //eliminar obj
-            FaseDAO.getInstance().eliminar(codFase);
+            FaseDAOImple.getInstance().eliminar(codFase);
 
-            llenarTabla(FaseDAO.getInstance().listar());
+            llenarTabla(FaseDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Borrado Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
 
@@ -415,9 +420,9 @@ public class TSFase extends javax.swing.JFrame {
 
             obj = new Fase(codFase, desFase, vigencia);
 
-            FaseDAO.getInstance().actualizar(obj);
+            FaseDAOImple.getInstance().actualizar(obj);
 
-            llenarTabla(FaseDAO.getInstance().listar());
+            llenarTabla(FaseDAOImple.getInstance().listar());
 
             jLabel8.setText("");
             jTextArea2.setText("");

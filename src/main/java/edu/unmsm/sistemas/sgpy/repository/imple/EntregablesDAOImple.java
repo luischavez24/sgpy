@@ -28,6 +28,8 @@ public class EntregablesDAOImple implements EntregablesDAO{
         return ENTREGABLESDAO;
     }
     DAOConnection acceso = DAOConnection.getInstance();
+    
+    @Override
     public List<Entregables> listar() {
         
         ArrayList<Entregables> miLista = new ArrayList<>();
@@ -54,6 +56,7 @@ public class EntregablesDAOImple implements EntregablesDAO{
                 }
             }
         } catch (SQLException ex) {
+            System.out.println(ex);
         } finally {
             acceso.close();
         }
@@ -72,13 +75,14 @@ public class EntregablesDAOImple implements EntregablesDAO{
                 consulta.setString(3, nuevo.getDesEntreg());
                 consulta.setString(4, nuevo.getDesCortaEntreg());
                 
-                rpta = (consulta.executeUpdate() == 0 ) ? "No se pudo ejecutar la inserción": "Correcto";
+                consulta.execute();
             }
                 
             conn.commit();
-            acceso.close();
         } catch (SQLException ex) {
             rpta = ex.getMessage();
+        }finally{
+            acceso.close();
         }
         return rpta;
     }
@@ -95,15 +99,16 @@ public class EntregablesDAOImple implements EntregablesDAO{
                 consulta.setString(3, actualizacion.getDesEntreg());
                 consulta.setString(4, actualizacion.getDesCortaEntreg());
                 
-                rpta = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualizaron de datos" : "Correcto";
-
+                consulta.execute();
             } 
              
             conn.commit();
-            acceso.close();
         }
        catch (SQLException ex) {
             rpta = ex.getMessage();
+        }
+        finally{
+            acceso.close();
         }
         return rpta;
     }
@@ -117,13 +122,15 @@ public class EntregablesDAOImple implements EntregablesDAO{
             try(CallableStatement consulta = conn.prepareCall("{ CALL SP_DELETE_ENTREGABLES (?,?)}")){
                 consulta.setInt(1, TipoEntreg);
                 consulta.setInt(2, CorrEntreg);
-                rpta = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la eliminación de datos" : "Correcto";
+                consulta.execute();
             }
             conn.commit();
-            acceso.close();
+            
         }catch (SQLException ex) {
             rpta = ex.getMessage();
-        } 
+        }finally{
+            acceso.close();
+        }
         return rpta;
     }
 }
