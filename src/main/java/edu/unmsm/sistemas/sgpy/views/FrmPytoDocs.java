@@ -12,6 +12,7 @@ import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.entities.TipoDoc;
 import edu.unmsm.sistemas.sgpy.entities.TipoEntreg;
 import edu.unmsm.sistemas.sgpy.repository.TipoEntregDAO;
+import edu.unmsm.sistemas.sgpy.repository.drive.CopiarArchivos;
 import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.EstadoDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAOImple;
@@ -38,7 +39,7 @@ import javax.swing.JPanel;
  */
 public class FrmPytoDocs extends javax.swing.JFrame {
 
-    private String rutaDocumento;
+    private File rutaDocumento;
 
     public FrmPytoDocs() {
         initComponents();
@@ -115,9 +116,19 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         btnDetalles.setText("Detalles");
+        btnDetalles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetallesActionPerformed(evt);
+            }
+        });
         menuOps.add(btnDetalles);
 
         btnActualizarDocs.setText("Actualizar");
+        btnActualizarDocs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarDocsActionPerformed(evt);
+            }
+        });
         menuOps.add(btnActualizarDocs);
 
         btnEliminarDocs.setText("Eliminar");
@@ -259,7 +270,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         tablaDocs.setGridColor(new java.awt.Color(255, 255, 255));
         tablaDocs.setRowHeight(25);
         tablaDocs.setSelectionBackground(new java.awt.Color(92, 107, 192));
-        tablaDocs.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tablaDocs.setSurrendersFocusOnKeystroke(true);
         tablaDocs.getTableHeader().setResizingAllowed(false);
         tablaDocs.getTableHeader().setReorderingAllowed(false);
@@ -499,8 +509,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         int opcion = exploradorArchivos.showOpenDialog(this);
         File archivoSeleccionado = exploradorArchivos.getSelectedFile();
         if (archivoSeleccionado != null && opcion == JFileChooser.APPROVE_OPTION) {
-            rutaDocumento = archivoSeleccionado.getAbsolutePath();
-            lbRuta.setText(rutaDocumento);
+            rutaDocumento = archivoSeleccionado;
+            lbRuta.setText(rutaDocumento.getName());
         }
     }//GEN-LAST:event_btnSubDocActionPerformed
 
@@ -571,7 +581,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             pytoDocs.setFecFin((Date) spnFFin.getModel().getValue());
             pytoDocs.setCostoEst(Double.parseDouble(txtCostoEstimado.getText()));
             pytoDocs.setCodDoc(((TipoDoc) cmbTDoc.getSelectedItem()).getCodDoc());
-            pytoDocs.setRutaDoc(rutaDocumento);
+            pytoDocs.setRutaDoc(rutaDocumento.getName());
             pytoDocs.setVerDoc(txtVersion.getText());
             pytoDocs.setObservac(txtObs.getText());
             Entregables entregable = (Entregables) cmbTEntregable.getSelectedItem();
@@ -579,6 +589,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             pytoDocs.setCorrEntreg(entregable.getCorrEntreg());
             pytoDocs.setCodEsp(1);
             pytoDocs.setCodResp(1);
+            CopiarArchivos.getInstance().copiarArchivos(rutaDocumento);
             pytoDocs.setVigente((chkVigencia.isSelected()) ? "1" : "0");
             String mensaje = PytoDocsDAOImple.getInstance().insertar(pytoDocs);
             JOptionPane.showMessageDialog(rootPane, mensaje);
@@ -596,6 +607,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private void btnIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseExited
         hoverOn((JPanel) evt.getSource(), new java.awt.Color(57, 73, 171));
     }//GEN-LAST:event_btnIngresarMouseExited
+
+    private void btnActualizarDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarDocsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarDocsActionPerformed
+
+    private void btnDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetallesActionPerformed
+        int codPyto = (int) tablaDocs.getModel().getValueAt(tablaDocs.getSelectedRow(), 0);
+        int corrPyto = (int) tablaDocs.getModel().getValueAt(tablaDocs.getSelectedRow(), 1);
+        PytoDocs pytoDocs = PytoDocsDAOImple.getInstance().buscar(codPyto, corrPyto);
+        
+        System.out.println(pytoDocs);
+    }//GEN-LAST:event_btnDetallesActionPerformed
 
     private void hoverOn(JPanel boton, Color color) {
         boton.setBackground(color);

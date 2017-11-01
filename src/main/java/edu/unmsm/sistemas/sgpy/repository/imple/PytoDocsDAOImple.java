@@ -161,7 +161,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
             try (CallableStatement consulta = conn.prepareCall(sql)) {
                 consulta.setInt(1, cod_pyto);
                 consulta.setInt(2, cod_doc);
-            
+
                 msj = (consulta.execute()) ? "No se pudo ejecutar la eliminación de datos" : "Se actualizaron los datos correctamente.";
             }
             conn.commit();
@@ -173,5 +173,51 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
         }
         return msj;
     }
-    
+
+    @Override
+    public PytoDocs buscar(int cod_pyto, int corr_docs) {
+        PytoDocs pytoDocs = null;
+        try {
+            // Obtener la conexion
+            Connection conn = miDao.getConexion();
+            // Se llama al procedimiento almacenado SP_LISTAR_PYTODOCS
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_BUSCAR_PYTODOCS (?,?,?) }")) {
+                // Se pasa por parametro el cursor
+                consulta.setInt(1, cod_pyto);
+                consulta.setInt(2, corr_docs);
+                consulta.registerOutParameter(3, OracleTypes.CURSOR);
+                // Se ejecuta la consulta
+                consulta.execute();
+                try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(3)) {
+                   
+                    while (resultado.next()) {
+                        pytoDocs = new PytoDocs();
+                        pytoDocs.setCodPyto(resultado.getInt("CODPYTO"));
+                        pytoDocs.setCorrdocs(resultado.getInt("CORRDOCS"));
+                        pytoDocs.setCodFase(resultado.getInt("CODFASE"));
+                        pytoDocs.setCodNivel(resultado.getInt("CODNIVEL"));
+                        pytoDocs.setFecIni(resultado.getDate("FECINI"));
+                        pytoDocs.setFecIni(resultado.getDate("FECFIN"));
+                        pytoDocs.setCostoEst(resultado.getDouble("COSTOEST"));
+                        pytoDocs.setCodDoc(resultado.getInt("CODDOC"));
+                        pytoDocs.setRutaDoc(resultado.getString("RUTADOC"));
+                        pytoDocs.setVerDoc(resultado.getString("VERDOC"));
+                        pytoDocs.setObservac(resultado.getString("OBSERVAC"));
+                        pytoDocs.setEstPyto(resultado.getInt("ESTPYTO"));
+                        pytoDocs.setTipoEntreg(resultado.getInt("TIPOENTREG"));
+                        pytoDocs.setCodEsp(resultado.getInt("CODESP"));
+                        pytoDocs.setCodResp(resultado.getInt("CODRESP"));
+                        pytoDocs.setVigente(resultado.getString("VIGENTE"));
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            miDao.close();
+        }
+        
+        return pytoDocs;
+    }
+
 }
