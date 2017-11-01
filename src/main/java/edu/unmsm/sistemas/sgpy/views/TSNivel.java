@@ -23,7 +23,7 @@ public class TSNivel extends javax.swing.JFrame {
         setResizable(false);
         llenarTabla(NivelDAOImple.getInstance().listar());
         llenarCombo();
-        jTabbedPane1.setEnabledAt(2, false);
+        TPaneNivel.setEnabledAt(2, false);
     }
 
     public void llenarTabla(List<Nivel> lista) {
@@ -45,7 +45,7 @@ public class TSNivel extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TPaneNivel = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -82,6 +82,10 @@ public class TSNivel extends javax.swing.JFrame {
         setTitle("Tabla de Sorporte NIVEL");
 
         jLabel1.setText("Gestión de Tabla Nivel");
+
+        TPaneNivel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Codigo de Nivel:");
 
@@ -166,7 +170,9 @@ public class TSNivel extends javax.swing.JFrame {
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Registrar", jPanel1);
+        TPaneNivel.addTab("Registrar", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1= new javax.swing.JTable()
         {
@@ -256,7 +262,9 @@ public class TSNivel extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Gestionar", jPanel3);
+        TPaneNivel.addTab("Gestionar", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel11.setText("Codigo de Fase:");
 
@@ -335,7 +343,7 @@ public class TSNivel extends javax.swing.JFrame {
                 .addContainerGap(77, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Edición", jPanel4);
+        TPaneNivel.addTab("Edición", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -344,7 +352,7 @@ public class TSNivel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(TPaneNivel)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -356,7 +364,7 @@ public class TSNivel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(TPaneNivel))
         );
 
         pack();
@@ -439,8 +447,8 @@ public class TSNivel extends javax.swing.JFrame {
             jTextField5.setEditable(true);
             jTextField6.setEditable(true);
 
-            jTabbedPane1.setEnabledAt(2, true);
-            jTabbedPane1.setSelectedIndex(2);
+            TPaneNivel.setEnabledAt(2, true);
+            TPaneNivel.setSelectedIndex(2);
 
         } else {
             JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);
@@ -508,8 +516,8 @@ public class TSNivel extends javax.swing.JFrame {
             jTextArea3.setEditable(false);
             jTextField5.setEditable(false);
             jTextField6.setEditable(false);
-            jTabbedPane1.setEnabledAt(2, false);
-            jTabbedPane1.setSelectedIndex(1);
+            TPaneNivel.setEnabledAt(2, false);
+            TPaneNivel.setSelectedIndex(1);
 
             JOptionPane.showMessageDialog(null, "Modificación Exitosa", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -519,6 +527,7 @@ public class TSNivel extends javax.swing.JFrame {
 
     private Nivel obj;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane TPaneNivel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -543,7 +552,6 @@ public class TSNivel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;

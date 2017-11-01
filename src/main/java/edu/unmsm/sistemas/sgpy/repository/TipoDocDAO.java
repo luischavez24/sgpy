@@ -15,7 +15,11 @@ import java.util.List;
 public interface TipoDocDAO {
     
     public List<TipoDoc> listar();
+    
     public String insertar(TipoDoc nuevo);
+    
     public String actualizar(TipoDoc modificacion);
+    
     public String eliminar(int cod_doc);
+    
 }

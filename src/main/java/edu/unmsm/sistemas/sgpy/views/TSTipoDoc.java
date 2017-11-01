@@ -21,7 +21,7 @@ public class TSTipoDoc extends javax.swing.JFrame {
         lista.add(new TipoDoc(1, "ejemplo", "si"));
         llenarTabla(lista);
         //llenarTabla(TipoDocDAO.getInstance().listar());
-        jTabbedPane1.setEnabledAt(2, false);
+        TPaneTipoDoc.setEnabledAt(2, false);
     }
 
     public void llenarTabla(List<TipoDoc> lista) {
@@ -37,7 +37,7 @@ public class TSTipoDoc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TPaneTipoDoc = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -65,6 +65,10 @@ public class TSTipoDoc extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabla de Sorporte TIPO DE DOCUMENTO");
+
+        TPaneTipoDoc.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Codigo de Documento:");
 
@@ -129,7 +133,9 @@ public class TSTipoDoc extends javax.swing.JFrame {
                 .addContainerGap(126, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Registrar", jPanel1);
+        TPaneTipoDoc.addTab("Registrar", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1= new javax.swing.JTable()
         {
@@ -217,7 +223,9 @@ public class TSTipoDoc extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Gestionar", jPanel3);
+        TPaneTipoDoc.addTab("Gestionar", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setText("Codigo de Documento:");
 
@@ -276,7 +284,7 @@ public class TSTipoDoc extends javax.swing.JFrame {
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Edición", jPanel4);
+        TPaneTipoDoc.addTab("Edición", jPanel4);
 
         jLabel1.setText("Gestión de Tabla Tipo de Documento");
 
@@ -287,7 +295,7 @@ public class TSTipoDoc extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(TPaneTipoDoc)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -299,7 +307,7 @@ public class TSTipoDoc extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(TPaneTipoDoc))
         );
 
         pack();
@@ -366,8 +374,8 @@ public class TSTipoDoc extends javax.swing.JFrame {
             jTextArea2.setEditable(true);
             jTextField3.setEditable(true);
 
-            jTabbedPane1.setEnabledAt(2, true);
-            jTabbedPane1.setSelectedIndex(2);
+            TPaneTipoDoc.setEnabledAt(2, true);
+            TPaneTipoDoc.setSelectedIndex(2);
 
         } else {
             JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);
@@ -423,8 +431,8 @@ public class TSTipoDoc extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextArea2.setEditable(false);
             jTextField3.setEditable(false);
-            jTabbedPane1.setEnabledAt(2, false);
-            jTabbedPane1.setSelectedIndex(1);
+            TPaneTipoDoc.setEnabledAt(2, false);
+            TPaneTipoDoc.setSelectedIndex(1);
 
             JOptionPane.showMessageDialog(null, "Modificación Exitosa", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -435,6 +443,7 @@ public class TSTipoDoc extends javax.swing.JFrame {
     private List<TipoDoc> lista;
     private TipoDoc obj;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane TPaneTipoDoc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -453,7 +462,6 @@ public class TSTipoDoc extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;

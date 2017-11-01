@@ -37,8 +37,6 @@ public class TSTipoEntreg extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -65,19 +63,13 @@ public class TSTipoEntreg extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabla de Sorporte TIPO DE ENTREGABLE");
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Tipo de Entregable:");
 
@@ -141,6 +133,8 @@ public class TSTipoEntreg extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Registrar", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1 = new javax.swing.JTable()
         {
@@ -229,6 +223,8 @@ public class TSTipoEntreg extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Gestionar", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setText("Tipo de Entregable:");
 
@@ -459,14 +455,12 @@ public class TSTipoEntreg extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
