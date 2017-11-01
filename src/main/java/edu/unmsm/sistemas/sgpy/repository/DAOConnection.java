@@ -2,19 +2,24 @@ package edu.unmsm.sistemas.sgpy.repository;
 
 import edu.unmsm.sistemas.sgpy.constants.BDConstants;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sql.DataSource;
+import oracle.jdbc.pool.OracleDataSource;
 
 public class DAOConnection {
 
-    private final static DAOConnection CONNECTION;
+    private final static DAOConnection CONNECTION = new DAOConnection();
+    private OracleDataSource datasource;
     private Connection miConexion;
 
-    static {
-        CONNECTION = new DAOConnection();
-    }
-
     private DAOConnection() {
-        miConexion = null;
+        try {
+            miConexion = null;
+            datasource = new OracleDataSource();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static DAOConnection getInstance() {
@@ -34,11 +39,12 @@ public class DAOConnection {
     public Connection getConexion() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            //String url = "jdbc:oracle:thin:@localhost:1521:" + database;
-           
-            String url = "jdbc:oracle:thin:@192.168.1.48:1521:" + BDConstants.SID;
-            miConexion = DriverManager.getConnection(url, BDConstants.USER, BDConstants.PASSWORD);
 
+            datasource.setURL(BDConstants.URL);
+            datasource.setUser(BDConstants.USER);
+            datasource.setPassword(BDConstants.PASSWORD);
+            datasource.setLoginTimeout(5000);
+            miConexion = datasource.getConnection();
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Aqui esta el error");
             System.out.println(ex);

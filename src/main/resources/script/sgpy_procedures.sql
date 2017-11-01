@@ -229,3 +229,175 @@ as begin
 end;
 
 ------fin delete procedure
+
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ * Author:  Alexander
+ * Created: 18/10/2017
+ */
+---inicio de procedure listar
+CREATE OR REPLACE PROCEDURE SP_LISTAR_ENTREGABLES(listaentregables out sys_refcursor) 
+AS
+BEGIN
+    OPEN listaentregables FOR SELECT * FROM ENTREGABLES;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_LISTAR_NIVEL(listafase out sys_refcursor) 
+AS
+BEGIN
+    OPEN listafase FOR SELECT * FROM NIVEL;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_LISTAR_FASE(listanivel out sys_refcursor) 
+AS
+BEGIN
+    OPEN listanivel FOR SELECT * FROM FASE;
+END;
+---fin de procedure listar
+
+---inicio de procedure insertar
+CREATE OR REPLACE PROCEDURE SP_INSERTAR_ENTREGABLES(
+    TIPOENTREG NUMBER,
+    CORRENTREG NUMBER,
+    DESENTREG VARCHAR2,
+    DESCORTAENTREG VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO ENTREGABLES 
+    VALUES(
+    TIPOENTREG,
+    CORRENTREG, --Umm no se si usaras una secuencia para el correlativo de entregables, por eso le puse solo el atributo
+    DESENTREG,
+    DESCORTAENTREG
+);
+END;
+---
+CREATE OR REPLACE PROCEDURE SP_INSERTAR_NIVEL(
+    CODFASE NUMBER,
+    CODNIVEL NUMBER,
+    DESNIVEL VARCHAR2,
+    FASE CHAR,  --segÃºn la BD del profe esta como CHAR, revisa como lo manejaste tÃº
+    VIGENTE VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO NIVEL 
+    VALUES(
+    CODFASE,
+    CODNIVEL, 
+    DESNIVEL,
+    FASE,
+    VIGENTE
+);
+END;
+---
+CREATE OR REPLACE PROCEDURE SP_INSERTAR_FASE(
+    CODFASE NUMBER,
+    DESFASE VARCHAR2,
+    VIGENCIA VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO FASE 
+    VALUES(
+    CODFASE,
+    DESFASE, 
+    VIGENCIA);
+END;
+---fin de procedur insertar
+
+---inicio de procedure update
+CREATE OR REPLACE PROCEDURE SP_UPDATE_ENTREGABLES(
+    EN_TIPOENTREG NUMBER,
+    EN_CORRENTREG NUMBER,
+    EN_DESENTREG VARCHAR2,
+    EN_DESCORTAENTREG VARCHAR2
+)
+AS
+BEGIN
+      UPDATE ENTREGABLES set 
+        DESENTREG = EN_DESENTREG,
+        DESCORTAENTREG = EN_DESCORTAENTREG
+       
+      WHERE
+       TIPOENTREG = EN_TIPOENTREG and CORRENTREG = EN_CORRENTREG;
+END;
+---
+CREATE OR REPLACE PROCEDURE SP_UPDATE_NIVEL(
+    NI_CODFASE NUMBER,
+    NI_CODNIVEL NUMBER,
+    NI_DESNIVEL VARCHAR2,
+    NI_FASE CHAR,
+    NI_VIGENTE VARCHAR2
+)
+AS
+BEGIN
+      UPDATE NIVEL set 
+        DESNIVEL = NI_DESNIVEL,
+        FASE = NI_FASE,
+        VIGENTE = NI_VIGENTE
+       
+      WHERE
+       CODFASE = NI_CODFASE and CODNIVEL = NI_CODNIVEL;
+END;
+---
+CREATE OR REPLACE PROCEDURE SP_UPDATE_FASE(
+    FA_CODFASE NUMBER,
+    FA_DESFASE VARCHAR2,
+    FA_VIGENCIA VARCHAR2
+    
+)
+AS
+BEGIN
+      UPDATE FASE set 
+        DESFASE = FA_DESFASE,
+        VIGENCIA = FA_VIGENCIA
+       
+      WHERE
+       CODFASE = FA_CODFASE;
+END;
+---fin de procedure update
+
+---inicio de procedure delete
+CREATE OR REPLACE PROCEDURE SP_DELETE_ENTREGABLES
+(
+    EN_TIPOENTREG NUMBER,
+    EN_CORRENTREG NUMBER
+)
+AS 
+BEGIN
+  DELETE FROM ENTREGABLES
+    WHERE
+      TIPOENTREG = EN_TIPOENTREG AND
+      CORRENTREG = EN_CORRENTREG;
+END;
+---
+CREATE OR REPLACE PROCEDURE SP_DELETE_NIVEL
+(
+    NI_CODFASE NUMBER,
+    NI_CODNIVEL NUMBER
+)
+AS
+BEGIN
+    DELETE FROM NIVEL
+        WHERE
+            CODFASE = NI_CODFASE AND
+            CODNIVEL = NI_CODNIVEL;
+END;
+---
+CREATE OR REPLACE PROCEDURE SP_DELETE_FASE
+(
+    FA_CODFASE NUMBER
+)
+AS
+BEGIN
+    DELETE FROM FASE
+        WHERE
+            CODFASE = FA_CODFASE;
+END;
