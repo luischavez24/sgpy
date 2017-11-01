@@ -52,7 +52,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private Fase objFase;
     private Estado objEstado;
     private Entregables objEntregables;
-    
+
     public FrmPytoDocs() {
         initComponents();
 
@@ -144,160 +144,160 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         panelSoporte = new javax.swing.JPanel();
         TPaneTipoEntreg = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        RegistrarTipoEntreg = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        TipoEntregTextField1 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jPanel3 = new javax.swing.JPanel();
+        TipoEntregTextArea1 = new javax.swing.JTextArea();
+        jLabel21 = new javax.swing.JLabel();
+        TipoEntregTextField2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        GestionarTipoEntreg = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TipoEntregTable = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        EdicionTipoEntreg = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        TipoEntregLabel = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TipoEntregTextArea2 = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        TipoEntregTextField3 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
         TPaneTipoDoc = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        RegistrarTipoDoc = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        TipoDocTextField1 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jPanel5 = new javax.swing.JPanel();
+        TipoDocTextArea1 = new javax.swing.JTextArea();
+        jLabel28 = new javax.swing.JLabel();
+        TipoDocTextField2 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        GestionarTipoDoc = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TipoDocTable = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
+        EdicionTipoDoc = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        TipoDocLabel = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        TipoDocTextArea2 = new javax.swing.JTextArea();
         jLabel31 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        TipoDocTextField3 = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
         TPaneNivel = new javax.swing.JTabbedPane();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
+        RegistrarNivel = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jPanel8 = new javax.swing.JPanel();
+        NivelComboBox1 = new javax.swing.JComboBox<>();
+        jLabel33 = new javax.swing.JLabel();
+        NivelTextField1 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        NivelTextArea1 = new javax.swing.JTextArea();
+        jLabel36 = new javax.swing.JLabel();
+        NivelTextField2 = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        NivelTextField3 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        GestionarNivel = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        NivelTable = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
+        EdicionNivel = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
+        NivelComboBox2 = new javax.swing.JComboBox<>();
         jLabel39 = new javax.swing.JLabel();
+        NivelLabel = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
+        NivelTextArea2 = new javax.swing.JTextArea();
         jLabel41 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        NivelTextField4 = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel43 = new javax.swing.JLabel();
+        NivelTextField5 = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         TPaneFase = new javax.swing.JTabbedPane();
-        jPanel10 = new javax.swing.JPanel();
+        RegistrarFase = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        FaseTextField1 = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jButton13 = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
-        jPanel11 = new javax.swing.JPanel();
+        FaseTextArea1 = new javax.swing.JTextArea();
+        jLabel46 = new javax.swing.JLabel();
+        FaseTextField2 = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
+        GestionarFase = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        FaseTable = new javax.swing.JTable();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
-        jPanel12 = new javax.swing.JPanel();
+        EdicionFase = new javax.swing.JPanel();
         jLabel47 = new javax.swing.JLabel();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
+        FaseLabel = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        FaseTextArea2 = new javax.swing.JTextArea();
         jLabel49 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        FaseTextField3 = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
-        jLabel50 = new javax.swing.JLabel();
         TPaneEstado = new javax.swing.JTabbedPane();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel51 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel52 = new javax.swing.JLabel();
-        jButton17 = new javax.swing.JButton();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
-        jTextField16 = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
+        RegistrarEstado = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jPanel14 = new javax.swing.JPanel();
+        EstadoComboBox1 = new javax.swing.JComboBox<>();
+        jLabel51 = new javax.swing.JLabel();
+        EstadoTextField1 = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        EstadoTextArea1 = new javax.swing.JTextArea();
+        jLabel53 = new javax.swing.JLabel();
+        EstadoTextField2 = new javax.swing.JTextField();
+        jButton17 = new javax.swing.JButton();
+        GestionarEstado = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        EstadoTable = new javax.swing.JTable();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
-        jPanel15 = new javax.swing.JPanel();
+        EdicionEstado = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
+        EstadoComboBox2 = new javax.swing.JComboBox<>();
         jLabel56 = new javax.swing.JLabel();
+        EstadoLabel = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
-        jTextArea10 = new javax.swing.JTextArea();
+        EstadoTextArea2 = new javax.swing.JTextArea();
         jLabel58 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel59 = new javax.swing.JLabel();
+        EstadoTextField3 = new javax.swing.JTextField();
         jButton20 = new javax.swing.JButton();
         TPaneEntregables = new javax.swing.JTabbedPane();
-        jPanel21 = new javax.swing.JPanel();
-        jLabel65 = new javax.swing.JLabel();
-        jButton26 = new javax.swing.JButton();
-        jScrollPane18 = new javax.swing.JScrollPane();
-        jTextArea11 = new javax.swing.JTextArea();
-        jTextField18 = new javax.swing.JTextField();
-        jLabel66 = new javax.swing.JLabel();
+        RegistrarEntregables = new javax.swing.JPanel();
         jLabel67 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jPanel22 = new javax.swing.JPanel();
+        EntregablesComboBox1 = new javax.swing.JComboBox<>();
+        jLabel65 = new javax.swing.JLabel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        EntregablesTextArea1 = new javax.swing.JTextArea();
+        jLabel66 = new javax.swing.JLabel();
+        EntregablesTextField1 = new javax.swing.JTextField();
+        jButton26 = new javax.swing.JButton();
+        GestionarEntregables = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        EntregablesTable = new javax.swing.JTable();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
-        jPanel23 = new javax.swing.JPanel();
+        EdicionEntregables = new javax.swing.JPanel();
         jLabel68 = new javax.swing.JLabel();
+        EntregablesComboBox2 = new javax.swing.JComboBox<>();
         jLabel69 = new javax.swing.JLabel();
         jScrollPane20 = new javax.swing.JScrollPane();
-        jTextArea12 = new javax.swing.JTextArea();
+        EntregablesTextArea2 = new javax.swing.JTextArea();
         jLabel70 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        EntregablesTextField2 = new javax.swing.JTextField();
         jButton29 = new javax.swing.JButton();
 
         btnDetalles.setText("Detalles");
@@ -686,6 +686,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTipoEntregMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTipoEntregMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTipoEntregMouseExited(evt);
+            }
         });
         btnTipoEntreg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -705,6 +711,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTipoDocMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTipoDocMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTipoDocMouseExited(evt);
+            }
         });
         btnTipoDoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -718,6 +730,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         btnNivel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNivelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNivelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNivelMouseExited(evt);
             }
         });
         btnNivel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -733,6 +751,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnFaseMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFaseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFaseMouseExited(evt);
+            }
         });
         btnFase.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -747,6 +771,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEstadoMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEstadoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEstadoMouseExited(evt);
+            }
         });
         btnEstado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -760,6 +790,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         btnEntregables.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEntregablesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEntregablesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEntregablesMouseExited(evt);
             }
         });
         btnEntregables.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -779,17 +815,21 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         TPaneTipoEntreg.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        RegistrarTipoEntreg.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setText("Tipo de Entregable:");
 
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        TipoEntregTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                TipoEntregTextField1KeyPressed(evt);
             }
         });
 
         jLabel20.setText("Descripción del Entregable:");
+
+        TipoEntregTextArea1.setColumns(20);
+        TipoEntregTextArea1.setRows(5);
+        jScrollPane3.setViewportView(TipoEntregTextArea1);
 
         jLabel21.setText("Vigencia:");
 
@@ -800,60 +840,56 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegistrarTipoEntregLayout = new javax.swing.GroupLayout(RegistrarTipoEntreg);
+        RegistrarTipoEntreg.setLayout(RegistrarTipoEntregLayout);
+        RegistrarTipoEntregLayout.setHorizontalGroup(
+            RegistrarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarTipoEntregLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(RegistrarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel20)
                     .addComponent(jLabel4)
                     .addComponent(jLabel21))
                 .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(RegistrarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TipoEntregTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TipoEntregTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        RegistrarTipoEntregLayout.setVerticalGroup(
+            RegistrarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarTipoEntregLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TipoEntregTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RegistrarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TipoEntregTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
-        TPaneTipoEntreg.addTab("Registrar", jPanel1);
+        TPaneTipoEntreg.addTab("Registrar", RegistrarTipoEntreg);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        GestionarTipoEntreg.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1 = new javax.swing.JTable()
+        TipoEntregTable = new javax.swing.JTable()
         {
             public boolean isCellEditable(int rowIndex, int colIndex)
             {
                 return false;
             }
         };
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TipoEntregTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -883,8 +919,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane4.setViewportView(jTable1);
+        TipoEntregTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(TipoEntregTable);
 
         jButton2.setText("Editar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -900,44 +936,44 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout GestionarTipoEntregLayout = new javax.swing.GroupLayout(GestionarTipoEntreg);
+        GestionarTipoEntreg.setLayout(GestionarTipoEntregLayout);
+        GestionarTipoEntregLayout.setHorizontalGroup(
+            GestionarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarTipoEntregLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(GestionarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(GestionarTipoEntregLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        GestionarTipoEntregLayout.setVerticalGroup(
+            GestionarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarTipoEntregLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(GestionarTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton2))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        TPaneTipoEntreg.addTab("Gestionar", jPanel3);
+        TPaneTipoEntreg.addTab("Gestionar", GestionarTipoEntreg);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        EdicionTipoEntreg.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel22.setText("Tipo de Entregable:");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane5.setViewportView(jTextArea2);
-
         jLabel23.setText("Descripción del Entregable:");
+
+        TipoEntregTextArea2.setColumns(20);
+        TipoEntregTextArea2.setRows(5);
+        jScrollPane5.setViewportView(TipoEntregTextArea2);
 
         jLabel24.setText("Vigencia:");
 
@@ -948,61 +984,65 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout EdicionTipoEntregLayout = new javax.swing.GroupLayout(EdicionTipoEntreg);
+        EdicionTipoEntreg.setLayout(EdicionTipoEntregLayout);
+        EdicionTipoEntregLayout.setHorizontalGroup(
+            EdicionTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionTipoEntregLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(EdicionTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel23)
                     .addComponent(jLabel22)
                     .addComponent(jLabel24))
                 .addGap(72, 72, 72)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(EdicionTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4)
-                    .addComponent(jTextField3)
+                    .addComponent(TipoEntregTextField3)
                     .addComponent(jScrollPane5)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TipoEntregLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        EdicionTipoEntregLayout.setVerticalGroup(
+            EdicionTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionTipoEntregLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TipoEntregLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EdicionTipoEntregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TipoEntregTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
                 .addGap(31, 31, 31)
                 .addComponent(jButton4)
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        TPaneTipoEntreg.addTab("Edición", jPanel4);
+        TPaneTipoEntreg.addTab("Edición", EdicionTipoEntreg);
 
         panelSoporte.add(TPaneTipoEntreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 460, 350));
 
         TPaneTipoDoc.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        RegistrarTipoDoc.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel26.setText("Codigo de Documento:");
 
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        TipoDocTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField4KeyPressed(evt);
+                TipoDocTextField1KeyPressed(evt);
             }
         });
 
         jLabel27.setText("Descripción del Tipo de Documento:");
+
+        TipoDocTextArea1.setColumns(20);
+        TipoDocTextArea1.setRows(5);
+        jScrollPane6.setViewportView(TipoDocTextArea1);
 
         jLabel28.setText("Vigente:");
 
@@ -1013,62 +1053,58 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane6.setViewportView(jTextArea3);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegistrarTipoDocLayout = new javax.swing.GroupLayout(RegistrarTipoDoc);
+        RegistrarTipoDoc.setLayout(RegistrarTipoDocLayout);
+        RegistrarTipoDocLayout.setHorizontalGroup(
+            RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarTipoDocLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton5)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegistrarTipoDocLayout.createSequentialGroup()
+                        .addGroup(RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel26)
                             .addComponent(jLabel27)
                             .addComponent(jLabel28))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField4)
+                        .addGroup(RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TipoDocTextField1)
                             .addComponent(jScrollPane6)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TipoDocTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        RegistrarTipoDocLayout.setVerticalGroup(
+            RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarTipoDocLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TipoDocTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RegistrarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TipoDocTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
                 .addGap(27, 27, 27)
                 .addComponent(jButton5)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        TPaneTipoDoc.addTab("Registrar", jPanel2);
+        TPaneTipoDoc.addTab("Registrar", RegistrarTipoDoc);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        GestionarTipoDoc.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1= new javax.swing.JTable()
+        TipoEntregTable= new javax.swing.JTable()
         {
             public boolean isCellEditable(int rowIndex, int colIndex)
             {
                 return false;
             }
         };
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TipoDocTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -1098,8 +1134,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane7.setViewportView(jTable2);
+        TipoDocTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane7.setViewportView(TipoDocTable);
 
         jButton6.setText("Editar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -1115,44 +1151,44 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout GestionarTipoDocLayout = new javax.swing.GroupLayout(GestionarTipoDoc);
+        GestionarTipoDoc.setLayout(GestionarTipoDocLayout);
+        GestionarTipoDocLayout.setHorizontalGroup(
+            GestionarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarTipoDocLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(GestionarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(GestionarTipoDocLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton6)
                         .addGap(18, 18, 18)
                         .addComponent(jButton7)))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        GestionarTipoDocLayout.setVerticalGroup(
+            GestionarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarTipoDocLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(GestionarTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jButton6))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        TPaneTipoDoc.addTab("Gestionar", jPanel5);
+        TPaneTipoDoc.addTab("Gestionar", GestionarTipoDoc);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        EdicionTipoDoc.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel29.setText("Codigo de Documento:");
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane8.setViewportView(jTextArea4);
-
         jLabel30.setText("Descripción del Tipo de Documento:");
+
+        TipoDocTextArea2.setColumns(20);
+        TipoDocTextArea2.setRows(5);
+        jScrollPane8.setViewportView(TipoDocTextArea2);
 
         jLabel31.setText("Vigente:");
 
@@ -1163,63 +1199,71 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout EdicionTipoDocLayout = new javax.swing.GroupLayout(EdicionTipoDoc);
+        EdicionTipoDoc.setLayout(EdicionTipoDocLayout);
+        EdicionTipoDocLayout.setHorizontalGroup(
+            EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionTipoDocLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EdicionTipoDocLayout.createSequentialGroup()
+                        .addGroup(EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel29)
                             .addComponent(jLabel30)
                             .addComponent(jLabel31))
                         .addGap(32, 32, 32)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField6)
+                        .addGroup(EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TipoDocTextField3)
                             .addComponent(jScrollPane8)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TipoDocLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        EdicionTipoDocLayout.setVerticalGroup(
+            EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionTipoDocLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TipoDocLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EdicionTipoDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TipoDocTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31))
                 .addGap(31, 31, 31)
                 .addComponent(jButton8)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        TPaneTipoDoc.addTab("Edición", jPanel6);
+        TPaneTipoDoc.addTab("Edición", EdicionTipoDoc);
 
         panelSoporte.add(TPaneTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 460, 350));
 
         TPaneNivel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        RegistrarNivel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel37.setText("Codigo de Fase:");
 
         jLabel33.setText("Codigo de Nivel:");
 
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+        NivelTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField7KeyPressed(evt);
+                NivelTextField1KeyPressed(evt);
             }
         });
 
         jLabel34.setText("Descripción del Nivel:");
+
+        NivelTextArea1.setColumns(20);
+        NivelTextArea1.setRows(5);
+        jScrollPane9.setViewportView(NivelTextArea1);
+
+        jLabel36.setText("Fase:");
 
         jLabel35.setText("Vigente:");
 
@@ -1230,82 +1274,74 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane9.setViewportView(jTextArea5);
-
-        jLabel36.setText("Fase:");
-
-        jLabel37.setText("Codigo de Fase:");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegistrarNivelLayout = new javax.swing.GroupLayout(RegistrarNivel);
+        RegistrarNivel.setLayout(RegistrarNivelLayout);
+        RegistrarNivelLayout.setHorizontalGroup(
+            RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarNivelLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegistrarNivelLayout.createSequentialGroup()
                         .addComponent(jLabel36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(NivelTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(RegistrarNivelLayout.createSequentialGroup()
                         .addComponent(jLabel35)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(NivelTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton9)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegistrarNivelLayout.createSequentialGroup()
+                        .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel33)
                             .addComponent(jLabel34)
                             .addComponent(jLabel37))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane9)
-                            .addComponent(jTextField7)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(NivelTextField1)
+                            .addComponent(NivelComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        RegistrarNivelLayout.setVerticalGroup(
+            RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarNivelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NivelComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NivelTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel34)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NivelTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel36))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RegistrarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NivelTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35))
                 .addGap(18, 18, 18)
                 .addComponent(jButton9)
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
-        TPaneNivel.addTab("Registrar", jPanel7);
+        TPaneNivel.addTab("Registrar", RegistrarNivel);
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        GestionarNivel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1= new javax.swing.JTable()
+        TipoEntregTable= new javax.swing.JTable()
         {
             public boolean isCellEditable(int rowIndex, int colIndex)
             {
                 return false;
             }
         };
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        NivelTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -1335,8 +1371,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable3.getTableHeader().setReorderingAllowed(false);
-        jScrollPane10.setViewportView(jTable3);
+        NivelTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane10.setViewportView(NivelTable);
 
         jButton10.setText("Editar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -1352,36 +1388,36 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout GestionarNivelLayout = new javax.swing.GroupLayout(GestionarNivel);
+        GestionarNivel.setLayout(GestionarNivelLayout);
+        GestionarNivelLayout.setHorizontalGroup(
+            GestionarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarNivelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(GestionarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGroup(GestionarNivelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton10)
                         .addGap(18, 18, 18)
                         .addComponent(jButton11)))
                 .addContainerGap())
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        GestionarNivelLayout.setVerticalGroup(
+            GestionarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarNivelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(GestionarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton10))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        TPaneNivel.addTab("Gestionar", jPanel8);
+        TPaneNivel.addTab("Gestionar", GestionarNivel);
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        EdicionNivel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel38.setText("Codigo de Fase:");
 
@@ -1389,9 +1425,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         jLabel40.setText("Descripción del Nivel:");
 
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jScrollPane11.setViewportView(jTextArea6);
+        NivelTextArea2.setColumns(20);
+        NivelTextArea2.setRows(5);
+        jScrollPane11.setViewportView(NivelTextArea2);
 
         jLabel41.setText("Fase:");
 
@@ -1404,79 +1440,83 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        javax.swing.GroupLayout EdicionNivelLayout = new javax.swing.GroupLayout(EdicionNivel);
+        EdicionNivel.setLayout(EdicionNivelLayout);
+        EdicionNivelLayout.setHorizontalGroup(
+            EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionNivelLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton12)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addGroup(EdicionNivelLayout.createSequentialGroup()
                         .addComponent(jLabel41)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(NivelTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EdicionNivelLayout.createSequentialGroup()
                         .addComponent(jLabel42)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(NivelTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EdicionNivelLayout.createSequentialGroup()
+                        .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel39)
                             .addComponent(jLabel40)
                             .addComponent(jLabel38))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane11)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(NivelComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(NivelLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        EdicionNivelLayout.setVerticalGroup(
+            EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionNivelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NivelComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NivelLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel40)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NivelTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel41))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EdicionNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NivelTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel42))
                 .addGap(18, 18, 18)
                 .addComponent(jButton12)
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        TPaneNivel.addTab("Edición", jPanel9);
+        TPaneNivel.addTab("Edición", EdicionNivel);
 
         panelSoporte.add(TPaneNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 460, 350));
 
         TPaneFase.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        RegistrarFase.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel44.setText("Codigo de Fase:");
 
-        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
+        FaseTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField12KeyPressed(evt);
+                FaseTextField1KeyPressed(evt);
             }
         });
 
         jLabel45.setText("Descripción de la Fase:");
+
+        FaseTextArea1.setColumns(20);
+        FaseTextArea1.setRows(5);
+        jScrollPane12.setViewportView(FaseTextArea1);
 
         jLabel46.setText("Vigencia:");
 
@@ -1487,60 +1527,56 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jScrollPane12.setViewportView(jTextArea7);
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegistrarFaseLayout = new javax.swing.GroupLayout(RegistrarFase);
+        RegistrarFase.setLayout(RegistrarFaseLayout);
+        RegistrarFaseLayout.setHorizontalGroup(
+            RegistrarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarFaseLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(RegistrarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel45)
                     .addComponent(jLabel44)
                     .addComponent(jLabel46))
                 .addGap(72, 72, 72)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(RegistrarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(FaseTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FaseTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+        RegistrarFaseLayout.setVerticalGroup(
+            RegistrarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarFaseLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FaseTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RegistrarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FaseTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel46))
                 .addGap(18, 18, 18)
                 .addComponent(jButton13)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        TPaneFase.addTab("Registrar", jPanel10);
+        TPaneFase.addTab("Registrar", RegistrarFase);
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        GestionarFase.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1 = new javax.swing.JTable()
+        TipoEntregTable = new javax.swing.JTable()
         {
             public boolean isCellEditable(int rowIndex, int colIndex)
             {
                 return false;
             }
         };
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        FaseTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -1570,8 +1606,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable4.getTableHeader().setReorderingAllowed(false);
-        jScrollPane13.setViewportView(jTable4);
+        FaseTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane13.setViewportView(FaseTable);
 
         jButton14.setText("Editar");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -1587,44 +1623,44 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        javax.swing.GroupLayout GestionarFaseLayout = new javax.swing.GroupLayout(GestionarFase);
+        GestionarFase.setLayout(GestionarFaseLayout);
+        GestionarFaseLayout.setHorizontalGroup(
+            GestionarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarFaseLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(GestionarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGroup(GestionarFaseLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton14)
                         .addGap(18, 18, 18)
                         .addComponent(jButton15)))
                 .addContainerGap())
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        GestionarFaseLayout.setVerticalGroup(
+            GestionarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarFaseLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(GestionarFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15)
                     .addComponent(jButton14))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        TPaneFase.addTab("Gestionar", jPanel11);
+        TPaneFase.addTab("Gestionar", GestionarFase);
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        EdicionFase.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel47.setText("Codigo de Fase:");
 
-        jTextArea8.setColumns(20);
-        jTextArea8.setRows(5);
-        jScrollPane14.setViewportView(jTextArea8);
-
         jLabel48.setText("Descripción de la Fase:");
+
+        FaseTextArea2.setColumns(20);
+        FaseTextArea2.setRows(5);
+        jScrollPane14.setViewportView(FaseTextArea2);
 
         jLabel49.setText("Vigencia:");
 
@@ -1635,61 +1671,69 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+        javax.swing.GroupLayout EdicionFaseLayout = new javax.swing.GroupLayout(EdicionFase);
+        EdicionFase.setLayout(EdicionFaseLayout);
+        EdicionFaseLayout.setHorizontalGroup(
+            EdicionFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EdicionFaseLayout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(EdicionFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel48)
                     .addComponent(jLabel47)
                     .addComponent(jLabel49))
                 .addGap(72, 72, 72)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(EdicionFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton16)
-                    .addComponent(jTextField14)
+                    .addComponent(FaseTextField3)
                     .addComponent(jScrollPane14)
-                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FaseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        EdicionFaseLayout.setVerticalGroup(
+            EdicionFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionFaseLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel47)
-                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FaseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel48)
                     .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EdicionFaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FaseTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel49))
                 .addGap(31, 31, 31)
                 .addComponent(jButton16)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        TPaneFase.addTab("Edición", jPanel12);
+        TPaneFase.addTab("Edición", EdicionFase);
 
         panelSoporte.add(TPaneFase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 460, 350));
 
         TPaneEstado.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        RegistrarEstado.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel54.setText("Codigo de Nivel:");
 
         jLabel51.setText("Estado del Proyecto:");
 
-        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
+        EstadoTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField15KeyPressed(evt);
+                EstadoTextField1KeyPressed(evt);
             }
         });
 
         jLabel52.setText("Descripción del Estado:");
+
+        EstadoTextArea1.setColumns(20);
+        EstadoTextArea1.setRows(5);
+        jScrollPane15.setViewportView(EstadoTextArea1);
+
+        jLabel53.setText("Vigente:");
 
         jButton17.setText("Registrar");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -1698,74 +1742,66 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        jTextArea9.setColumns(20);
-        jTextArea9.setRows(5);
-        jScrollPane15.setViewportView(jTextArea9);
-
-        jLabel53.setText("Vigente:");
-
-        jLabel54.setText("Codigo de Nivel:");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegistrarEstadoLayout = new javax.swing.GroupLayout(RegistrarEstado);
+        RegistrarEstado.setLayout(RegistrarEstadoLayout);
+        RegistrarEstadoLayout.setHorizontalGroup(
+            RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarEstadoLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegistrarEstadoLayout.createSequentialGroup()
                         .addComponent(jLabel53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(EstadoTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton17)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegistrarEstadoLayout.createSequentialGroup()
+                        .addGroup(RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel51)
                             .addComponent(jLabel52)
                             .addComponent(jLabel54))
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane15)
-                            .addComponent(jTextField15)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(EstadoTextField1)
+                            .addComponent(EstadoComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+        RegistrarEstadoLayout.setVerticalGroup(
+            RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarEstadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel54)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EstadoComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EstadoTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel52))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RegistrarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EstadoTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel53))
                 .addGap(18, 18, 18)
                 .addComponent(jButton17)
                 .addGap(33, 33, 33))
         );
 
-        TPaneEstado.addTab("Registrar", jPanel13);
+        TPaneEstado.addTab("Registrar", RegistrarEstado);
 
-        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        GestionarEstado.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1= new javax.swing.JTable()
+        TipoEntregTable= new javax.swing.JTable()
         {
             public boolean isCellEditable(int rowIndex, int colIndex)
             {
                 return false;
             }
         };
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        EstadoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -1795,8 +1831,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable5.getTableHeader().setReorderingAllowed(false);
-        jScrollPane16.setViewportView(jTable5);
+        EstadoTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane16.setViewportView(EstadoTable);
 
         jButton18.setText("Editar");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
@@ -1812,36 +1848,36 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
+        javax.swing.GroupLayout GestionarEstadoLayout = new javax.swing.GroupLayout(GestionarEstado);
+        GestionarEstado.setLayout(GestionarEstadoLayout);
+        GestionarEstadoLayout.setHorizontalGroup(
+            GestionarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarEstadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(GestionarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGroup(GestionarEstadoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton18)
                         .addGap(18, 18, 18)
                         .addComponent(jButton19)))
                 .addContainerGap())
         );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
+        GestionarEstadoLayout.setVerticalGroup(
+            GestionarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarEstadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(GestionarEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton19)
                     .addComponent(jButton18))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        TPaneEstado.addTab("Gestionar", jPanel14);
+        TPaneEstado.addTab("Gestionar", GestionarEstado);
 
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        EdicionEstado.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel55.setText("Codigo de Nivel:");
 
@@ -1849,9 +1885,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         jLabel57.setText("Descripción del Estado:");
 
-        jTextArea10.setColumns(20);
-        jTextArea10.setRows(5);
-        jScrollPane17.setViewportView(jTextArea10);
+        EstadoTextArea2.setColumns(20);
+        EstadoTextArea2.setRows(5);
+        jScrollPane17.setViewportView(EstadoTextArea2);
 
         jLabel58.setText("Vigente:");
 
@@ -1862,63 +1898,71 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+        javax.swing.GroupLayout EdicionEstadoLayout = new javax.swing.GroupLayout(EdicionEstado);
+        EdicionEstado.setLayout(EdicionEstadoLayout);
+        EdicionEstadoLayout.setHorizontalGroup(
+            EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionEstadoLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGroup(EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(EdicionEstadoLayout.createSequentialGroup()
                         .addComponent(jLabel58)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(EstadoTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton20)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(EdicionEstadoLayout.createSequentialGroup()
+                        .addGroup(EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel56)
                             .addComponent(jLabel55)
                             .addComponent(jLabel57))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane17)
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(EstadoComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EstadoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+        EdicionEstadoLayout.setVerticalGroup(
+            EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EdicionEstadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel55)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EstadoComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel56)
-                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EstadoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel57))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EdicionEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EstadoTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel58))
                 .addGap(18, 18, 18)
                 .addComponent(jButton20)
                 .addGap(36, 36, 36))
         );
 
-        TPaneEstado.addTab("Edición", jPanel15);
+        TPaneEstado.addTab("Edición", EdicionEstado);
 
         panelSoporte.add(TPaneEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         TPaneEntregables.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+        RegistrarEntregables.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel67.setText("Tipo de Entregable:");
 
         jLabel65.setText("Descripción del Entregable:");
+
+        EntregablesTextArea1.setColumns(20);
+        EntregablesTextArea1.setRows(5);
+        jScrollPane18.setViewportView(EntregablesTextArea1);
+
+        jLabel66.setText("Descripción Corta del Entregable:");
 
         jButton26.setText("Registrar");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
@@ -1927,68 +1971,60 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        jTextArea11.setColumns(20);
-        jTextArea11.setRows(5);
-        jScrollPane18.setViewportView(jTextArea11);
-
-        jLabel66.setText("Descripción Corta del Entregable:");
-
-        jLabel67.setText("Tipo de Entregable:");
-
-        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-        jPanel21.setLayout(jPanel21Layout);
-        jPanel21Layout.setHorizontalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegistrarEntregablesLayout = new javax.swing.GroupLayout(RegistrarEntregables);
+        RegistrarEntregables.setLayout(RegistrarEntregablesLayout);
+        RegistrarEntregablesLayout.setHorizontalGroup(
+            RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarEntregablesLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel21Layout.createSequentialGroup()
+                .addGroup(RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegistrarEntregablesLayout.createSequentialGroup()
                         .addComponent(jLabel66)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(EntregablesTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton26)
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegistrarEntregablesLayout.createSequentialGroup()
+                        .addGroup(RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel65)
                             .addComponent(jLabel67))
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane18)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(EntregablesComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
-        jPanel21Layout.setVerticalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
+        RegistrarEntregablesLayout.setVerticalGroup(
+            RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarEntregablesLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel67)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EntregablesComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel65))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RegistrarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EntregablesTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel66))
                 .addGap(18, 18, 18)
                 .addComponent(jButton26)
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        TPaneEntregables.addTab("Registrar", jPanel21);
+        TPaneEntregables.addTab("Registrar", RegistrarEntregables);
 
-        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+        GestionarEntregables.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1= new javax.swing.JTable()
+        TipoEntregTable= new javax.swing.JTable()
         {
             public boolean isCellEditable(int rowIndex, int colIndex)
             {
                 return false;
             }
         };
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        EntregablesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2018,8 +2054,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable6.getTableHeader().setReorderingAllowed(false);
-        jScrollPane19.setViewportView(jTable6);
+        EntregablesTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane19.setViewportView(EntregablesTable);
 
         jButton27.setText("Editar");
         jButton27.addActionListener(new java.awt.event.ActionListener() {
@@ -2035,44 +2071,44 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
-        jPanel22.setLayout(jPanel22Layout);
-        jPanel22Layout.setHorizontalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
+        javax.swing.GroupLayout GestionarEntregablesLayout = new javax.swing.GroupLayout(GestionarEntregables);
+        GestionarEntregables.setLayout(GestionarEntregablesLayout);
+        GestionarEntregablesLayout.setHorizontalGroup(
+            GestionarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarEntregablesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(GestionarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                    .addGroup(jPanel22Layout.createSequentialGroup()
+                    .addGroup(GestionarEntregablesLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton27)
                         .addGap(18, 18, 18)
                         .addComponent(jButton28)))
                 .addContainerGap())
         );
-        jPanel22Layout.setVerticalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
+        GestionarEntregablesLayout.setVerticalGroup(
+            GestionarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionarEntregablesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(GestionarEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton28)
                     .addComponent(jButton27))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        TPaneEntregables.addTab("Gestionar", jPanel22);
+        TPaneEntregables.addTab("Gestionar", GestionarEntregables);
 
-        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+        EdicionEntregables.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel68.setText("Tipo de Entregable:");
 
         jLabel69.setText("Descripción del Entregablel:");
 
-        jTextArea12.setColumns(20);
-        jTextArea12.setRows(5);
-        jScrollPane20.setViewportView(jTextArea12);
+        EntregablesTextArea2.setColumns(20);
+        EntregablesTextArea2.setRows(5);
+        jScrollPane20.setViewportView(EntregablesTextArea2);
 
         jLabel70.setText("Descripción corta del Entregable:");
 
@@ -2083,49 +2119,49 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
+        javax.swing.GroupLayout EdicionEntregablesLayout = new javax.swing.GroupLayout(EdicionEntregables);
+        EdicionEntregables.setLayout(EdicionEntregablesLayout);
+        EdicionEntregablesLayout.setHorizontalGroup(
+            EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionEntregablesLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel23Layout.createSequentialGroup()
+                .addGroup(EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(EdicionEntregablesLayout.createSequentialGroup()
                         .addComponent(jLabel70)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(EntregablesTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton29)
-                    .addGroup(jPanel23Layout.createSequentialGroup()
-                        .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(EdicionEntregablesLayout.createSequentialGroup()
+                        .addGroup(EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel68)
                             .addComponent(jLabel69))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane20)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(EntregablesComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
+        EdicionEntregablesLayout.setVerticalGroup(
+            EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EdicionEntregablesLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel68)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EntregablesComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel69))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EdicionEntregablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EntregablesTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel70))
                 .addGap(18, 18, 18)
                 .addComponent(jButton29)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        TPaneEntregables.addTab("Edición", jPanel23);
+        TPaneEntregables.addTab("Edición", EdicionEntregables);
 
         panelSoporte.add(TPaneEntregables, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 460, 350));
 
@@ -2228,7 +2264,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMantenimientoMouseExited
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
- // TODO add your handling code here:
+        // TODO add your handling code here:
         if (rutaDocumento != null) {
             PytoDocs pytoDocs = new PytoDocs();
             pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
@@ -2340,9 +2376,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDetallesActionPerformed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void TipoEntregTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TipoEntregTextField1KeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_TipoEntregTextField1KeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -2350,32 +2386,32 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jTextField1.getText().equals("")) {
+        if (TipoEntregTextField1.getText().equals("")) {
             valido = false;
             mensaje = "El Tipo de Entregable no puede ser vacío";
-        } else if (!Character.isDigit(jTextField1.getText().charAt(0))) {
+        } else if (!Character.isDigit(TipoEntregTextField1.getText().charAt(0))) {
             valido = false;
             mensaje = "El Tipo de Entregable debe ser un digito";
-        } else if (jTextArea1.getText().equals("")) {
+        } else if (TipoEntregTextArea1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Tipo de Entregable no puede ser vacía";
-        } else if (jTextField2.getText().equals("")) {
+        } else if (TipoEntregTextField2.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int tipoEntreg = Integer.parseInt(jTextField1.getText());
-            String desEntreg = jTextArea1.getText();
-            String vigencia = jTextField2.getText();
+            int tipoEntreg = Integer.parseInt(TipoEntregTextField1.getText());
+            String desEntreg = TipoEntregTextArea1.getText();
+            String vigencia = TipoEntregTextField2.getText();
 
             objTipoEntreg = new TipoEntreg(tipoEntreg, desEntreg, vigencia);
 
             TipoEntregDAOImple.getInstance().insertar(objTipoEntreg);
 
-            jTextField1.setText("");
-            jTextArea1.setText("");
-            jTextField2.setText("");
+            TipoEntregTextField1.setText("");
+            TipoEntregTextArea1.setText("");
+            TipoEntregTextField2.setText("");
 
             llenarTablaTipoEntreg(TipoEntregDAOImple.getInstance().listarEntity());
 
@@ -2387,18 +2423,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = TipoEntregTable.getSelectedRow();
         if (fila > -1) {
-            int tipoEntreg = (Integer) jTable1.getValueAt(fila, 1);
-            String desEntreg = String.valueOf(jTable1.getValueAt(fila, 0));
-            String vigencia = String.valueOf(jTable1.getValueAt(fila, 2));
+            int tipoEntreg = (Integer) TipoEntregTable.getValueAt(fila, 1);
+            String desEntreg = String.valueOf(TipoEntregTable.getValueAt(fila, 0));
+            String vigencia = String.valueOf(TipoEntregTable.getValueAt(fila, 2));
 
-            jLabel8.setText(String.valueOf(tipoEntreg));
-            jTextArea2.setText(desEntreg);
-            jTextField3.setText(vigencia);
+            TipoEntregLabel.setText(String.valueOf(tipoEntreg));
+            TipoEntregTextArea2.setText(desEntreg);
+            TipoEntregTextField3.setText(vigencia);
 
-            jTextArea2.setEditable(true);
-            jTextField3.setEditable(true);
+            TipoEntregTextArea2.setEditable(true);
+            TipoEntregTextField3.setEditable(true);
 
             TPaneTipoEntreg.setEnabledAt(2, true);
             TPaneTipoEntreg.setSelectedIndex(2);
@@ -2410,9 +2446,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = TipoEntregTable.getSelectedRow();
         if (fila > -1) {
-            int tipoEntreg = (Integer) jTable1.getValueAt(fila, 1);
+            int tipoEntreg = (Integer) TipoEntregTable.getValueAt(fila, 1);
 
             TipoEntregDAOImple.getInstance().eliminar(tipoEntreg);
 
@@ -2431,18 +2467,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jTextArea2.getText().equals("")) {
+        if (TipoEntregTextArea2.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Tipo de Entregable no puede ser vacía";
-        } else if (jTextField3.getText().equals("")) {
+        } else if (TipoEntregTextField3.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int tipoEntreg = Integer.parseInt(jLabel8.getText());
-            String desEntreg = jTextArea2.getText();
-            String vigencia = jTextField3.getText();
+            int tipoEntreg = Integer.parseInt(TipoEntregLabel.getText());
+            String desEntreg = TipoEntregTextArea2.getText();
+            String vigencia = TipoEntregTextField3.getText();
 
             objTipoEntreg = new TipoEntreg(tipoEntreg, desEntreg, vigencia);
 
@@ -2450,11 +2486,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             llenarTablaTipoEntreg(TipoEntregDAOImple.getInstance().listarEntity());
 
-            jLabel8.setText("");
-            jTextArea2.setText("");
-            jTextField3.setText("");
-            jTextArea2.setEditable(false);
-            jTextField3.setEditable(false);
+            TipoEntregLabel.setText("");
+            TipoEntregTextArea2.setText("");
+            TipoEntregTextField3.setText("");
+            TipoEntregTextArea2.setEditable(false);
+            TipoEntregTextField3.setEditable(false);
             TPaneTipoEntreg.setEnabledAt(2, false);
             TPaneTipoEntreg.setSelectedIndex(1);
 
@@ -2464,9 +2500,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
+    private void TipoDocTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TipoDocTextField1KeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4KeyPressed
+    }//GEN-LAST:event_TipoDocTextField1KeyPressed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -2474,32 +2510,32 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jTextField1.getText().equals("")) {
+        if (TipoDocTextField1.getText().equals("")) {
             valido = false;
             mensaje = "El Codigo de Documento no puede ser vacío";
-        } else if (!Character.isDigit(jTextField1.getText().charAt(0))) {
+        } else if (!Character.isDigit(TipoDocTextField1.getText().charAt(0))) {
             valido = false;
             mensaje = "El Codigo de Documento debe ser dos digitos";
-        } else if (jTextArea1.getText().equals("")) {
+        } else if (TipoDocTextArea1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Tipo de Documento no puede ser vacía";
-        } else if (jTextField2.getText().equals("")) {
+        } else if (TipoDocTextField2.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int tipoDoc = Integer.parseInt(jTextField1.getText());
-            String desTDoc = jTextArea1.getText();
-            String vigente = jTextField2.getText();
+            int tipoDoc = Integer.parseInt(TipoDocTextField1.getText());
+            String desTDoc = TipoDocTextArea1.getText();
+            String vigente = TipoDocTextField2.getText();
 
             objTipoDoc = new TipoDoc(tipoDoc, desTDoc, vigente);
 
             TipoDocDAOImple.getInstance().insertar(objTipoDoc);
 
-            jTextField1.setText("");
-            jTextArea1.setText("");
-            jTextField2.setText("");
+            TipoDocTextField1.setText("");
+            TipoDocTextArea1.setText("");
+            TipoDocTextField2.setText("");
 
             llenarTablaTipoDoc(TipoDocDAOImple.getInstance().listar());
 
@@ -2511,18 +2547,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable2.getSelectedRow();
+        int fila = TipoDocTable.getSelectedRow();
         if (fila > -1) {
-            int tipoDoc = (Integer) jTable2.getValueAt(fila, 0);
-            String desTDoc = String.valueOf(jTable2.getValueAt(fila, 1));
-            String vigente = String.valueOf(jTable2.getValueAt(fila, 2));
+            int tipoDoc = (Integer) TipoDocTable.getValueAt(fila, 0);
+            String desTDoc = String.valueOf(TipoDocTable.getValueAt(fila, 1));
+            String vigente = String.valueOf(TipoDocTable.getValueAt(fila, 2));
 
-            jLabel8.setText(String.valueOf(tipoDoc));
-            jTextArea2.setText(desTDoc);
-            jTextField3.setText(vigente);
+            TipoDocLabel.setText(String.valueOf(tipoDoc));
+            TipoDocTextArea2.setText(desTDoc);
+            TipoDocTextField3.setText(vigente);
 
-            jTextArea2.setEditable(true);
-            jTextField3.setEditable(true);
+            TipoDocTextArea2.setEditable(true);
+            TipoDocTextField3.setEditable(true);
 
             TPaneTipoDoc.setEnabledAt(2, true);
             TPaneTipoDoc.setSelectedIndex(2);
@@ -2534,9 +2570,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = TipoDocTable.getSelectedRow();
         if (fila > -1) {
-            int tipoDoc = (Integer) jTable1.getValueAt(fila, 0);
+            int tipoDoc = (Integer) TipoDocTable.getValueAt(fila, 0);
 
             TipoDocDAOImple.getInstance().eliminar(tipoDoc);
 
@@ -2555,18 +2591,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jTextArea2.getText().equals("")) {
+        if (TipoDocTextArea2.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Tipo de Documento no puede ser vacía";
-        } else if (jTextField3.getText().equals("")) {
+        } else if (TipoDocTextField3.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int tipoDoc = Integer.parseInt(jLabel8.getText());
-            String desTDoc = jTextArea2.getText();
-            String vigente = jTextField3.getText();
+            int tipoDoc = Integer.parseInt(TipoDocLabel.getText());
+            String desTDoc = TipoDocTextArea2.getText();
+            String vigente = TipoDocTextField3.getText();
 
             objTipoDoc = new TipoDoc(tipoDoc, desTDoc, vigente);
 
@@ -2574,11 +2610,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             llenarTablaTipoDoc(TipoDocDAOImple.getInstance().listar());
 
-            jLabel8.setText("");
-            jTextArea2.setText("");
-            jTextField3.setText("");
-            jTextArea2.setEditable(false);
-            jTextField3.setEditable(false);
+            TipoDocLabel.setText("");
+            TipoDocTextArea2.setText("");
+            TipoDocTextField3.setText("");
+            TipoDocTextArea2.setEditable(false);
+            TipoDocTextField3.setEditable(false);
             TPaneTipoDoc.setEnabledAt(2, false);
             TPaneTipoDoc.setSelectedIndex(1);
 
@@ -2588,9 +2624,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
+    private void NivelTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NivelTextField1KeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7KeyPressed
+    }//GEN-LAST:event_NivelTextField1KeyPressed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
@@ -2598,42 +2634,42 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jComboBox1.getSelectedItem().toString().equals("")) {
+        if (NivelComboBox1.getSelectedItem().toString().equals("")) {
             valido = false;
             mensaje = "El Codigo de Fase no puede ser vacío";
-        } else if (jTextField1.getText().equals("")) {
+        } else if (NivelTextField1.getText().equals("")) {
             valido = false;
             mensaje = "El Codigo de Nivel no puede ser vacío";
-        } else if (!Character.isDigit(jTextField1.getText().charAt(0))) {
+        } else if (!Character.isDigit(NivelTextField1.getText().charAt(0))) {
             valido = false;
             mensaje = "El Codigo de Nivel debe ser dos digitos";
-        } else if (jTextArea1.getText().equals("")) {
+        } else if (NivelTextArea1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Nivel no puede ser vacía";
-        } else if (jTextField4.getText().equals("")) {
+        } else if (NivelTextField2.getText().equals("")) {
             valido = false;
             mensaje = "La fase no puede ser vacía";
-        } else if (jTextField2.getText().equals("")) {
+        } else if (NivelTextField3.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int codFase = ((Fase) jComboBox1.getSelectedItem()).getCodFase();
-            int codNivel = Integer.parseInt(jTextField1.getText());
-            String desNivel = jTextArea1.getText();
-            String fase = jTextField4.getText();
-            String vigente = jTextField2.getText();
+            int codFase = ((Fase) NivelComboBox1.getSelectedItem()).getCodFase();
+            int codNivel = Integer.parseInt(NivelTextField1.getText());
+            String desNivel = NivelTextArea1.getText();
+            String fase = NivelTextField2.getText();
+            String vigente = NivelTextField3.getText();
 
             objNivel = new Nivel(codFase, codNivel, desNivel, fase, vigente);
 
             NivelDAOImple.getInstance().insertar(objNivel);
 
-            jComboBox1.setSelectedIndex(-1);
-            jTextField1.setText("");
-            jTextArea1.setText("");
-            jTextField2.setText("");
-            jTextField4.setText("");
+            NivelComboBox1.setSelectedIndex(-1);
+            NivelTextField1.setText("");
+            NivelTextArea1.setText("");
+            NivelTextField2.setText("");
+            NivelTextField3.setText("");
 
             llenarTablaNivel(NivelDAOImple.getInstance().listar());
 
@@ -2645,24 +2681,24 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = NivelTable.getSelectedRow();
         if (fila > -1) {
-            int codFase = (Integer) jTable1.getValueAt(fila, 0);
-            int codNivel = (Integer) jTable1.getValueAt(fila, 1);
-            String desNivel = String.valueOf(jTable1.getValueAt(fila, 2));
-            String fase = String.valueOf(jTable1.getValueAt(fila, 3));
-            String vigente = String.valueOf(jTable1.getValueAt(fila, 4));
+            int codFase = (Integer) NivelTable.getValueAt(fila, 0);
+            int codNivel = (Integer) NivelTable.getValueAt(fila, 1);
+            String desNivel = String.valueOf(NivelTable.getValueAt(fila, 2));
+            String fase = String.valueOf(NivelTable.getValueAt(fila, 3));
+            String vigente = String.valueOf(NivelTable.getValueAt(fila, 4));
 
-            jComboBox2.setSelectedItem(-1);
-            jLabel16.setText(String.valueOf(codNivel));
-            jTextArea3.setText(desNivel);
-            jTextField5.setText(fase);
-            jTextField6.setText(vigente);
+            NivelComboBox2.setSelectedItem(-1);
+            NivelLabel.setText(String.valueOf(codNivel));
+            NivelTextArea2.setText(desNivel);
+            NivelTextField4.setText(fase);
+            NivelTextField5.setText(vigente);
 
-            jComboBox2.setEnabled(true);
-            jTextArea3.setEditable(true);
-            jTextField5.setEditable(true);
-            jTextField6.setEditable(true);
+            NivelComboBox2.setEnabled(true);
+            NivelTextArea2.setEditable(true);
+            NivelTextField4.setEditable(true);
+            NivelTextField5.setEditable(true);
 
             TPaneNivel.setEnabledAt(2, true);
             TPaneNivel.setSelectedIndex(2);
@@ -2674,13 +2710,13 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = NivelTable.getSelectedRow();
         if (fila > -1) {
-            int codFase = (Integer) jTable1.getValueAt(fila, 0);
-            int codNivel = (Integer) jTable1.getValueAt(fila, 1);
+            int codFase = (Integer) NivelTable.getValueAt(fila, 0);
+            int codNivel = (Integer) NivelTable.getValueAt(fila, 1);
 
             //eliminar obj
-            NivelDAOImple.getInstance().eliminar(codFase,codNivel);
+            NivelDAOImple.getInstance().eliminar(codFase, codNivel);
 
             llenarTablaNivel(NivelDAOImple.getInstance().listar());
 
@@ -2696,26 +2732,26 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jComboBox2.getSelectedItem().toString().equals("")) {
+        if (NivelComboBox2.getSelectedItem().toString().equals("")) {
             valido = false;
             mensaje = "El Codigo de Fase no puede ser vacío";
-        } else if (jTextArea3.getText().equals("")) {
+        } else if (NivelTextArea2.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Nivel no puede ser vacía";
-        } else if (jTextField5.getText().equals("")) {
+        } else if (NivelTextField4.getText().equals("")) {
             valido = false;
             mensaje = "La fase no puede ser vacía";
-        } else if (jTextField6.getText().equals("")) {
+        } else if (NivelTextField5.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int codFase = ((Fase) jComboBox2.getSelectedItem()).getCodFase();
-            int codNivel = Integer.parseInt(jLabel16.getText());
-            String desNivel = jTextArea3.getText();
-            String fase = jTextField5.getText();
-            String vigente = jTextField6.getText();
+            int codFase = ((Fase) NivelComboBox2.getSelectedItem()).getCodFase();
+            int codNivel = Integer.parseInt(NivelLabel.getText());
+            String desNivel = NivelTextArea2.getText();
+            String fase = NivelTextField4.getText();
+            String vigente = NivelTextField5.getText();
 
             objNivel = new Nivel(codFase, codNivel, desNivel, fase, vigente);
 
@@ -2723,15 +2759,15 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             llenarTablaNivel(NivelDAOImple.getInstance().listar());
 
-            jComboBox2.setSelectedIndex(-1);
-            jLabel16.setText("");
-            jTextArea3.setText("");
-            jTextField5.setText("");
-            jTextField6.setText("");
-            jComboBox2.setEnabled(false);
-            jTextArea3.setEditable(false);
-            jTextField5.setEditable(false);
-            jTextField6.setEditable(false);
+            NivelComboBox2.setSelectedIndex(-1);
+            NivelLabel.setText("");
+            NivelTextArea2.setText("");
+            NivelTextField4.setText("");
+            NivelTextField5.setText("");
+            NivelComboBox2.setEnabled(false);
+            NivelTextArea2.setEditable(false);
+            NivelTextField4.setEditable(false);
+            NivelTextField5.setEditable(false);
             TPaneNivel.setEnabledAt(2, false);
             TPaneNivel.setSelectedIndex(1);
 
@@ -2741,9 +2777,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jTextField12KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyPressed
+    private void FaseTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FaseTextField1KeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12KeyPressed
+    }//GEN-LAST:event_FaseTextField1KeyPressed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
@@ -2751,32 +2787,32 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jTextField1.getText().equals("")) {
+        if (FaseTextField1.getText().equals("")) {
             valido = false;
             mensaje = "El Codigo de Fase no puede ser vacío";
-        } else if (!Character.isDigit(jTextField1.getText().charAt(0))) {
+        } else if (!Character.isDigit(FaseTextField1.getText().charAt(0))) {
             valido = false;
             mensaje = "El Codigo de Documento debe ser 1 digito";
-        } else if (jTextArea1.getText().equals("")) {
+        } else if (FaseTextArea1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion de la Fase no puede ser vacía";
-        } else if (jTextField2.getText().equals("")) {
+        } else if (FaseTextField2.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int codFase = Integer.parseInt(jTextField1.getText());
-            String desFase = jTextArea1.getText();
-            String vigencia = jTextField2.getText();
+            int codFase = Integer.parseInt(FaseTextField1.getText());
+            String desFase = FaseTextArea1.getText();
+            String vigencia = FaseTextField2.getText();
 
             objFase = new Fase(codFase, desFase, vigencia);
 
             FaseDAOImple.getInstance().insertar(objFase);
 
-            jTextField1.setText("");
-            jTextArea1.setText("");
-            jTextField2.setText("");
+            FaseTextField1.setText("");
+            FaseTextArea1.setText("");
+            FaseTextField2.setText("");
 
             llenarTablaFase(FaseDAOImple.getInstance().listar());
 
@@ -2788,18 +2824,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = FaseTable.getSelectedRow();
         if (fila > -1) {
-            int codFase = (Integer) jTable1.getValueAt(fila, 0);
-            String desFase = String.valueOf(jTable1.getValueAt(fila, 1));
-            String vigencia = String.valueOf(jTable1.getValueAt(fila, 2));
+            int codFase = (Integer) FaseTable.getValueAt(fila, 0);
+            String desFase = String.valueOf(FaseTable.getValueAt(fila, 1));
+            String vigencia = String.valueOf(FaseTable.getValueAt(fila, 2));
 
-            jLabel8.setText(String.valueOf(codFase));
-            jTextArea2.setText(desFase);
-            jTextField3.setText(vigencia);
+            FaseLabel.setText(String.valueOf(codFase));
+            FaseTextArea2.setText(desFase);
+            FaseTextField3.setText(vigencia);
 
-            jTextArea2.setEditable(true);
-            jTextField3.setEditable(true);
+            FaseTextArea2.setEditable(true);
+            FaseTextField3.setEditable(true);
 
             TPaneFase.setEnabledAt(2, true);
             TPaneFase.setSelectedIndex(2);
@@ -2811,9 +2847,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = FaseTable.getSelectedRow();
         if (fila > -1) {
-            int codFase = (Integer) jTable1.getValueAt(fila, 0);
+            int codFase = (Integer) FaseTable.getValueAt(fila, 0);
 
             FaseDAOImple.getInstance().eliminar(codFase);
 
@@ -2832,18 +2868,18 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jTextArea2.getText().equals("")) {
+        if (FaseTextArea2.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion de la Fase no puede ser vacía";
-        } else if (jTextField3.getText().equals("")) {
+        } else if (FaseTextField3.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int codFase = Integer.parseInt(jLabel8.getText());
-            String desFase = jTextArea2.getText();
-            String vigencia = jTextField3.getText();
+            int codFase = Integer.parseInt(FaseLabel.getText());
+            String desFase = FaseTextArea2.getText();
+            String vigencia = FaseTextField3.getText();
 
             objFase = new Fase(codFase, desFase, vigencia);
 
@@ -2851,11 +2887,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             llenarTablaFase(FaseDAOImple.getInstance().listar());
 
-            jLabel8.setText("");
-            jTextArea2.setText("");
-            jTextField3.setText("");
-            jTextArea2.setEditable(false);
-            jTextField3.setEditable(false);
+            FaseLabel.setText("");
+            FaseTextArea2.setText("");
+            FaseTextField3.setText("");
+            FaseTextArea2.setEditable(false);
+            FaseTextField3.setEditable(false);
             TPaneFase.setEnabledAt(2, false);
             TPaneFase.setSelectedIndex(1);
 
@@ -2865,47 +2901,47 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jTextField15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyPressed
+    private void EstadoTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EstadoTextField1KeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15KeyPressed
+    }//GEN-LAST:event_EstadoTextField1KeyPressed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
         boolean valido = true;
         String mensaje = "";
 
-        if (jComboBox1.getSelectedItem().toString().equals("")) {
+        if (EstadoComboBox1.getSelectedItem().toString().equals("")) {
             valido = false;
             mensaje = "El Codigo de Nivel no puede ser vacío";
-        } else if (jTextField1.getText().equals("")) {
+        } else if (EstadoTextField1.getText().equals("")) {
             valido = false;
             mensaje = "El Estado del Proyecto no puede ser vacío";
-        } else if (!Character.isDigit(jTextField1.getText().charAt(0))) {
+        } else if (!Character.isDigit(EstadoTextField1.getText().charAt(0))) {
             valido = false;
             mensaje = "El Estado del Proyecto debe ser dos digitos";
-        } else if (jTextArea1.getText().equals("")) {
+        } else if (EstadoTextArea1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Estado no puede ser vacía";
-        } else if (jTextField4.getText().equals("")) {
+        } else if (EstadoTextField2.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int codFase = ((Nivel) jComboBox1.getSelectedItem()).getCodFase();
-            int codNivel = ((Nivel) jComboBox1.getSelectedItem()).getCodNivel();
-            int estPyto = Integer.parseInt(jTextField1.getText());
-            String desEstado = jTextArea1.getText();
-            String vigente = jTextField4.getText();
+            int codFase = ((Nivel) EstadoComboBox1.getSelectedItem()).getCodFase();
+            int codNivel = ((Nivel) EstadoComboBox1.getSelectedItem()).getCodNivel();
+            int estPyto = Integer.parseInt(EstadoTextField1.getText());
+            String desEstado = EstadoTextArea1.getText();
+            String vigente = EstadoTextField2.getText();
 
             objEstado = new Estado(codFase, codNivel, estPyto, desEstado, vigente);
 
             EstadoDAOImple.getInstance().insertar(objEstado);
 
-            jComboBox1.setSelectedIndex(-1);
-            jTextField1.setText("");
-            jTextArea1.setText("");
-            jTextField4.setText("");
+            EstadoComboBox1.setSelectedIndex(-1);
+            EstadoTextField1.setText("");
+            EstadoTextArea1.setText("");
+            EstadoTextField2.setText("");
 
             llenarTablaEstado(EstadoDAOImple.getInstance().listarEntity());
 
@@ -2917,22 +2953,22 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = EstadoTable.getSelectedRow();
         if (fila > -1) {
-            int codFase = (Integer) jTable1.getValueAt(fila, 0);
-            int codNivel = (Integer) jTable1.getValueAt(fila, 1);
-            int estPyto = (Integer) jTable1.getValueAt(fila, 3);
-            String desEstado = String.valueOf(jTable1.getValueAt(fila, 2));
-            String vigente = String.valueOf(jTable1.getValueAt(fila, 4));
+            int codFase = (Integer) EstadoTable.getValueAt(fila, 0);
+            int codNivel = (Integer) EstadoTable.getValueAt(fila, 1);
+            int estPyto = (Integer) EstadoTable.getValueAt(fila, 3);
+            String desEstado = String.valueOf(EstadoTable.getValueAt(fila, 2));
+            String vigente = String.valueOf(EstadoTable.getValueAt(fila, 4));
 
-            jComboBox2.setSelectedItem(-1);
-            jLabel16.setText(String.valueOf(estPyto));
-            jTextArea3.setText(desEstado);
-            jTextField5.setText(vigente);
+            EstadoComboBox2.setSelectedItem(-1);
+            EstadoLabel.setText(String.valueOf(estPyto));
+            EstadoTextArea2.setText(desEstado);
+            EstadoTextField3.setText(vigente);
 
-            jComboBox2.setEnabled(true);
-            jTextArea3.setEditable(true);
-            jTextField5.setEditable(true);
+            EstadoComboBox2.setEnabled(true);
+            EstadoTextArea2.setEditable(true);
+            EstadoTextField3.setEditable(true);
 
             TPaneEstado.setEnabledAt(2, true);
             TPaneEstado.setSelectedIndex(2);
@@ -2944,11 +2980,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = EstadoTable.getSelectedRow();
         if (fila > -1) {
-            int codFase = (Integer) jTable1.getValueAt(fila, 0);
-            int codNivel = (Integer) jTable1.getValueAt(fila, 1);
-            int estPyto = (Integer) jTable1.getValueAt(fila, 3);
+            int codFase = (Integer) EstadoTable.getValueAt(fila, 0);
+            int codNivel = (Integer) EstadoTable.getValueAt(fila, 1);
+            int estPyto = (Integer) EstadoTable.getValueAt(fila, 3);
 
             EstadoDAOImple.getInstance().eliminar(codFase, codNivel, estPyto);
 
@@ -2966,23 +3002,23 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jComboBox2.getSelectedItem().toString().equals("")) {
+        if (EstadoComboBox2.getSelectedItem().toString().equals("")) {
             valido = false;
             mensaje = "El Codigo de Nivel no puede ser vacío";
-        } else if (jTextArea3.getText().equals("")) {
+        } else if (EstadoTextArea2.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Estado no puede ser vacía";
-        } else if (jTextField5.getText().equals("")) {
+        } else if (EstadoTextField3.getText().equals("")) {
             valido = false;
             mensaje = "La Vigencia no puede ser vacía";
         }
 
         if (valido) {
-            int codFase = ((Nivel) jComboBox2.getSelectedItem()).getCodFase();
-            int codNivel = ((Nivel) jComboBox2.getSelectedItem()).getCodNivel();
-            int estPyto = Integer.parseInt(jLabel16.getText());
-            String desEstado = jTextArea3.getText();
-            String vigente = jTextField5.getText();
+            int codFase = ((Nivel) EstadoComboBox2.getSelectedItem()).getCodFase();
+            int codNivel = ((Nivel) EstadoComboBox2.getSelectedItem()).getCodNivel();
+            int estPyto = Integer.parseInt(EstadoLabel.getText());
+            String desEstado = EstadoTextArea2.getText();
+            String vigente = EstadoTextField3.getText();
 
             objEstado = new Estado(codFase, codNivel, estPyto, desEstado, vigente);
 
@@ -2990,13 +3026,13 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             llenarTablaEstado(EstadoDAOImple.getInstance().listarEntity());
 
-            jComboBox2.setSelectedIndex(-1);
-            jLabel16.setText("");
-            jTextArea3.setText("");
-            jTextField5.setText("");
-            jComboBox2.setEnabled(false);
-            jTextArea3.setEditable(false);
-            jTextField5.setEditable(false);
+            EstadoComboBox2.setSelectedIndex(-1);
+            EstadoLabel.setText("");
+            EstadoTextArea2.setText("");
+            EstadoTextField3.setText("");
+            EstadoComboBox2.setEnabled(false);
+            EstadoTextArea2.setEditable(false);
+            EstadoTextField3.setEditable(false);
             TPaneEstado.setEnabledAt(2, false);
             TPaneEstado.setSelectedIndex(1);
 
@@ -3011,29 +3047,29 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jComboBox1.getSelectedItem().toString().equals("")) {
+        if (EntregablesComboBox1.getSelectedItem().toString().equals("")) {
             valido = false;
             mensaje = "El Tipo de Entregable no puede ser vacío";
-        } else if (jTextArea1.getText().equals("")) {
+        } else if (EntregablesTextArea1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Entregable no puede ser vacía";
-        } else if (jTextField4.getText().equals("")) {
+        } else if (EntregablesTextField1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion corta del Entregable no puede ser vacía";
         }
 
         if (valido) {
-            int tipoEntreg = ((Nivel) jComboBox1.getSelectedItem()).getCodFase();
-            String desEntreg = jTextArea1.getText();
-            String desCortaEntreg = jTextField4.getText();
+            int tipoEntreg = ((Nivel) EntregablesComboBox1.getSelectedItem()).getCodFase();
+            String desEntreg = EntregablesTextArea1.getText();
+            String desCortaEntreg = EntregablesTextField1.getText();
 
             objEntregables = new Entregables(tipoEntreg, 0, desEntreg, desCortaEntreg);
 
             EntregablesDAOImple.getInstance().insertar(objEntregables);
 
-            jComboBox1.setSelectedIndex(-1);
-            jTextArea1.setText("");
-            jTextField4.setText("");
+            EntregablesComboBox1.setSelectedIndex(-1);
+            EntregablesTextArea1.setText("");
+            EntregablesTextField1.setText("");
 
             llenarTablaEntregables(EntregablesDAOImple.getInstance().listar());
 
@@ -3045,20 +3081,20 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = EntregablesTable.getSelectedRow();
         if (fila > -1) {
-            int tipoEntreg = (Integer) jTable1.getValueAt(fila, 3);
-            int corrEntreg = (Integer) jTable1.getValueAt(fila, 0);
-            String desEntreg = String.valueOf(jTable1.getValueAt(fila, 2));
-            String desCortaEntreg = String.valueOf(jTable1.getValueAt(fila, 1));
+            int tipoEntreg = (Integer) EntregablesTable.getValueAt(fila, 3);
+            int corrEntreg = (Integer) EntregablesTable.getValueAt(fila, 0);
+            String desEntreg = String.valueOf(EntregablesTable.getValueAt(fila, 2));
+            String desCortaEntreg = String.valueOf(EntregablesTable.getValueAt(fila, 1));
 
-            jComboBox2.setSelectedItem(-1);
-            jTextArea3.setText(desEntreg);
-            jTextField5.setText(desCortaEntreg);
+            EntregablesComboBox2.setSelectedItem(-1);
+            EntregablesTextArea2.setText(desEntreg);
+            EntregablesTextField2.setText(desCortaEntreg);
 
-            jComboBox2.setEnabled(true);
-            jTextArea3.setEditable(true);
-            jTextField5.setEditable(true);
+            EntregablesComboBox2.setEnabled(true);
+            EntregablesTextArea2.setEditable(true);
+            EntregablesTextField2.setEditable(true);
 
             TPaneEntregables.setEnabledAt(2, true);
             TPaneEntregables.setSelectedIndex(2);
@@ -3070,12 +3106,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
-        int fila = jTable1.getSelectedRow();
+        int fila = EntregablesTable.getSelectedRow();
         if (fila > -1) {
-            int tipoEntreg = (Integer) jTable1.getValueAt(fila, 3);
-            int corrEntreg = (Integer) jTable1.getValueAt(fila, 0);
+            int tipoEntreg = (Integer) EntregablesTable.getValueAt(fila, 3);
+            int corrEntreg = (Integer) EntregablesTable.getValueAt(fila, 0);
 
-            EntregablesDAOImple.getInstance().eliminar(tipoEntreg,corrEntreg);
+            EntregablesDAOImple.getInstance().eliminar(tipoEntreg, corrEntreg);
 
             llenarTablaEntregables(EntregablesDAOImple.getInstance().listar());
 
@@ -3092,21 +3128,21 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         boolean valido = true;
         String mensaje = "";
 
-        if (jComboBox2.getSelectedItem().toString().equals("")) {
+        if (EntregablesComboBox2.getSelectedItem().toString().equals("")) {
             valido = false;
             mensaje = "El Tipo de Entregable no puede ser vacío";
-        } else if (jTextArea3.getText().equals("")) {
+        } else if (EntregablesTextArea2.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Entregable no puede ser vacía";
-        } else if (jTextField5.getText().equals("")) {
+        } else if (EntregablesTextField2.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion corta del Entregable no puede ser vacía";
         }
 
         if (valido) {
-            int tipoEntreg = ((Nivel) jComboBox2.getSelectedItem()).getCodFase();
-            String desEntreg = jTextArea3.getText();
-            String desCortaEntreg = jTextField5.getText();
+            int tipoEntreg = ((Nivel) EntregablesComboBox2.getSelectedItem()).getCodFase();
+            String desEntreg = EntregablesTextArea2.getText();
+            String desCortaEntreg = EntregablesTextField2.getText();
 
             objEntregables = new Entregables(tipoEntreg, 0, desEntreg, desCortaEntreg);
 
@@ -3114,12 +3150,12 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             llenarTablaEntregables(EntregablesDAOImple.getInstance().listar());
 
-            jComboBox2.setSelectedIndex(-1);
-            jTextArea3.setText("");
-            jTextField5.setText("");
-            jComboBox2.setEnabled(false);
-            jTextArea3.setEditable(false);
-            jTextField5.setEditable(false);
+            EntregablesComboBox2.setSelectedIndex(-1);
+            EntregablesTextArea2.setText("");
+            EntregablesTextField2.setText("");
+            EntregablesComboBox2.setEnabled(false);
+            EntregablesTextArea2.setEditable(false);
+            EntregablesTextField2.setEditable(false);
             TPaneEntregables.setEnabledAt(2, false);
             TPaneEntregables.setSelectedIndex(1);
 
@@ -3133,6 +3169,66 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel13MouseClicked
 
+    private void btnTipoEntregMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTipoEntregMouseEntered
+        // TODO add your handling code here:
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(204, 204, 255));
+    }//GEN-LAST:event_btnTipoEntregMouseEntered
+
+    private void btnTipoEntregMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTipoEntregMouseExited
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_btnTipoEntregMouseExited
+
+    private void btnTipoDocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTipoDocMouseEntered
+        // TODO add your handling code here:
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(204, 204, 255));
+    }//GEN-LAST:event_btnTipoDocMouseEntered
+
+    private void btnTipoDocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTipoDocMouseExited
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_btnTipoDocMouseExited
+
+    private void btnNivelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNivelMouseEntered
+        // TODO add your handling code here:
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(204, 204, 255));
+    }//GEN-LAST:event_btnNivelMouseEntered
+
+    private void btnNivelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNivelMouseExited
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_btnNivelMouseExited
+
+    private void btnFaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFaseMouseEntered
+        // TODO add your handling code here:
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(204, 204, 255));
+    }//GEN-LAST:event_btnFaseMouseEntered
+
+    private void btnFaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFaseMouseExited
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_btnFaseMouseExited
+
+    private void btnEstadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadoMouseExited
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_btnEstadoMouseExited
+
+    private void btnEstadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadoMouseEntered
+        // TODO add your handling code here:
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(204, 204, 255));
+    }//GEN-LAST:event_btnEstadoMouseEntered
+
+    private void btnEntregablesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntregablesMouseEntered
+        // TODO add your handling code here:
+        hoverOn((JPanel) evt.getSource(), new java.awt.Color(204, 204, 255));
+    }//GEN-LAST:event_btnEntregablesMouseEntered
+
+    private void btnEntregablesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntregablesMouseExited
+        // TODO add your handling code here:
+        hoverOff((JPanel) evt.getSource(), new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_btnEntregablesMouseExited
+    
     private void hoverOn(JPanel boton, Color color) {
         boton.setBackground(color);
     }
@@ -3153,29 +3249,29 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         TableModel modeloTabla = TableModelCreator.createTableModel(PytoDocsView.class, listaDocs);
         tablaDocs.setModel(modeloTabla);
     }
-    
+
     public void llenarTablaTipoEntreg(List<TipoEntreg> lista) {
-        jTable1.setModel(TableModelCreator.createTableModel(TipoEntreg.class, lista));
+        TipoEntregTable.setModel(TableModelCreator.createTableModel(TipoEntreg.class, lista));
     }
-    
+
     public void llenarTablaTipoDoc(List<TipoDoc> lista) {
-        jTable2.setModel(TableModelCreator.createTableModel(TipoDoc.class, lista));
+        TipoDocTable.setModel(TableModelCreator.createTableModel(TipoDoc.class, lista));
     }
-    
+
     public void llenarTablaNivel(List<Nivel> lista) {
-        jTable3.setModel(TableModelCreator.createTableModel(Nivel.class, lista));
+        NivelTable.setModel(TableModelCreator.createTableModel(Nivel.class, lista));
     }
-    
+
     public void llenarTablaFase(List<Fase> lista) {
-        jTable4.setModel(TableModelCreator.createTableModel(Fase.class, lista));
+        FaseTable.setModel(TableModelCreator.createTableModel(Fase.class, lista));
     }
-    
+
     public void llenarTablaEstado(List<Estado> lista) {
-        jTable5.setModel(TableModelCreator.createTableModel(Estado.class, lista));
+        EstadoTable.setModel(TableModelCreator.createTableModel(Estado.class, lista));
     }
-    
-    public void llenarTablaEntregables (List<Entregables > lista) {
-        jTable6.setModel(TableModelCreator.createTableModel(Entregables .class, lista));
+
+    public void llenarTablaEntregables(List<Entregables> lista) {
+        EntregablesTable.setModel(TableModelCreator.createTableModel(Entregables.class, lista));
     }
 
     private void llenarCombos() {
@@ -3183,22 +3279,21 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         EntregablesDAOImple.getInstance().listar().forEach((Entregables item) -> cmbTEntregable.addItem(item));
         TipoDocDAOImple.getInstance().listar().forEach((item) -> cmbTDoc.addItem(item));
     }
-    
+
     private void llenarComboNivel() {
-        FaseDAOImple.getInstance().listar().forEach((item) -> jComboBox1.addItem(item));
-        FaseDAOImple.getInstance().listar().forEach((item) -> jComboBox2.addItem(item));
-    }
-    
-    private void llenarComboEstado() {
-        NivelDAOImple.getInstance().listar().forEach((item) -> jComboBox3.addItem(item));
-        NivelDAOImple.getInstance().listar().forEach((item) -> jComboBox4.addItem(item));
-    }
-    
-    public void llenarComboEntregables() {
-        TipoEntregDAOImple.getInstance().listarEntity().forEach((item) -> jComboBox5.addItem(item));
-        TipoEntregDAOImple.getInstance().listarEntity().forEach((item) -> jComboBox6.addItem(item));
+        FaseDAOImple.getInstance().listar().forEach((item) -> NivelComboBox1.addItem(item));
+        FaseDAOImple.getInstance().listar().forEach((item) -> NivelComboBox2.addItem(item));
     }
 
+    private void llenarComboEstado() {
+        NivelDAOImple.getInstance().listar().forEach((item) -> EstadoComboBox1.addItem(item));
+        NivelDAOImple.getInstance().listar().forEach((item) -> EstadoComboBox2.addItem(item));
+    }
+
+    public void llenarComboEntregables() {
+        TipoEntregDAOImple.getInstance().listarEntity().forEach((item) -> EntregablesComboBox1.addItem(item));
+        TipoEntregDAOImple.getInstance().listarEntity().forEach((item) -> EntregablesComboBox2.addItem(item));
+    }
 
     private void resetCombos() {
         cmbEstado.removeAllItems();
@@ -3207,12 +3302,78 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel EdicionEntregables;
+    private javax.swing.JPanel EdicionEstado;
+    private javax.swing.JPanel EdicionFase;
+    private javax.swing.JPanel EdicionNivel;
+    private javax.swing.JPanel EdicionTipoDoc;
+    private javax.swing.JPanel EdicionTipoEntreg;
+    private javax.swing.JComboBox<TipoEntreg> EntregablesComboBox1;
+    private javax.swing.JComboBox<TipoEntreg> EntregablesComboBox2;
+    private javax.swing.JTable EntregablesTable;
+    private javax.swing.JTextArea EntregablesTextArea1;
+    private javax.swing.JTextArea EntregablesTextArea2;
+    private javax.swing.JTextField EntregablesTextField1;
+    private javax.swing.JTextField EntregablesTextField2;
+    private javax.swing.JComboBox<Nivel> EstadoComboBox1;
+    private javax.swing.JComboBox<Nivel> EstadoComboBox2;
+    private javax.swing.JLabel EstadoLabel;
+    private javax.swing.JTable EstadoTable;
+    private javax.swing.JTextArea EstadoTextArea1;
+    private javax.swing.JTextArea EstadoTextArea2;
+    private javax.swing.JTextField EstadoTextField1;
+    private javax.swing.JTextField EstadoTextField2;
+    private javax.swing.JTextField EstadoTextField3;
+    private javax.swing.JLabel FaseLabel;
+    private javax.swing.JTable FaseTable;
+    private javax.swing.JTextArea FaseTextArea1;
+    private javax.swing.JTextArea FaseTextArea2;
+    private javax.swing.JTextField FaseTextField1;
+    private javax.swing.JTextField FaseTextField2;
+    private javax.swing.JTextField FaseTextField3;
+    private javax.swing.JPanel GestionarEntregables;
+    private javax.swing.JPanel GestionarEstado;
+    private javax.swing.JPanel GestionarFase;
+    private javax.swing.JPanel GestionarNivel;
+    private javax.swing.JPanel GestionarTipoDoc;
+    private javax.swing.JPanel GestionarTipoEntreg;
+    private javax.swing.JComboBox<Fase> NivelComboBox1;
+    private javax.swing.JComboBox<Fase> NivelComboBox2;
+    private javax.swing.JLabel NivelLabel;
+    private javax.swing.JTable NivelTable;
+    private javax.swing.JTextArea NivelTextArea1;
+    private javax.swing.JTextArea NivelTextArea2;
+    private javax.swing.JTextField NivelTextField1;
+    private javax.swing.JTextField NivelTextField2;
+    private javax.swing.JTextField NivelTextField3;
+    private javax.swing.JTextField NivelTextField4;
+    private javax.swing.JTextField NivelTextField5;
+    private javax.swing.JPanel RegistrarEntregables;
+    private javax.swing.JPanel RegistrarEstado;
+    private javax.swing.JPanel RegistrarFase;
+    private javax.swing.JPanel RegistrarNivel;
+    private javax.swing.JPanel RegistrarTipoDoc;
+    private javax.swing.JPanel RegistrarTipoEntreg;
     private javax.swing.JTabbedPane TPaneEntregables;
     private javax.swing.JTabbedPane TPaneEstado;
     private javax.swing.JTabbedPane TPaneFase;
     private javax.swing.JTabbedPane TPaneNivel;
     private javax.swing.JTabbedPane TPaneTipoDoc;
     private javax.swing.JTabbedPane TPaneTipoEntreg;
+    private javax.swing.JLabel TipoDocLabel;
+    private javax.swing.JTable TipoDocTable;
+    private javax.swing.JTextArea TipoDocTextArea1;
+    private javax.swing.JTextArea TipoDocTextArea2;
+    private javax.swing.JTextField TipoDocTextField1;
+    private javax.swing.JTextField TipoDocTextField2;
+    private javax.swing.JTextField TipoDocTextField3;
+    private javax.swing.JLabel TipoEntregLabel;
+    private javax.swing.JTable TipoEntregTable;
+    private javax.swing.JTextArea TipoEntregTextArea1;
+    private javax.swing.JTextArea TipoEntregTextArea2;
+    private javax.swing.JTextField TipoEntregTextField1;
+    private javax.swing.JTextField TipoEntregTextField2;
+    private javax.swing.JTextField TipoEntregTextField3;
     private javax.swing.JPanel background;
     private javax.swing.JMenuItem btnActualizarDocs;
     private javax.swing.JPanel btnBuscarDocs;
@@ -3264,12 +3425,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<Fase> jComboBox1;
-    private javax.swing.JComboBox<Fase> jComboBox2;
-    private javax.swing.JComboBox<Nivel> jComboBox3;
-    private javax.swing.JComboBox<Nivel> jComboBox4;
-    private javax.swing.JComboBox<TipoEntreg> jComboBox5;
-    private javax.swing.JComboBox<TipoEntreg> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3287,7 +3442,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -3295,7 +3449,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -3307,7 +3460,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
@@ -3315,7 +3467,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -3324,7 +3475,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
@@ -3335,24 +3485,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -3375,43 +3507,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea10;
-    private javax.swing.JTextArea jTextArea11;
-    private javax.swing.JTextArea jTextArea12;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextArea jTextArea9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lbCostoEstimado;
     private javax.swing.JLabel lbCostoEstimado1;
     private javax.swing.JLabel lbEspecialista;
