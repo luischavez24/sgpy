@@ -76,7 +76,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public String insertar(PytoDocs nuevo) {
-        String msj;
+        String msj = "Inserción ralizada correctamente";
         Connection conn = miDao.getConexion();
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
         try {
@@ -98,8 +98,8 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                 consulta.setInt(14, nuevo.getCodEsp());
                 consulta.setInt(15, nuevo.getCodResp());
                 consulta.setString(16, nuevo.getVigente());
-
-                msj = (consulta.execute()) ? "No se pudo ejecutar la inserción" : "Se insertaron los datos correctamente.";
+                
+                consulta.execute();
             }
 
             conn.commit();
@@ -109,13 +109,12 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
             msj = ex.getMessage();
             System.out.println(ex);
         }
-
         return msj;
     }
 
     @Override
     public String actualizar(PytoDocs modificacion) {
-        String msj;
+        String msj = "Actualización realizada correctamente";
         Connection conn = miDao.getConexion();
         String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
@@ -137,7 +136,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                 consulta.setInt(12, modificacion.getCodResp());
                 consulta.setString(13, modificacion.getVigente());
 
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualizaron de datos" : "Se actualizaron los datos correctamente.";
+                consulta.execute();
             }
             conn.commit();
             conn.close();

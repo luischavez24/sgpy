@@ -7,15 +7,12 @@ package edu.unmsm.sistemas.sgpy.repository.imple;
 
 import edu.unmsm.sistemas.sgpy.entities.Estado;
 import edu.unmsm.sistemas.sgpy.entities.EstadoView;
-import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.repository.DAOConnection;
 import edu.unmsm.sistemas.sgpy.repository.EstadoDAO;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import oracle.jdbc.OracleCallableStatement;
@@ -88,9 +85,6 @@ public class EstadoDAOImple implements EstadoDAO{
                 consulta.execute();
 
                 try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(1)) {
-
-                    
-
                     while (resultado.next()) {
                         Estado estado = new Estado();
                         estado.setEstPyto(resultado.getInt("ESTPYTO"));
@@ -114,19 +108,24 @@ public class EstadoDAOImple implements EstadoDAO{
     public String insertar(Estado nuevo) {
         String msj = "Se insertaron los datos correctamente.";
         Connection conn = miDao.getConexion();
-        SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
 
         try {
             conn.setAutoCommit(false);
             try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_estadopyto (?,?,?,?,?) }")) {
-
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la inserción" : "Correcto";
+                consulta.setInt(1, nuevo.getCodFase());
+                consulta.setInt(2, nuevo.getCodNivel());
+                consulta.setInt(3, nuevo.getEstPyto());
+                consulta.setString(4, nuevo.getDesEstado());
+                consulta.setString(5, nuevo.getVigente());
+                
+                consulta.execute();
             }
             conn.commit();
-            miDao.close();
 
         } catch (SQLException ex) {
             System.out.println(ex);
+        } finally{
+            miDao.close();
         }
 
         return msj;
@@ -134,13 +133,48 @@ public class EstadoDAOImple implements EstadoDAO{
 
     @Override
     public String actualizar(Estado modificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String rpta = "Actualizacion Completada";
+        Connection conn = miDao.getConexion();
+        try{
+            conn.setAutoCommit(false);
+             try (CallableStatement consulta = conn.prepareCall("{CALL SP_UPDATE_ESTADOPYTO (?,?,?,?,?) }")){
+                 consulta.setInt(1, modificacion.getCodFase());
+                 consulta.setInt(2, modificacion.getCodNivel());
+                 consulta.setInt(3, modificacion.getEstPyto());
+                 consulta.setString(4, modificacion.getDesEstado());
+                 consulta.setString(5, modificacion.getVigente());
+                 
+                 consulta.execute();
+             }
+            conn.commit();
+               
+            }catch (SQLException ex) {
+                rpta = ex.getMessage();
+            } finally{
+                miDao.close();
+        }
+        return rpta;
     }
 
     @Override
     public String eliminar(int cod_fase, int cod_nivel, int est_pyto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String rpta = "Eliminacion Completada";
+        Connection conn = miDao.getConexion();
+        try{
+            conn.setAutoCommit(false);
+            try(CallableStatement consulta = conn.prepareCall("{ CALL SP_DELETE_ENTREGABLES (?,?)}")){
+                consulta.setInt(1, cod_fase);
+                consulta.setInt(2, cod_nivel);
+                consulta.setInt(3, est_pyto);
+                
+                consulta.execute();
+            }
+            conn.commit();
+        }catch (SQLException ex) {
+            rpta = ex.getMessage();
+        } finally{
+           miDao.close();
+        }
+        return rpta;
     }
-
-    
 }

@@ -1,7 +1,7 @@
 package edu.unmsm.sistemas.sgpy.views;
 
 import edu.unmsm.sistemas.sgpy.entities.*;
-import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAOImple;
 import edu.unmsm.sistemas.sgpy.views.util.TableModelCreator;
 import java.util.ArrayList;
@@ -31,8 +31,8 @@ public class TSNivel extends javax.swing.JFrame {
     }
 
     public void llenarCombo() {
-        FaseDAO.getInstance().listar().forEach((item) -> jComboBox1.addItem(item));
-        FaseDAO.getInstance().listar().forEach((item) -> jComboBox2.addItem(item));
+        FaseDAOImple.getInstance().listar().forEach((item) -> jComboBox1.addItem(item));
+        FaseDAOImple.getInstance().listar().forEach((item) -> jComboBox2.addItem(item));
     }
 
     /**

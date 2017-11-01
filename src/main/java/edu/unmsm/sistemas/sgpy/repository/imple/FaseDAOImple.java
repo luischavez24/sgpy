@@ -18,11 +18,11 @@ import java.util.List;
  *
  * @author Alexander
  */
-public class FaseDAO implements ModeloIDAO<Fase, Fase> {
+public class FaseDAOImple implements ModeloIDAO<Fase, Fase> {
 
-    private static final FaseDAO FASEDAO = new FaseDAO();
+    private static final FaseDAOImple FASEDAO = new FaseDAOImple();
 
-    public static FaseDAO getInstance() {
+    public static FaseDAOImple getInstance() {
         return FASEDAO;
     }
 
