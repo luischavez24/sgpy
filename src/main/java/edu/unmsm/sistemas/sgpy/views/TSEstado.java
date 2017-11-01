@@ -24,7 +24,7 @@ public class TSEstado extends javax.swing.JFrame {
         llenarTabla(lista);
         //llenarTabla(EstadoDAO.getInstance().listar());
         llenarCombo();
-        jTabbedPane1.setEnabledAt(2, false);
+        TPaneEstado.setEnabledAt(2, false);
     }
 
     public void llenarTabla(List<Estado> lista) {
@@ -45,7 +45,7 @@ public class TSEstado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TPaneEstado = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -77,6 +77,10 @@ public class TSEstado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabla de Sorporte ESTADO");
+
+        TPaneEstado.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Estado del Proyecto:");
 
@@ -151,7 +155,9 @@ public class TSEstado extends javax.swing.JFrame {
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Registrar", jPanel1);
+        TPaneEstado.addTab("Registrar", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1= new javax.swing.JTable()
         {
@@ -241,7 +247,9 @@ public class TSEstado extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Gestionar", jPanel3);
+        TPaneEstado.addTab("Gestionar", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel11.setText("Codigo de Nivel:");
 
@@ -310,7 +318,7 @@ public class TSEstado extends javax.swing.JFrame {
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Edición", jPanel4);
+        TPaneEstado.addTab("Edición", jPanel4);
 
         jLabel1.setText("Gestión de Tabla Estado");
 
@@ -321,7 +329,7 @@ public class TSEstado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(TPaneEstado)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -333,7 +341,7 @@ public class TSEstado extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(TPaneEstado))
         );
 
         pack();
@@ -409,8 +417,8 @@ public class TSEstado extends javax.swing.JFrame {
             jTextArea3.setEditable(true);
             jTextField5.setEditable(true);
 
-            jTabbedPane1.setEnabledAt(2, true);
-            jTabbedPane1.setSelectedIndex(2);
+            TPaneEstado.setEnabledAt(2, true);
+            TPaneEstado.setSelectedIndex(2);
 
         } else {
             JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);
@@ -474,8 +482,8 @@ public class TSEstado extends javax.swing.JFrame {
             jComboBox2.setEnabled(false);
             jTextArea3.setEditable(false);
             jTextField5.setEditable(false);
-            jTabbedPane1.setEnabledAt(2, false);
-            jTabbedPane1.setSelectedIndex(1);
+            TPaneEstado.setEnabledAt(2, false);
+            TPaneEstado.setSelectedIndex(1);
 
             JOptionPane.showMessageDialog(null, "Modificación Exitosa", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -486,6 +494,7 @@ public class TSEstado extends javax.swing.JFrame {
     private Estado obj;
     private List<Estado> lista;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane TPaneEstado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -508,7 +517,6 @@ public class TSEstado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;

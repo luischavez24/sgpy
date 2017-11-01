@@ -19,7 +19,7 @@ public class TSFase extends javax.swing.JFrame {
         jTextField3.setEditable(false);
         setResizable(false);
         llenarTabla(FaseDAO.getInstance().listar());
-        jTabbedPane1.setEnabledAt(2, false);
+        TPaneFase.setEnabledAt(2, false);
     }
 
     public void llenarTabla(List<Fase> lista) {
@@ -36,7 +36,7 @@ public class TSFase extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TPaneFase = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -65,6 +65,10 @@ public class TSFase extends javax.swing.JFrame {
         setTitle("Tabla de Sorporte FASE");
 
         jLabel1.setText("Gestión de Tabla Fase");
+
+        TPaneFase.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Codigo de Fase:");
 
@@ -127,7 +131,9 @@ public class TSFase extends javax.swing.JFrame {
                 .addContainerGap(135, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Registrar", jPanel1);
+        TPaneFase.addTab("Registrar", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1 = new javax.swing.JTable()
         {
@@ -215,7 +221,9 @@ public class TSFase extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Gestionar", jPanel3);
+        TPaneFase.addTab("Gestionar", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setText("Codigo de Fase:");
 
@@ -272,7 +280,7 @@ public class TSFase extends javax.swing.JFrame {
                 .addContainerGap(122, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Edición", jPanel4);
+        TPaneFase.addTab("Edición", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -281,7 +289,7 @@ public class TSFase extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(TPaneFase)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -293,7 +301,7 @@ public class TSFase extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(TPaneFase))
         );
 
         pack();
@@ -360,8 +368,8 @@ public class TSFase extends javax.swing.JFrame {
             jTextArea2.setEditable(true);
             jTextField3.setEditable(true);
 
-            jTabbedPane1.setEnabledAt(2, true);
-            jTabbedPane1.setSelectedIndex(2);
+            TPaneFase.setEnabledAt(2, true);
+            TPaneFase.setSelectedIndex(2);
 
         } else {
             JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);
@@ -416,8 +424,8 @@ public class TSFase extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextArea2.setEditable(false);
             jTextField3.setEditable(false);
-            jTabbedPane1.setEnabledAt(2, false);
-            jTabbedPane1.setSelectedIndex(1);
+            TPaneFase.setEnabledAt(2, false);
+            TPaneFase.setSelectedIndex(1);
 
             JOptionPane.showMessageDialog(null, "Modificación Exitosa", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -427,6 +435,7 @@ public class TSFase extends javax.swing.JFrame {
 
     private Fase obj;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane TPaneFase;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -445,7 +454,6 @@ public class TSFase extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
