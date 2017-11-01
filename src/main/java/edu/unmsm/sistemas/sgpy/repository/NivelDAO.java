@@ -13,6 +13,7 @@ import java.util.List;
  * @author Alexander
  */
 public interface NivelDAO {
+    
     public List<Nivel> listar();
 
     public String insertar(Nivel nuevo);
@@ -20,4 +21,5 @@ public interface NivelDAO {
     public String actualizar(Nivel modificacion);
 
     public String eliminar(int CodFase, int CodNivel);
+    
 }

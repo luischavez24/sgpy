@@ -13,8 +13,11 @@ import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 public interface PytoDocsDAO {
     
     public List<PytoDocsView> listar();
+    
     public String insertar(PytoDocs nuevo);
+    
     public String actualizar(PytoDocs modificacion);
+    
     public String eliminar(int cod_pyto, int cod_doc);
     
 }

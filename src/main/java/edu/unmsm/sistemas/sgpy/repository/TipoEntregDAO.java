@@ -21,4 +21,5 @@ public interface TipoEntregDAO {
     public String actualizar(TipoEntreg modificacion);
 
     public String eliminar(int tipoEntreg);
+    
 }

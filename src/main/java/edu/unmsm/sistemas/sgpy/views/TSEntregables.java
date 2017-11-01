@@ -20,7 +20,7 @@ public class TSEntregables extends javax.swing.JFrame {
         setResizable(false);
         llenarTabla(EntregablesDAOImple.getInstance().listar());
         llenarCombo();
-        jTabbedPane1.setEnabledAt(2, false);
+        TPaneEntregables.setEnabledAt(2, false);
     }
 
     public void llenarTabla(List<Entregables> lista) {
@@ -42,10 +42,8 @@ public class TSEntregables extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TPaneEntregables = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -61,14 +59,12 @@ public class TSEntregables extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -76,13 +72,9 @@ public class TSEntregables extends javax.swing.JFrame {
 
         jLabel1.setText("Gestión de Tabla Entregables");
 
-        jLabel2.setText("Corr Entregable:");
+        TPaneEntregables.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setText("Descripción del Entregable:");
 
@@ -115,13 +107,11 @@ public class TSEntregables extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel10))
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1)
-                            .addComponent(jTextField1)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
@@ -132,11 +122,7 @@ public class TSEntregables extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -146,10 +132,12 @@ public class TSEntregables extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Registrar", jPanel1);
+        TPaneEntregables.addTab("Registrar", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1= new javax.swing.JTable()
         {
@@ -238,11 +226,11 @@ public class TSEntregables extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Gestionar", jPanel3);
+        TPaneEntregables.addTab("Gestionar", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel11.setText("Tipo de Entregable:");
-
-        jLabel12.setText("Corr Entregable:");
 
         jLabel13.setText("Descripción del Entregablel:");
 
@@ -273,14 +261,12 @@ public class TSEntregables extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12)
                             .addComponent(jLabel11)
                             .addComponent(jLabel13))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane4)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -290,11 +276,7 @@ public class TSEntregables extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
@@ -304,10 +286,10 @@ public class TSEntregables extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Edición", jPanel4);
+        TPaneEntregables.addTab("Edición", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,7 +298,7 @@ public class TSEntregables extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(TPaneEntregables)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -328,7 +310,7 @@ public class TSEntregables extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(TPaneEntregables))
         );
 
         pack();
@@ -344,7 +326,6 @@ public class TSEntregables extends javax.swing.JFrame {
             String desCortaEntreg = String.valueOf(jTable1.getValueAt(fila, 1));
 
             jComboBox2.setSelectedItem(-1);
-            jLabel16.setText(String.valueOf(corrEntreg));
             jTextArea3.setText(desEntreg);
             jTextField5.setText(desCortaEntreg);
 
@@ -352,8 +333,8 @@ public class TSEntregables extends javax.swing.JFrame {
             jTextArea3.setEditable(true);
             jTextField5.setEditable(true);
 
-            jTabbedPane1.setEnabledAt(2, true);
-            jTabbedPane1.setSelectedIndex(2);
+            TPaneEntregables.setEnabledAt(2, true);
+            TPaneEntregables.setSelectedIndex(2);
 
         } else {
             JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);
@@ -398,11 +379,10 @@ public class TSEntregables extends javax.swing.JFrame {
 
         if (valido) {
             int tipoEntreg = ((Nivel) jComboBox2.getSelectedItem()).getCodFase();
-            int corrEntreg = Integer.parseInt(jLabel16.getText());
             String desEntreg = jTextArea3.getText();
             String desCortaEntreg = jTextField5.getText();
 
-            obj = new Entregables(tipoEntreg, corrEntreg, desEntreg, desCortaEntreg);
+            obj = new Entregables(tipoEntreg, 0, desEntreg, desCortaEntreg);
 
             //modificar obj
             EntregablesDAOImple.getInstance().actualizar(obj);
@@ -410,14 +390,13 @@ public class TSEntregables extends javax.swing.JFrame {
             llenarTabla(EntregablesDAOImple.getInstance().listar());
 
             jComboBox2.setSelectedIndex(-1);
-            jLabel16.setText("");
             jTextArea3.setText("");
             jTextField5.setText("");
             jComboBox2.setEnabled(false);
             jTextArea3.setEditable(false);
             jTextField5.setEditable(false);
-            jTabbedPane1.setEnabledAt(2, false);
-            jTabbedPane1.setSelectedIndex(1);
+            TPaneEntregables.setEnabledAt(2, false);
+            TPaneEntregables.setSelectedIndex(1);
 
             JOptionPane.showMessageDialog(null, "Modificación Exitosa", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -433,12 +412,6 @@ public class TSEntregables extends javax.swing.JFrame {
         if (jComboBox1.getSelectedItem().toString().equals("")) {
             valido = false;
             mensaje = "El Tipo de Entregable no puede ser vacío";
-        } else if (jTextField1.getText().equals("")) {
-            valido = false;
-            mensaje = "El Corr del Entregable no puede ser vacío";
-        } else if (!Character.isDigit(jTextField1.getText().charAt(0))) {
-            valido = false;
-            mensaje = "El Corr del Entregable debe ser tres digitos";
         } else if (jTextArea1.getText().equals("")) {
             valido = false;
             mensaje = "La descripcion del Entregable no puede ser vacía";
@@ -449,17 +422,15 @@ public class TSEntregables extends javax.swing.JFrame {
 
         if (valido) {
             int tipoEntreg = ((Nivel) jComboBox1.getSelectedItem()).getCodFase();
-            int corrEntreg = Integer.parseInt(jTextField1.getText());
             String desEntreg = jTextArea1.getText();
             String desCortaEntreg = jTextField4.getText();
 
-            obj = new Entregables(tipoEntreg, corrEntreg, desEntreg, desCortaEntreg);
+            obj = new Entregables(tipoEntreg, 0, desEntreg, desCortaEntreg);
 
             //Insertar obj
             EntregablesDAOImple.getInstance().insertar(obj);
 
             jComboBox1.setSelectedIndex(-1);
-            jTextField1.setText("");
             jTextArea1.setText("");
             jTextField4.setText("");
 
@@ -471,12 +442,9 @@ public class TSEntregables extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1KeyPressed
-
     private Entregables obj;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane TPaneEntregables;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -486,11 +454,8 @@ public class TSEntregables extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -499,11 +464,9 @@ public class TSEntregables extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables

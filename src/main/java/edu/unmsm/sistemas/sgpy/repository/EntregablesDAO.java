@@ -21,4 +21,5 @@ public interface EntregablesDAO {
     public String actualizar(Entregables modificacion);
 
     public String eliminar(int TipoEntreg, int CorrEntreg);
+    
 }
