@@ -18,13 +18,9 @@ public class TSFase extends javax.swing.JFrame {
         jTextArea2.setEditable(false);
         jTextField3.setEditable(false);
         setResizable(false);
-<<<<<<< HEAD
+
         llenarTabla(FaseDAOImple.getInstance().listar());
-        jTabbedPane1.setEnabledAt(2, false);
-=======
-        llenarTabla(FaseDAO.getInstance().listar());
         TPaneFase.setEnabledAt(2, false);
->>>>>>> refs/remotes/origin/master
     }
 
     public void llenarTabla(List<Fase> lista) {
