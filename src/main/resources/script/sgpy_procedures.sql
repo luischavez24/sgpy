@@ -28,13 +28,13 @@ BEGIN
     OPEN listaestados FOR SELECT * FROM ESTADO;
 END;
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_FASE(listarfase out sys_refcursor) 
+CREATE OR REPLACE PROCEDURE SP_LIST_FASE(listarfase out sys_refcursor) 
 AS
 BEGIN
     OPEN listarfase FOR SELECT * FROM FASE;
 END;
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_NIVEL(listarnivel out sys_refcursor) 
+CREATE OR REPLACE PROCEDURE SP_LIST_NIVEL(listarnivel out sys_refcursor) 
 AS
 BEGIN
     OPEN listarnivel FOR SELECT * FROM NIVEL;
@@ -46,13 +46,13 @@ BEGIN
     OPEN listapytodocs FOR SELECT * FROM LIST_PYTODOCS;  ---view 
 END;
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_TIPODOC(listartipodoc out sys_refcursor) 
+CREATE OR REPLACE PROCEDURE SP_LIST_TIPODOC(listartipodoc out sys_refcursor) 
 AS
 BEGIN
     OPEN listartipodoc FOR SELECT * FROM TIPODOC;   
 END;
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_TIPOENTREG(listartipoentreg out sys_refcursor) 
+CREATE OR REPLACE PROCEDURE SP_LIST_TIPOENTREG(listartipoentreg out sys_refcursor) 
 AS
 BEGIN
     OPEN listartipoentreg FOR SELECT * FROM TIPOENTREG;
@@ -72,7 +72,7 @@ BEGIN
     INSERT INTO ENTREGABLES 
     VALUES(
     TIPOENTREG,
-    CORRENTREG, --Umm no se si usaras una secuencia para el correlativo de entregables, por eso le puse solo el atributo
+    CORRENTREG,
     DESENTREG,
     DESCORTAENTREG
 );
