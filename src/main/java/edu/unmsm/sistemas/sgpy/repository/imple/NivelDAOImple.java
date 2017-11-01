@@ -29,12 +29,14 @@ public class NivelDAOImple implements NivelDAO {
         return NIVELDAO;
     }
     DAOConnection acceso = DAOConnection.getInstance();
+    
+    @Override
     public List<Nivel> listar() {
         ArrayList<Nivel> miLista = new ArrayList<>(); //Indica implementar todos sus métodos
         try{
             Connection conn = acceso.getConexion();
             
-            try(CallableStatement consulta = conn.prepareCall(" { CALL SP_LISTAR_NIVEL (?) } ")){
+            try(CallableStatement consulta = conn.prepareCall(" { CALL SP_LIST_NIVEL (?) } ")){
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 consulta.execute();
                 
@@ -66,21 +68,20 @@ public class NivelDAOImple implements NivelDAO {
         Connection conn = acceso.getConexion();
         try {
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{CALL SP_INSERTAR_NIVEL (?,?,?,?,?)}")){
+            try(CallableStatement consulta = conn.prepareCall("{CALL SP_INSERT_NIVEL (?,?,?,?,?)}")){
                 consulta.setInt(1, nuevo.getCodFase());
                 consulta.setInt(2, nuevo.getCodNivel());
                 consulta.setString(3, nuevo.getDesNivel());
                 consulta.setString(4, nuevo.getFase());
                 consulta.setString(5, nuevo.getVigente());
-
-                rpta = (consulta.executeUpdate() == 0 ) ? "No se pudo ejecutar la inserción": "Correcto";
-            
-            }
-            
-            conn.commit();
-            acceso.close();
+                
+                consulta.execute();
+            } 
+            conn.commit();  
         } catch (SQLException ex) {
             rpta = ex.getMessage();
+        } finally{
+            acceso.close();
         }
         return rpta;
     }
@@ -98,14 +99,14 @@ public class NivelDAOImple implements NivelDAO {
             consulta.setString(4, actualizacion.getFase());
             consulta.setString(5, actualizacion.getVigente());
             
-            rpta = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualizaron de datos" : "Correcto"; 
+            consulta.execute();
             }
             conn.commit();
-            acceso.close();
-        } 
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             rpta = ex.getMessage();
-        } 
+        } finally{
+            acceso.close();
+        }
         return rpta;
     }
 
@@ -118,12 +119,13 @@ public class NivelDAOImple implements NivelDAO {
             try(CallableStatement consulta = conn.prepareCall("{CALL SP_DELETE_NIVEL (?,?)}")){
                 consulta.setInt(1, CodFase);
                 consulta.setInt(2, CodNivel);
-                rpta= (consulta.executeUpdate() == 0 )? "No se pudo ejecutar la eliminación de datos" : "Correcto";
+                consulta.execute();
             }
             conn.commit();
-            acceso.close();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             rpta = ex.getMessage();
+        } finally {
+            acceso.close();
         }
         return rpta;
     }

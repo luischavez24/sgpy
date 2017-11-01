@@ -21,6 +21,8 @@ public class Fase {
         this.Vigencia = Vigencia;
     }
 
+    public Fase() { }
+
     public int getCodFase() {
         return CodFase;
     }

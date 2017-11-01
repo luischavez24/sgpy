@@ -18,13 +18,9 @@ public class TSFase extends javax.swing.JFrame {
         jTextArea2.setEditable(false);
         jTextField3.setEditable(false);
         setResizable(false);
-<<<<<<< HEAD
+
         llenarTabla(FaseDAOImple.getInstance().listar());
-        jTabbedPane1.setEnabledAt(2, false);
-=======
-        llenarTabla(FaseDAO.getInstance().listar());
         TPaneFase.setEnabledAt(2, false);
->>>>>>> refs/remotes/origin/master
     }
 
     public void llenarTabla(List<Fase> lista) {
@@ -344,7 +340,7 @@ public class TSFase extends javax.swing.JFrame {
             obj = new Fase(codFase, desFase, vigencia);
 
             //Insertar obj
-            FaseDAOImple.getInstance().insertar(obj);
+
 
             jTextField1.setText("");
             jTextArea1.setText("");
@@ -388,7 +384,7 @@ public class TSFase extends javax.swing.JFrame {
             int codFase = (Integer) jTable1.getValueAt(fila, 0);
 
             //eliminar obj
-            FaseDAOImple.getInstance().eliminar(codFase);
+
 
             llenarTabla(FaseDAOImple.getInstance().listar());
 
@@ -420,7 +416,7 @@ public class TSFase extends javax.swing.JFrame {
 
             obj = new Fase(codFase, desFase, vigencia);
 
-            FaseDAOImple.getInstance().actualizar(obj);
+
 
             llenarTabla(FaseDAOImple.getInstance().listar());
 

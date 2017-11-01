@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package edu.unmsm.sistemas.sgpy.repository;
+import java.util.List;
+import edu.unmsm.sistemas.sgpy.entities.Fase;
 
 /**
  *
@@ -11,4 +13,11 @@ package edu.unmsm.sistemas.sgpy.repository;
  */
 public interface FaseDAO {
     
+    public List<Fase> listar();
+
+    public String insertar(Fase nuevo);
+    
+    public String actualizar(Fase modificacion);
+
+    public String eliminar(int cod_fase);
 }

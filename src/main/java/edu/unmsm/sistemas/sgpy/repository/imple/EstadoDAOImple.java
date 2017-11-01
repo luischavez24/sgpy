@@ -111,7 +111,7 @@ public class EstadoDAOImple implements EstadoDAO{
 
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_estadopyto (?,?,?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_ESTADOPYTO (?,?,?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodFase());
                 consulta.setInt(2, nuevo.getCodNivel());
                 consulta.setInt(3, nuevo.getEstPyto());

@@ -39,7 +39,7 @@ public class TipoDocDAOImple implements TipoDocDAO{
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_PYTODOCS
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_TIPODOC (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_TIPODOC (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
@@ -79,21 +79,19 @@ public class TipoDocDAOImple implements TipoDocDAO{
 
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_TIPODOC (?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERT_TIPODOC (?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodDoc());
                 consulta.setString(2, nuevo.getDesTDoc());
                 consulta.setString(3, nuevo.getVigente());
 
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la inserción" : "Correcto";
-            }
-
-            conn.commit();
-            miDao.close();
-
+                consulta.execute();
+            } 
+            conn.commit();  
         } catch (SQLException ex) {
-            System.out.println(ex);
+            msj = ex.getMessage();
+        } finally{
+            miDao.close();
         }
-
         return msj;
     }
 
@@ -110,15 +108,14 @@ public class TipoDocDAOImple implements TipoDocDAO{
                 consulta.setString(2, modificacion.getDesTDoc());
                 consulta.setString(3, modificacion.getVigente());
 
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la actualización de datos" : "Correcto";
-            }
-            conn.commit();
-            conn.close();
-
+                consulta.execute();
+            } 
+            conn.commit();  
         } catch (SQLException ex) {
-            System.out.println(ex);
+            msj = ex.getMessage();
+        } finally{
+            miDao.close();
         }
-
         return msj;
     }
 
@@ -132,14 +129,13 @@ public class TipoDocDAOImple implements TipoDocDAO{
             conn.setAutoCommit(false);
             try (CallableStatement consulta = conn.prepareCall(sql)) {
                 consulta.setInt(1, cod_doc);
-            
-                msj = (consulta.executeUpdate() == 0) ? "No se pudo ejecutar la eliminación de datos" : "Correcto";
-            }
-            conn.commit();
-            conn.close();
-
+                consulta.execute();
+            } 
+            conn.commit();  
         } catch (SQLException ex) {
-            System.out.println(ex);
+            msj = ex.getMessage();
+        } finally{
+            miDao.close();
         }
         return msj;
     }

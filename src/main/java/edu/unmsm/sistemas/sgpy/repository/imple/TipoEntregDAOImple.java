@@ -5,7 +5,6 @@
  */
 package edu.unmsm.sistemas.sgpy.repository.imple;
 
-import edu.unmsm.sistemas.sgpy.entities.Estado;
 import edu.unmsm.sistemas.sgpy.entities.TipoEntreg;
 import edu.unmsm.sistemas.sgpy.repository.DAOConnection;
 import edu.unmsm.sistemas.sgpy.repository.TipoEntregDAO;
@@ -39,7 +38,7 @@ public class TipoEntregDAOImple implements TipoEntregDAO{
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_ESTADOE
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_TIPOENTREG (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_TIPOENTREG (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta

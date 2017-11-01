@@ -17,7 +17,7 @@ import edu.unmsm.sistemas.sgpy.repository.TipoEntregDAO;
 import edu.unmsm.sistemas.sgpy.repository.drive.CopiarArchivos;
 import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.EstadoDAOImple;
-import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAO;
+import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.NivelDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.PytoDocsDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.TipoDocDAOImple;
@@ -2304,7 +2304,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         TPaneFase.setVisible(true);
         TPaneEstado.setVisible(false);
         TPaneEntregables.setVisible(false);
-        llenarTablaFase(FaseDAO.getInstance().listar());
+        llenarTablaFase(FaseDAOImple.getInstance().listar());
     }//GEN-LAST:event_btnFaseMouseClicked
 
     private void btnEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadoMouseClicked
@@ -2767,13 +2767,13 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             objFase = new Fase(codFase, desFase, vigencia);
 
-            FaseDAO.getInstance().insertar(objFase);
+            FaseDAOImple.getInstance().insertar(objFase);
 
             jTextField1.setText("");
             jTextArea1.setText("");
             jTextField2.setText("");
 
-            llenarTablaFase(FaseDAO.getInstance().listar());
+            llenarTablaFase(FaseDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Registro Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -2810,9 +2810,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         if (fila > -1) {
             int codFase = (Integer) jTable1.getValueAt(fila, 0);
 
-            FaseDAO.getInstance().eliminar(codFase);
+            FaseDAOImple.getInstance().eliminar(codFase);
 
-            llenarTablaFase(FaseDAO.getInstance().listar());
+            llenarTablaFase(FaseDAOImple.getInstance().listar());
 
             JOptionPane.showMessageDialog(null, "Borrado Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
 
@@ -2842,9 +2842,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             objFase = new Fase(codFase, desFase, vigencia);
 
-            FaseDAO.getInstance().actualizar(objFase);
+            FaseDAOImple.getInstance().actualizar(objFase);
 
-            llenarTablaFase(FaseDAO.getInstance().listar());
+            llenarTablaFase(FaseDAOImple.getInstance().listar());
 
             jLabel8.setText("");
             jTextArea2.setText("");
@@ -3180,8 +3180,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }
     
     private void llenarComboNivel() {
-        FaseDAO.getInstance().listar().forEach((item) -> jComboBox1.addItem(item));
-        FaseDAO.getInstance().listar().forEach((item) -> jComboBox2.addItem(item));
+        FaseDAOImple.getInstance().listar().forEach((item) -> jComboBox1.addItem(item));
+        FaseDAOImple.getInstance().listar().forEach((item) -> jComboBox2.addItem(item));
     }
     
     private void llenarComboEstado() {

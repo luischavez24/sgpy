@@ -36,7 +36,7 @@ public class EntregablesDAOImple implements EntregablesDAO{
         try {
             Connection conn = acceso.getConexion();
             
-            try(CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_ENTREGABLES (?) }")){
+            try(CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_ENTREGABLES (?) }")){
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 consulta.execute();
                 try(ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(1)){
@@ -69,7 +69,7 @@ public class EntregablesDAOImple implements EntregablesDAO{
         Connection conn = acceso.getConexion();
         try {
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{CALL SP_INSERTAR_ENTREGABLES (?,?,?,?)}")){
+            try(CallableStatement consulta = conn.prepareCall("{CALL SP_INSERT_ENTREGABLES (?,?,?,?)}")){
                 consulta.setInt(1, nuevo.getTipoEntreg());
                 consulta.setInt(2, nuevo.getCorrEntreg());
                 consulta.setString(3, nuevo.getDesEntreg());

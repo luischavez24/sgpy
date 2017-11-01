@@ -1,5 +1,4 @@
----inicio procedure listar
-
+---inicio procedure buscar
 CREATE OR REPLACE PROCEDURE SP_BUSCAR_PYTODOCS(
     PCOD_PYTO NUMBER,
     PCOD_DOC NUMBER,
@@ -8,38 +7,132 @@ CREATE OR REPLACE PROCEDURE SP_BUSCAR_PYTODOCS(
 BEGIN
     OPEN PYTODOCSBUSQ FOR SELECT * FROM PYTODOCS;
 END;
+---fin procedure buscar
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_PYTODOCS(listapytodocs out sys_refcursor) 
+---inicio procedure listar
+CREATE OR REPLACE PROCEDURE SP_LIST_ENTREGABLES(listaentregables out sys_refcursor) 
 AS
 BEGIN
-    OPEN listapytodocs FOR SELECT * FROM LISTAR_PYTODOCS;
+    OPEN listaentregables FOR SELECT * FROM ENTREGABLES;
 END;
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_estadopyto(listaestadopyto out sys_refcursor) 
+CREATE OR REPLACE PROCEDURE SP_LIST_ESTADOPYTO(listaestadopyto out sys_refcursor) 
 AS
 BEGIN
-    OPEN listaestadopyto FOR SELECT * FROM listar_estadopyto;
+    OPEN listaestadopyto FOR SELECT * FROM LIST_ESTADOPYTO;   ---view
 END;
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_estadoE(listaestadopyto out sys_refcursor) 
+CREATE OR REPLACE PROCEDURE SP_LIST_ESTADOE(listaestados out sys_refcursor) 
 AS
 BEGIN
-    OPEN listaestadopyto FOR SELECT * FROM estado;
+    OPEN listaestados FOR SELECT * FROM ESTADO;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_LISTAR_FASE(listarfase out sys_refcursor) 
+AS
+BEGIN
+    OPEN listarfase FOR SELECT * FROM FASE;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_LISTAR_NIVEL(listarnivel out sys_refcursor) 
+AS
+BEGIN
+    OPEN listarnivel FOR SELECT * FROM NIVEL;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_LIST_PYTODOCS(listapytodocs out sys_refcursor) 
+AS
+BEGIN
+    OPEN listapytodocs FOR SELECT * FROM LIST_PYTODOCS;  ---view 
 END;
 
 CREATE OR REPLACE PROCEDURE SP_LISTAR_TIPODOC(listartipodoc out sys_refcursor) 
 AS
 BEGIN
-    OPEN listartipodoc FOR SELECT * FROM tipodoc;
+    OPEN listartipodoc FOR SELECT * FROM TIPODOC;   
 END;
 
----fin procedure insertar
-
+CREATE OR REPLACE PROCEDURE SP_LISTAR_TIPOENTREG(listartipoentreg out sys_refcursor) 
+AS
+BEGIN
+    OPEN listartipoentreg FOR SELECT * FROM TIPOENTREG;
+END;
+---fin procedure listar
 
 
 ---inicio procedure insertar
+create or replace procedure sp_insert_entregables(
+    TIPOENTREG NUMBER,
+    CORRENTREG NUMBER,
+    DESENTREG VARCHAR2,
+    DESCORTAENTREG VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO ENTREGABLES 
+    VALUES(
+    TIPOENTREG,
+    CORRENTREG, --Umm no se si usaras una secuencia para el correlativo de entregables, por eso le puse solo el atributo
+    DESENTREG,
+    DESCORTAENTREG
+);
+END;
 
-CREATE OR REPLACE PROCEDURE SP_INSERTAR_PYDOCS(
+CREATE OR REPLACE PROCEDURE SP_INSERT_estadopyto(
+    codfase number,
+    codnivel number,
+    estpyto number,
+    desestado varchar2,
+    vigente varchar2
+)
+AS
+BEGIN
+    INSERT INTO estado 
+    VALUES(
+    codfase,
+    codnivel,
+    estpyto,
+    desestado,
+    vigente
+    );
+END;
+
+CREATE OR REPLACE PROCEDURE SP_INSERT_FASE(
+    codfase number,
+    desfase varchar2,
+    vigente varchar2
+)
+AS
+BEGIN
+    INSERT INTO fase
+    VALUES(
+    codfase,
+    desfase,
+    vigente
+    );
+END;
+
+create or replace procedure sp_insert_nivel
+(
+    CODFASE NUMBER,
+    CODNIVEL NUMBER,
+    DESNIVEL VARCHAR2,
+    FASE varchar2,
+    VIGENTE VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO NIVEL 
+    VALUES(
+    CODFASE,
+    CODNIVEL, 
+    DESNIVEL,
+    FASE,
+    VIGENTE
+);
+END;
+
+CREATE OR REPLACE PROCEDURE SP_INSERT_PYTODOCS(
     CODPYTO NUMBER,
     CODFASE NUMBER,
     CODNIVEL NUMBER,
@@ -79,28 +172,8 @@ BEGIN
     CODRESP,
     VIGENTE);
 END;
---
-CREATE OR REPLACE PROCEDURE SP_INSERTAR_estadopyto(
-    codfase number,
-    codnivel number,
-    estpyto number,
-    desestado varchar2,
-    vigente varchar2
-)
-AS
-BEGIN
-    INSERT INTO estado 
-    VALUES(
-    codfase,
-    codnivel,
-    estpyto,
-    desestado,
-    vigente
-    );
-END;
 
-
-CREATE OR REPLACE PROCEDURE SP_INSERT_tipodoc(
+CREATE OR REPLACE PROCEDURE sp_insert_tipodoc(
     coddoc number,
     desTdoc varchar2,
     vigente varchar2
@@ -115,11 +188,86 @@ BEGIN
     );
 END;
 
+create or replace procedure sp_insert_tipoentreg(
+) as
+begin
+end;
+
 ---fin procedure insertar
 
 
 
 ---inicio Procedure update 
+
+CREATE OR REPLACE PROCEDURE SP_UPDATE_ENTREGABLES(
+    EN_TIPOENTREG NUMBER,
+    EN_CORRENTREG NUMBER,
+    EN_DESENTREG VARCHAR2,
+    EN_DESCORTAENTREG VARCHAR2
+)
+AS
+BEGIN
+      UPDATE ENTREGABLES set 
+        DESENTREG = EN_DESENTREG,
+        DESCORTAENTREG = EN_DESCORTAENTREG
+       
+      WHERE
+       TIPOENTREG = EN_TIPOENTREG and CORRENTREG = EN_CORRENTREG;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_update_estadopyto(
+    es_codfase number,
+    es_codnivel number,
+    es_estpyto number,
+    es_desestado varchar2,
+    es_vigente varchar2
+)
+AS
+BEGIN
+    update estado set
+      desestado = es_desestado,
+      vigente = es_vigente
+    
+    where 
+      codfase = es_codfase and 
+      codnivel = es_codnivel and
+      estpyto = es_estpyto;
+
+END;
+
+CREATE OR REPLACE PROCEDURE SP_UPDATE_FASE(
+    FA_CODFASE NUMBER,
+    FA_DESFASE VARCHAR2,
+    FA_VIGENCIA VARCHAR2
+    
+)
+AS
+BEGIN
+      UPDATE FASE set 
+        DESFASE = FA_DESFASE,
+        VIGENCIA = FA_VIGENCIA
+       
+      WHERE
+       CODFASE = FA_CODFASE;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_UPDATE_NIVEL(
+    NI_CODFASE NUMBER,
+    NI_CODNIVEL NUMBER,
+    NI_DESNIVEL VARCHAR2,
+    NI_FASE CHAR,
+    NI_VIGENTE VARCHAR2
+)
+AS
+BEGIN
+      UPDATE NIVEL set 
+        DESNIVEL = NI_DESNIVEL,
+        FASE = NI_FASE,
+        VIGENTE = NI_VIGENTE
+       
+      WHERE
+       CODFASE = NI_CODFASE and CODNIVEL = NI_CODNIVEL;
+END;
 
 create or replace procedure sp_update_pytodocs(
     py_CODPYTO NUMBER,
@@ -153,26 +301,6 @@ create or replace procedure sp_update_pytodocs(
        codpyto = py_codpyto and corrdocs = py_corrdocs;
   end;
   
-CREATE OR REPLACE PROCEDURE SP_update_estadopyto(
-    es_codfase number,
-    es_codnivel number,
-    es_estpyto number,
-    es_desestado varchar2,
-    es_vigente varchar2
-)
-AS
-BEGIN
-    update estado set
-      desestado = es_desestado,
-      vigente = es_vigente
-    
-    where 
-      codfase = es_codfase and 
-      codnivel = es_codnivel and
-      estpyto = es_estpyto;
-
-END;
-
 CREATE OR REPLACE PROCEDURE SP_update_tipodoc(
     td_coddoc number,
     td_destdoc varchar2,
@@ -188,28 +316,30 @@ BEGIN
       coddoc = td_coddoc;
 
 END;
-  
+
+create or replace procedure sp_update_tipoentreg(
+) as
+begin
+end;
 
 ---Fin procedure update 
 
 
-
 ----inicio delete procedure
 
-create or replace procedure SP_DELETE_PYTODOCS
+CREATE OR REPLACE PROCEDURE SP_DELETE_ENTREGABLES
 (
-    PY_CODPYTO NUMBER,
-    PY_CORRDOCS NUMBER
+    EN_TIPOENTREG NUMBER,
+    EN_CORRENTREG NUMBER
 )
-as 
-begin
-  delete from pytodocs 
-    where 
-      codpyto = py_codpyto and 
-      corrdocs = py_corrdocs;
-end;
+AS 
+BEGIN
+  DELETE FROM ENTREGABLES
+    WHERE
+      TIPOENTREG = EN_TIPOENTREG AND
+      CORRENTREG = EN_CORRENTREG;
+END;
 
---
 create or replace procedure sp_delete_estadopyto
 (
     es_codfase number,
@@ -225,168 +355,16 @@ as begin
 
 end;
 
---
-create or replace procedure sp_delete_tipodoc
+create or replace procedure sp_delete_fase
 (
-    es_coddoc number
-)
-as begin
-  delete from tipodoc
-    where 
-      coddoc = es_coddoc;
-
-end;
-
-------fin delete procedure
-
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * Author:  Alexander
- * Created: 18/10/2017
- */
----inicio de procedure listar
-CREATE OR REPLACE PROCEDURE SP_LISTAR_ENTREGABLES(listaentregables out sys_refcursor) 
-AS
+    FA_CODFASE NUMBER
+) AS
 BEGIN
-    OPEN listaentregables FOR SELECT * FROM ENTREGABLES;
+    DELETE FROM FASE
+        WHERE
+            CODFASE = FA_CODFASE;
 END;
 
-CREATE OR REPLACE PROCEDURE SP_LISTAR_NIVEL(listafase out sys_refcursor) 
-AS
-BEGIN
-    OPEN listafase FOR SELECT * FROM NIVEL;
-END;
-
-CREATE OR REPLACE PROCEDURE SP_LISTAR_FASE(listanivel out sys_refcursor) 
-AS
-BEGIN
-    OPEN listanivel FOR SELECT * FROM FASE;
-END;
----fin de procedure listar
-
----inicio de procedure insertar
-CREATE OR REPLACE PROCEDURE SP_INSERTAR_ENTREGABLES(
-    TIPOENTREG NUMBER,
-    CORRENTREG NUMBER,
-    DESENTREG VARCHAR2,
-    DESCORTAENTREG VARCHAR2
-)
-AS
-BEGIN
-    INSERT INTO ENTREGABLES 
-    VALUES(
-    TIPOENTREG,
-    CORRENTREG, --Umm no se si usaras una secuencia para el correlativo de entregables, por eso le puse solo el atributo
-    DESENTREG,
-    DESCORTAENTREG
-);
-END;
----
-CREATE OR REPLACE PROCEDURE SP_INSERTAR_NIVEL(
-    CODFASE NUMBER,
-    CODNIVEL NUMBER,
-    DESNIVEL VARCHAR2,
-    FASE CHAR,  --segÃºn la BD del profe esta como CHAR, revisa como lo manejaste tÃº
-    VIGENTE VARCHAR2
-)
-AS
-BEGIN
-    INSERT INTO NIVEL 
-    VALUES(
-    CODFASE,
-    CODNIVEL, 
-    DESNIVEL,
-    FASE,
-    VIGENTE
-);
-END;
----
-CREATE OR REPLACE PROCEDURE SP_INSERTAR_FASE(
-    CODFASE NUMBER,
-    DESFASE VARCHAR2,
-    VIGENCIA VARCHAR2
-)
-AS
-BEGIN
-    INSERT INTO FASE 
-    VALUES(
-    CODFASE,
-    DESFASE, 
-    VIGENCIA);
-END;
----fin de procedur insertar
-
----inicio de procedure update
-CREATE OR REPLACE PROCEDURE SP_UPDATE_ENTREGABLES(
-    EN_TIPOENTREG NUMBER,
-    EN_CORRENTREG NUMBER,
-    EN_DESENTREG VARCHAR2,
-    EN_DESCORTAENTREG VARCHAR2
-)
-AS
-BEGIN
-      UPDATE ENTREGABLES set 
-        DESENTREG = EN_DESENTREG,
-        DESCORTAENTREG = EN_DESCORTAENTREG
-       
-      WHERE
-       TIPOENTREG = EN_TIPOENTREG and CORRENTREG = EN_CORRENTREG;
-END;
----
-CREATE OR REPLACE PROCEDURE SP_UPDATE_NIVEL(
-    NI_CODFASE NUMBER,
-    NI_CODNIVEL NUMBER,
-    NI_DESNIVEL VARCHAR2,
-    NI_FASE CHAR,
-    NI_VIGENTE VARCHAR2
-)
-AS
-BEGIN
-      UPDATE NIVEL set 
-        DESNIVEL = NI_DESNIVEL,
-        FASE = NI_FASE,
-        VIGENTE = NI_VIGENTE
-       
-      WHERE
-       CODFASE = NI_CODFASE and CODNIVEL = NI_CODNIVEL;
-END;
----
-CREATE OR REPLACE PROCEDURE SP_UPDATE_FASE(
-    FA_CODFASE NUMBER,
-    FA_DESFASE VARCHAR2,
-    FA_VIGENCIA VARCHAR2
-    
-)
-AS
-BEGIN
-      UPDATE FASE set 
-        DESFASE = FA_DESFASE,
-        VIGENCIA = FA_VIGENCIA
-       
-      WHERE
-       CODFASE = FA_CODFASE;
-END;
----fin de procedure update
-
----inicio de procedure delete
-CREATE OR REPLACE PROCEDURE SP_DELETE_ENTREGABLES
-(
-    EN_TIPOENTREG NUMBER,
-    EN_CORRENTREG NUMBER
-)
-AS 
-BEGIN
-  DELETE FROM ENTREGABLES
-    WHERE
-      TIPOENTREG = EN_TIPOENTREG AND
-      CORRENTREG = EN_CORRENTREG;
-END;
----
 CREATE OR REPLACE PROCEDURE SP_DELETE_NIVEL
 (
     NI_CODFASE NUMBER,
@@ -399,14 +377,34 @@ BEGIN
             CODFASE = NI_CODFASE AND
             CODNIVEL = NI_CODNIVEL;
 END;
----
-CREATE OR REPLACE PROCEDURE SP_DELETE_FASE
+
+create or replace procedure SP_DELETE_PYTODOCS
 (
-    FA_CODFASE NUMBER
+    PY_CODPYTO NUMBER,
+    PY_CORRDOCS NUMBER
 )
-AS
-BEGIN
-    DELETE FROM FASE
-        WHERE
-            CODFASE = FA_CODFASE;
-END;
+as 
+begin
+  delete from pytodocs 
+    where 
+      codpyto = py_codpyto and 
+      corrdocs = py_corrdocs;
+end;
+
+create or replace procedure sp_delete_tipodoc
+(
+    es_coddoc number
+)
+as begin
+  delete from tipodoc
+    where 
+      coddoc = es_coddoc;
+end;
+
+create or replace procedure sp_delete_tipoentreg
+(
+) as
+begin
+end;
+
+---fin procedure delete
