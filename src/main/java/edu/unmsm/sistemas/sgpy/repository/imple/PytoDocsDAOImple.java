@@ -116,7 +116,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
     public String actualizar(PytoDocs modificacion) {
         String msj = "Actualización realizada correctamente";
         Connection conn = miDao.getConexion();
-        String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?) }";
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
 
         try {
@@ -124,17 +124,15 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
             try (CallableStatement consulta = conn.prepareCall(sql)) {
                 consulta.setInt(1, modificacion.getCodPyto());
                 consulta.setInt(2, modificacion.getCorrdocs());
-                consulta.setInt(3, modificacion.getCodFase());
-                consulta.setInt(4, modificacion.getCodNivel());
-                consulta.setInt(5, modificacion.getEstPyto());
-                consulta.setString(6, format_fecha.format(modificacion.getFecFin()));
-                consulta.setDouble(7, modificacion.getCostoEst());
-                consulta.setString(8, modificacion.getRutaDoc());
-                consulta.setString(9, modificacion.getVerDoc());
-                consulta.setString(10, modificacion.getObservac());
-                consulta.setInt(11, modificacion.getCodEsp());
-                consulta.setInt(12, modificacion.getCodResp());
-                consulta.setString(13, modificacion.getVigente());
+                consulta.setString(3, format_fecha.format(modificacion.getFecFin()));
+                consulta.setDouble(4, modificacion.getCostoEst());
+                consulta.setString(5, modificacion.getRutaDoc());
+                consulta.setInt(6, modificacion.getCodDoc());
+                consulta.setString(7, modificacion.getVerDoc());
+                consulta.setString(8, modificacion.getObservac());
+                consulta.setInt(9, modificacion.getCodEsp());
+                consulta.setInt(10, modificacion.getCodResp());
+                consulta.setString(11, modificacion.getVigente());
 
                 consulta.execute();
             }
