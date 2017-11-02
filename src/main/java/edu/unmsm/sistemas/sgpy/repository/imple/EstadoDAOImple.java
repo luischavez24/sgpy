@@ -22,7 +22,7 @@ import oracle.jdbc.OracleTypes;
  *
  * @author Lupita
  */
-public class EstadoDAOImple implements EstadoDAO{
+public class EstadoDAOImple implements EstadoDAO {
 
     // Crea una instancia de la clase al momento de lanzar la apliacion
     private static final EstadoDAOImple ESTADODAO = new EstadoDAOImple();
@@ -42,7 +42,7 @@ public class EstadoDAOImple implements EstadoDAO{
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_ESTADOPYTO
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_ESTADOPYTO (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_ESTADOPYTO (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
@@ -68,7 +68,7 @@ public class EstadoDAOImple implements EstadoDAO{
         }
         return misEstados;
     }
-    
+
     @Override
     public List<Estado> listarEntity() {
         // ArrayList donde se guardan los documentos
@@ -78,7 +78,7 @@ public class EstadoDAOImple implements EstadoDAO{
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_ESTADOE
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_ESTADOE (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_ESTADOE (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
@@ -111,20 +111,20 @@ public class EstadoDAOImple implements EstadoDAO{
 
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_ESTADOPYTO (?,?,?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERT_ESTADOPYTO (?,?,?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodFase());
                 consulta.setInt(2, nuevo.getCodNivel());
                 consulta.setInt(3, nuevo.getEstPyto());
                 consulta.setString(4, nuevo.getDesEstado());
                 consulta.setString(5, nuevo.getVigente());
-                
+
                 consulta.execute();
             }
             conn.commit();
 
         } catch (SQLException ex) {
             System.out.println(ex);
-        } finally{
+        } finally {
             miDao.close();
         }
 
@@ -135,23 +135,23 @@ public class EstadoDAOImple implements EstadoDAO{
     public String actualizar(Estado modificacion) {
         String rpta = "Actualizacion Completada";
         Connection conn = miDao.getConexion();
-        try{
+        try {
             conn.setAutoCommit(false);
-             try (CallableStatement consulta = conn.prepareCall("{CALL SP_UPDATE_ESTADOPYTO (?,?,?,?,?) }")){
-                 consulta.setInt(1, modificacion.getCodFase());
-                 consulta.setInt(2, modificacion.getCodNivel());
-                 consulta.setInt(3, modificacion.getEstPyto());
-                 consulta.setString(4, modificacion.getDesEstado());
-                 consulta.setString(5, modificacion.getVigente());
-                 
-                 consulta.execute();
-             }
+            try (CallableStatement consulta = conn.prepareCall("{CALL SP_UPDATE_ESTADOPYTO (?,?,?,?,?) }")) {
+                consulta.setInt(1, modificacion.getCodFase());
+                consulta.setInt(2, modificacion.getCodNivel());
+                consulta.setInt(3, modificacion.getEstPyto());
+                consulta.setString(4, modificacion.getDesEstado());
+                consulta.setString(5, modificacion.getVigente());
+
+                consulta.execute();
+            }
             conn.commit();
-               
-            }catch (SQLException ex) {
-                rpta = ex.getMessage();
-            } finally{
-                miDao.close();
+
+        } catch (SQLException ex) {
+            rpta = ex.getMessage();
+        } finally {
+            miDao.close();
         }
         return rpta;
     }
@@ -160,20 +160,20 @@ public class EstadoDAOImple implements EstadoDAO{
     public String eliminar(int cod_fase, int cod_nivel, int est_pyto) {
         String rpta = "Eliminacion Completada";
         Connection conn = miDao.getConexion();
-        try{
+        try {
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{ CALL SP_DELETE_ENTREGABLES (?,?)}")){
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_DELETE_ENTREGABLES (?,?)}")) {
                 consulta.setInt(1, cod_fase);
                 consulta.setInt(2, cod_nivel);
                 consulta.setInt(3, est_pyto);
-                
+
                 consulta.execute();
             }
             conn.commit();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             rpta = ex.getMessage();
-        } finally{
-           miDao.close();
+        } finally {
+            miDao.close();
         }
         return rpta;
     }

@@ -195,7 +195,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                         pytoDocs.setCodFase(resultado.getInt("CODFASE"));
                         pytoDocs.setCodNivel(resultado.getInt("CODNIVEL"));
                         pytoDocs.setFecIni(resultado.getDate("FECINI"));
-                        pytoDocs.setFecIni(resultado.getDate("FECFIN"));
+                        pytoDocs.setFecFin(resultado.getDate("FECFIN"));
                         pytoDocs.setCostoEst(resultado.getDouble("COSTOEST"));
                         pytoDocs.setCodDoc(resultado.getInt("CODDOC"));
                         pytoDocs.setRutaDoc(resultado.getString("RUTADOC"));
@@ -216,6 +216,54 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
         }
 
         return pytoDocs;
+    }
+    
+    @Override
+    public PytoDocsView buscar2(int cod_pyto, int corr_docs) {
+         PytoDocsView temp = null;
+        try {
+            // Obtener la conexion
+            Connection conn = miDao.getConexion();
+            // Se llama al procedimiento almacenado SP_BUSCAR_PYTODOCSDETAILS
+            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_BUSCAR_PYTODOCSDETAILS (?,?,?) }")) {
+                // Se pasa por parametro el cursor
+                consulta.setInt(1, cod_pyto);
+                consulta.setInt(2, corr_docs);
+                consulta.registerOutParameter(3, OracleTypes.CURSOR);
+                // Se ejecuta la consulta
+                consulta.execute();
+                try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(3)) {
+
+                   
+                    String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
+                    int codPyto, corrdocs;
+                    Date fecIni, fecFin;
+                    double costoEst;
+                    while (resultado.next()) {
+                        codPyto = resultado.getInt("CodPyto");
+                        corrdocs = resultado.getInt("Corrdocs");
+                        fecIni = resultado.getDate("FecIni");
+                        fecFin = resultado.getDate("FecFin");
+                        costoEst = resultado.getDouble("CostoEst");  //
+                        verDoc = resultado.getString("VerDoc");   //version documentos
+                        vigente = resultado.getString("Vigente");
+                        desFase = resultado.getString("DesFase");
+                        desNivel = resultado.getString("DesNivel");
+                        desTDoc = resultado.getString("DesTDoc");
+                        desEntreg = resultado.getString("DesEntreg");
+                        temp = new PytoDocsView(codPyto, corrdocs, fecIni, fecFin, costoEst,
+                                verDoc, vigente, desFase, desNivel, desTDoc, desEntreg);
+                        
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            miDao.close();
+        }
+
+        return temp;
     }
 
 }

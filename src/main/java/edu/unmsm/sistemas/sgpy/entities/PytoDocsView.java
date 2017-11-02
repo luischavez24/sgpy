@@ -3,18 +3,20 @@ package edu.unmsm.sistemas.sgpy.entities;
 import java.util.Date;
 
 public class PytoDocsView {
-
-    protected int codPyto;
-    protected int corrdocs;
-    protected Date fecIni;
-    protected Date fecFin;
-    protected double costoEst;
-    protected String verDoc;
-    protected String vigente;
+   
+    private int codPyto;
+    private int corrdocs;
+    private Date fecIni;
+    private Date fecFin;
+    private double costoEst;
+    private String verDoc;
+    private String vigente;
     private String desFase;
     private String desNivel;
     private String desTDoc;
     private String desentreg;
+    
+    public PytoDocsView(){}
 
     public PytoDocsView(int codPyto, int corrdocs, Date fecIni, Date fecFin, double costoEst, String verDoc, String vigente, String desFase, String desNivel, String desTDoc, String desentreg) {
         this.codPyto = codPyto;
@@ -29,39 +31,7 @@ public class PytoDocsView {
         this.desTDoc = desTDoc;
         this.desentreg = desentreg;
     }
-    
-    public String getDesFase() {
-        return desFase;
-    }
-
-    public void setDesFase(String desFase) {
-        this.desFase = desFase;
-    }
-
-    public String getDesNivel() {
-        return desNivel;
-    }
-
-    public void setDesNivel(String desNivel) {
-        this.desNivel = desNivel;
-    }
-
-    public String getDesTDoc() {
-        return desTDoc;
-    }
-
-    public void setDesTDoc(String desTDoc) {
-        this.desTDoc = desTDoc;
-    }
-
-    public String getDesentreg() {
-        return desentreg;
-    }
-
-    public void setDesentreg(String desentreg) {
-        this.desentreg = desentreg;
-    }
-
+   
     public int getCodPyto() {
         return codPyto;
     }
@@ -118,9 +88,38 @@ public class PytoDocsView {
         this.vigente = vigente;
     }
 
-    @Override
-    public String toString() {
-        return "PytoDocs_View{" + "codPyto=" + codPyto + ", corrdocs=" + corrdocs + ", fecIni=" + fecIni + ", fecFin=" + fecFin + ", costoEst=" + costoEst + ", verDoc=" + verDoc + ", vigente=" + vigente + ", desFase=" + desFase + ", desNivel=" + desNivel + ", desTDoc=" + desTDoc + ", desentreg=" + desentreg + '}';
+    public String getDesFase() {
+        return desFase;
     }
+
+    public void setDesFase(String desFase) {
+        this.desFase = desFase;
+    }
+
+    public String getDesNivel() {
+        return desNivel;
+    }
+
+    public void setDesNivel(String desNivel) {
+        this.desNivel = desNivel;
+    }
+
+    public String getDesTDoc() {
+        return desTDoc;
+    }
+
+    public void setDesTDoc(String desTDoc) {
+        this.desTDoc = desTDoc;
+    }
+
+    public String getDesentreg() {
+        return desentreg;
+    }
+
+    public void setDesentreg(String desentreg) {
+        this.desentreg = desentreg;
+    }
+
+    
    
 }
