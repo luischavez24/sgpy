@@ -13,6 +13,9 @@
       <SubComponents>
         <MenuItem class="javax.swing.JMenuItem" name="btnDetalles">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/icons8_View_Details_10px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Detalles"/>
           </Properties>
           <Events>
@@ -21,6 +24,9 @@
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="btnActualizarDocs">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/icons8_Edit_10px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
           <Events>
@@ -29,6 +35,9 @@
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="btnEliminarDocs">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/icons8_Trash_10px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
@@ -3834,7 +3843,7 @@
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                              <Image iconType="3" name="/images/icons8_Add_25px.png"/>
+                              <Image iconType="3" name="/images/icons8_Edit_26px_1.png"/>
                             </Property>
                           </Properties>
                           <Constraints>

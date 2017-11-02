@@ -15,7 +15,6 @@ import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.entities.TipoDoc;
 import edu.unmsm.sistemas.sgpy.entities.TipoEntreg;
 import edu.unmsm.sistemas.sgpy.repository.PytoDocsDAO;
-import edu.unmsm.sistemas.sgpy.repository.TipoEntregDAO;
 import edu.unmsm.sistemas.sgpy.repository.drive.CopiarArchivos;
 import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.EstadoDAOImple;
@@ -30,7 +29,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.awt.Color;
-import java.awt.Component;
+import java.awt.Image;
 import java.text.SimpleDateFormat;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -39,7 +38,7 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -49,6 +48,7 @@ import javax.swing.JPanel;
 public class FrmPytoDocs extends javax.swing.JFrame {
 
     private File rutaDocumento;
+    private File rutaDocumentoMod;
     private TipoEntreg objTipoEntreg;
     private TipoDoc objTipoDoc;
     private Nivel objNivel;
@@ -65,8 +65,13 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         configurarSpinners(spnFFin, "dd/MM/yy");
         configurarSpinners(spnFFinMod, "dd/MM/yy");
         llenarCombos();
+        icon();
     }
-
+    private void icon(){
+        ImageIcon image = new ImageIcon(getClass().getResource("/images/icons8_Document_48px.png"));
+        setIconImage(image.getImage());
+        setLocationRelativeTo(null);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -357,6 +362,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         txt_fechaFinPyto = new javax.swing.JTextField();
         txt_costoPyto = new javax.swing.JTextField();
 
+        btnDetalles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_View_Details_10px.png"))); // NOI18N
         btnDetalles.setText("Detalles");
         btnDetalles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,6 +371,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         });
         menuOps.add(btnDetalles);
 
+        btnActualizarDocs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Edit_10px.png"))); // NOI18N
         btnActualizarDocs.setText("Actualizar");
         btnActualizarDocs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -373,6 +380,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         });
         menuOps.add(btnActualizarDocs);
 
+        btnEliminarDocs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Trash_10px.png"))); // NOI18N
         btnEliminarDocs.setText("Eliminar");
         btnEliminarDocs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2364,7 +2372,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         btnIngresar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Add_25px.png"))); // NOI18N
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Edit_26px_1.png"))); // NOI18N
         btnIngresar1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -2596,15 +2604,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnSubDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubDocActionPerformed
         // TODO add your handling code here:
-        JFileChooser exploradorArchivos = new JFileChooser(System.getProperty("user.desktop"));
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF", "pdf");
-        exploradorArchivos.setFileFilter(filtro);
-        exploradorArchivos.setMultiSelectionEnabled(false);
-        exploradorArchivos.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        exploradorArchivos.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        int opcion = exploradorArchivos.showOpenDialog(this);
-        File archivoSeleccionado = exploradorArchivos.getSelectedFile();
-        if (archivoSeleccionado != null && opcion == JFileChooser.APPROVE_OPTION) {
+        File archivoSeleccionado = displayFileChooser();
+        if (archivoSeleccionado != null) {
             rutaDocumento = archivoSeleccionado;
             lbRuta.setText(rutaDocumento.getName());
         }
@@ -2797,7 +2798,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             int corrPyto = (int) tablaDocs.getModel().getValueAt(selectedRow, 1);
 
             PytoDocsDAO pytoDocsDAO = PytoDocsDAOImple.getInstance();
-            
+
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
             PytoDocsView pytoDocsView = pytoDocsDAO.buscar2(codPyto, corrPyto);
@@ -2807,7 +2808,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             panelMantenimiento.setVisible(false);
             panelModificar.setVisible(false);
             panelDetalles.setVisible(true);
-            
+
             txt_codDocPyto.setText(pytoDocsView.getCodPyto() + "");
             txt_costoPyto.setText(pytoDocsView.getCostoEst() + "");
             txt_fasePyto.setText(pytoDocsView.getDesFase());
@@ -3709,7 +3710,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             txtVersionMod.setText(pytoDocsMod.getVerDoc());
 
             txtObsMod.setText(pytoDocsMod.getObservac());
-            
+
             rutaDocumento = new File(pytoDocsMod.getRutaDoc());
 
         }
@@ -3718,6 +3719,14 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnSubDocModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubDocModActionPerformed
         // TODO add your handling code here:
+        File archivoSeleccionado = displayFileChooser();
+        if (archivoSeleccionado != null) {
+            rutaDocumentoMod = archivoSeleccionado;
+            lbRuta.setText(rutaDocumentoMod.getName());
+        }
+    }//GEN-LAST:event_btnSubDocModActionPerformed
+
+    private File displayFileChooser() {
         JFileChooser exploradorArchivos = new JFileChooser(System.getProperty("user.desktop"));
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF", "pdf");
         exploradorArchivos.setFileFilter(filtro);
@@ -3725,13 +3734,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         exploradorArchivos.setFileSelectionMode(JFileChooser.FILES_ONLY);
         exploradorArchivos.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         int opcion = exploradorArchivos.showOpenDialog(this);
-        File archivoSeleccionado = exploradorArchivos.getSelectedFile();
-        if (archivoSeleccionado != null && opcion == JFileChooser.APPROVE_OPTION) {
-            rutaDocumento = archivoSeleccionado;
-            lbRuta.setText(rutaDocumento.getName());
-        }
-    }//GEN-LAST:event_btnSubDocModActionPerformed
 
+        return (opcion == JFileChooser.APPROVE_OPTION) ? exploradorArchivos.getSelectedFile() : null;
+    }
     private void txtVersionModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVersionModActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVersionModActionPerformed
@@ -3746,16 +3751,19 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnIngresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresar1MouseClicked
         // TODO add your handling code here:
-        if (pytoDocsMod != null) {
+        if (pytoDocsMod != null && rutaDocumentoMod != null) {
             pytoDocsMod.setFecFin((Date) spnFFinMod.getModel().getValue());
             pytoDocsMod.setCostoEst(Double.parseDouble(txtCostoEstimadoMod.getText()));
             pytoDocsMod.setCodDoc(((TipoDoc) cmbTDocMod.getModel().getSelectedItem()).getCodDoc());
             pytoDocsMod.setVigente((chkVigencia1.isSelected()) ? "1" : "0");
             pytoDocsMod.setVerDoc(txtVersionMod.getText());
             pytoDocsMod.setObservac(txtObsMod.getText());
-            pytoDocsMod.setRutaDoc(rutaDocumento.getName());
-            String msj = PytoDocsController.getInstace().actualizarPytoDocs(pytoDocsMod);
+
+            pytoDocsMod.setRutaDoc((rutaDocumentoMod != null) ? rutaDocumentoMod.getName() : pytoDocsMod.getRutaDoc());
+
+            String msj = PytoDocsController.getInstance().actualizarPytoDocs(pytoDocsMod);
             if (msj.equals("Actualización realizada correctamente")) {
+                CopiarArchivos.getInstance().copiarArchivos(rutaDocumentoMod);
                 JOptionPane.showMessageDialog(panelSoporte, msj);
                 panelInsertar.setVisible(false);
                 panelBuscar.setVisible(true);
@@ -3779,8 +3787,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btn_abrirdocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_abrirdocActionPerformed
         // TODO add your handling code here:
-        
-        
+
         //abrir documento
     }//GEN-LAST:event_btn_abrirdocActionPerformed
 
@@ -3797,13 +3804,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             int corrPyto = (int) tablaDocs.getModel().getValueAt(selectedRow, 1);
 
             PytoDocsDAO pytoDocsDAO = PytoDocsDAOImple.getInstance();
-            
+
             String msj = pytoDocsDAO.eliminar(codPyto, corrPyto);
-            JOptionPane.showMessageDialog(panelSoporte, msj);  
-            llenarTabla(PytoDocsDAOImple.getInstance().listar());
-            
+            if (msj.equals("Eliminacion Correcta")) {
+                JOptionPane.showMessageDialog(panelSoporte, msj);
+                llenarTabla(PytoDocsDAOImple.getInstance().listar());
+            } else {
+                JOptionPane.showMessageDialog(panelSoporte, msj, "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        
+
     }//GEN-LAST:event_btnEliminarDocsActionPerformed
 
     private void hoverOn(JPanel boton, Color color) {

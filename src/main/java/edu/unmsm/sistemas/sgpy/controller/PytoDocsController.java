@@ -8,7 +8,7 @@ public class PytoDocsController {
 
     private PytoDocsController() { }
     
-    public static PytoDocsController getInstace() {
+    public static PytoDocsController getInstance() {
         return INSTANCE;
     }
     
