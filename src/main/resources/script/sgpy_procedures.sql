@@ -284,25 +284,21 @@ END;
 create or replace procedure sp_update_pytodocs(
     py_CODPYTO NUMBER,
     py_corrdocs number,
-    py_CODFASE NUMBER,
-    py_CODNIVEL NUMBER,
-    py_ESTPYTO NUMBER,
     py_FECFIN DATE,
     py_COSTOEST NUMBER,
     py_RUTADOC VARCHAR2,
-    py_VERDOc VARCHAR2,
+    py_coddoc number,
+    py_VERDOC VARCHAR2,
     py_OBSERVAC VARCHAR2,
     py_CODESP NUMBER,
     py_CODRESP NUMBER,
     py_VIGENTE VARCHAR2)
   as begin
       update pytodocs set 
-        codfase = py_CODFASE,
-        codnivel = py_CODNIVEL,
-        ESTPYTO = py_ESTPYTO,
-        FECFIN = py_FECFIN,
         COSTOEST = py_COSTOEST,
+        fechafin = py_FECFIN,
         rutadoc = py_RUTADOC,
+        coddoc = py_coddoc,
         verdoc = py_VERDOC,
         observac = py_OBSERVAC,
         codesp = py_CODESP,
@@ -310,7 +306,8 @@ create or replace procedure sp_update_pytodocs(
         vigente = py_VIGENTE
         
       where
-       codpyto = py_codpyto and corrdocs = py_corrdocs;
+       codpyto = py_codpyto 
+        and corrdocs = py_corrdocs;
   end;
   
 CREATE OR REPLACE PROCEDURE SP_update_tipodoc(
