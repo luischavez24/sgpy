@@ -16,6 +16,8 @@ import edu.unmsm.sistemas.sgpy.entities.TipoDoc;
 import edu.unmsm.sistemas.sgpy.entities.TipoEntreg;
 import edu.unmsm.sistemas.sgpy.repository.PytoDocsDAO;
 import edu.unmsm.sistemas.sgpy.repository.drive.CopiarArchivos;
+import edu.unmsm.sistemas.sgpy.repository.drive.DriveConnection;
+import edu.unmsm.sistemas.sgpy.repository.drive.DriveConstants;
 import edu.unmsm.sistemas.sgpy.repository.imple.EntregablesDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.EstadoDAOImple;
 import edu.unmsm.sistemas.sgpy.repository.imple.FaseDAOImple;
@@ -67,11 +69,13 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         llenarCombos();
         icon();
     }
-    private void icon(){
+
+    private void icon() {
         ImageIcon image = new ImageIcon(getClass().getResource("/images/icons8_Document_48px.png"));
         setIconImage(image.getImage());
         setLocationRelativeTo(null);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -2682,35 +2686,59 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         // TODO add your handling code here:
+
         if (rutaDocumento != null) {
-            PytoDocs pytoDocs = new PytoDocs();
-            pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
-            Estado estado = (Estado) cmbEstado.getSelectedItem();
-            pytoDocs.setCodFase(estado.getCodFase());
-            pytoDocs.setCodNivel(estado.getCodNivel());
-            pytoDocs.setEstPyto(estado.getEstPyto());
-            pytoDocs.setFecIni((Date) spnFInicio.getModel().getValue());
-            pytoDocs.setFecFin((Date) spnFFin.getModel().getValue());
-            pytoDocs.setCostoEst(Double.parseDouble(txtCostoEstimado.getText()));
-            pytoDocs.setCodDoc(((TipoDoc) cmbTDoc.getSelectedItem()).getCodDoc());
-            pytoDocs.setRutaDoc(rutaDocumento.getName());
-            pytoDocs.setVerDoc(txtVersion.getText());
-            pytoDocs.setObservac(txtObs.getText());
-            Entregables entregable = (Entregables) cmbTEntregable.getSelectedItem();
-            pytoDocs.setTipoEntreg(entregable.getTipoEntreg());
-            pytoDocs.setCorrEntreg(entregable.getCorrEntreg());
-            pytoDocs.setCodEsp(1);
-            pytoDocs.setCodResp(1);
-            CopiarArchivos.getInstance().copiarArchivos(rutaDocumento);
-            pytoDocs.setVigente((chkVigencia.isSelected()) ? "1" : "0");
-            String mensaje = PytoDocsDAOImple.getInstance().insertar(pytoDocs);
-            JOptionPane.showMessageDialog(rootPane, mensaje);
+            DriveConnection myDrive = DriveConnection.getInstance();
+
+            String idArchivo = myDrive.subirArchivo(
+                    rutaDocumento,
+                    DriveConstants.DRIVE_TYPES.get(getFileExtension(rutaDocumento))
+            );
+            
+            if (idArchivo != null) {
+                PytoDocs pytoDocs = new PytoDocs();
+                pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
+                Estado estado = (Estado) cmbEstado.getSelectedItem();
+                pytoDocs.setCodFase(estado.getCodFase());
+                pytoDocs.setCodNivel(estado.getCodNivel());
+                pytoDocs.setEstPyto(estado.getEstPyto());
+                pytoDocs.setFecIni((Date) spnFInicio.getModel().getValue());
+                pytoDocs.setFecFin((Date) spnFFin.getModel().getValue());
+                pytoDocs.setCostoEst(Double.parseDouble(txtCostoEstimado.getText()));
+                pytoDocs.setCodDoc(((TipoDoc) cmbTDoc.getSelectedItem()).getCodDoc());
+
+                pytoDocs.setVerDoc(txtVersion.getText());
+                pytoDocs.setObservac(txtObs.getText());
+                Entregables entregable = (Entregables) cmbTEntregable.getSelectedItem();
+                pytoDocs.setTipoEntreg(entregable.getTipoEntreg());
+                pytoDocs.setCorrEntreg(entregable.getCorrEntreg());
+                pytoDocs.setCodEsp(1);
+                pytoDocs.setCodResp(1);
+
+                pytoDocs.setRutaDoc(idArchivo);
+
+                pytoDocs.setVigente((chkVigencia.isSelected()) ? "1" : "0");
+                String mensaje = PytoDocsDAOImple.getInstance().insertar(pytoDocs);
+                JOptionPane.showMessageDialog(rootPane, mensaje);
+                
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Error al cargar el archivo", "Error de carga", JOptionPane.ERROR_MESSAGE);
+            }
+
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe elegir un archivo para subir", "No hay archivo de carga", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnIngresarMouseClicked
 
+    private String getFileExtension(File file) {
+        String name = file.getName();
+        try {
+            return name.substring(name.lastIndexOf(".") + 1);
+        } catch (Exception e) {
+            return "";
+        }
+    }
     private void btnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseEntered
         // TODO add your handling code here:
         hoverOff((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
