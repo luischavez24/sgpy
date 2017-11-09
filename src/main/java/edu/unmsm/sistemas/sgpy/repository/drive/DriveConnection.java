@@ -36,8 +36,7 @@ public class DriveConnection {
     /**
      * Application name.
      */
-    private static final String APPLICATION_NAME
-            = "SGPY";
+    private static final String APPLICATION_NAME = "SGPY";
 
     private static final String CARPETA_PROYECTO = "1Q8v9FMhze9KaCDGuJqJpliTHq6_DVG_f";
 
@@ -69,8 +68,7 @@ public class DriveConnection {
      * If modifying these scopes, delete your previously saved credentials at
      * ~/.credentials/drive-java-quickstart
      */
-    private static final List<String> SCOPES
-            = Arrays.asList(DriveScopes.DRIVE);
+    private static final List<String> SCOPES = Arrays.asList(DriveScopes.DRIVE);
 
     static {
         try {
@@ -137,7 +135,7 @@ public class DriveConnection {
             fileMetadata.setName(filePath.getName());
             
             fileMetadata.setParents(Collections.singletonList(CARPETA_PROYECTO));
-            
+           
             FileContent mediaContent = new FileContent(type, filePath);
 
             File file = service.files().create(fileMetadata, mediaContent)
@@ -152,4 +150,30 @@ public class DriveConnection {
 
         return fileId;
     }
+    
+    public String actualizarArchivo(java.io.File filePath, String type, String idArchivo) {
+        
+        String fileId = null;
+        
+        try {
+            
+            Drive service = getDriveService();
+
+            File fileMetadata = new File();
+
+            fileMetadata.setName(filePath.getName());
+            
+            FileContent mediaContent = new FileContent(type, filePath);
+
+            File file = service.files().update(idArchivo, fileMetadata, mediaContent).execute();
+            
+            fileId = file.getId();
+            
+        } catch(IOException e) {
+            System.out.println(e);
+        }
+
+        return fileId;
+    }
+  
 }

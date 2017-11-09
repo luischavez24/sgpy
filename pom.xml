@@ -11,12 +11,14 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc7</artifactId>
             <version>12.1.0.2</version>
             <scope>compile</scope>
         </dependency>
+        
         <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-drive -->
         <dependency>
             <groupId>com.google.apis</groupId>
@@ -29,11 +31,13 @@
             <artifactId>google-api-client</artifactId>
             <version>1.23.0</version>
         </dependency>
+        
         <dependency>
             <groupId>com.google.oauth-client</groupId>
             <artifactId>google-oauth-client</artifactId>
             <version>1.23.0</version>
         </dependency>
+        
         <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
         <dependency>
             <groupId>com.google.oauth-client</groupId>
@@ -47,6 +51,14 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE74</version>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.apache.directory.studio/org.apache.commons.logging -->
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
 
     </dependencies>
     <!-- Repositorio del driver de oracle -->

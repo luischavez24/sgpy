@@ -2628,6 +2628,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         panelMantenimiento.setVisible(false);
         panelModificar.setVisible(false);
         panelDetalles.setVisible(false);
+        resetFormIngresar();
     }//GEN-LAST:event_btnInsertarDocMouseClicked
 
     private void btnBuscarDocsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarDocsMouseClicked
@@ -2692,9 +2693,9 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             String idArchivo = myDrive.subirArchivo(
                     rutaDocumento,
-                    DriveConstants.DRIVE_TYPES.get(getFileExtension(rutaDocumento))
+                    DriveConstants.DRIVE_TYPES.get(((TipoDoc) cmbTDoc.getModel().getSelectedItem()).getDesTDoc())
             );
-            
+
             if (idArchivo != null) {
                 PytoDocs pytoDocs = new PytoDocs();
                 pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
@@ -2720,7 +2721,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 pytoDocs.setVigente((chkVigencia.isSelected()) ? "1" : "0");
                 String mensaje = PytoDocsDAOImple.getInstance().insertar(pytoDocs);
                 JOptionPane.showMessageDialog(rootPane, mensaje);
-                
+                resetFormIngresar();
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Error al cargar el archivo", "Error de carga", JOptionPane.ERROR_MESSAGE);
             }
@@ -2739,6 +2740,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             return "";
         }
     }
+    
     private void btnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseEntered
         // TODO add your handling code here:
         hoverOff((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
@@ -3742,7 +3744,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             rutaDocumento = new File(pytoDocsMod.getRutaDoc());
 
         }
-
+        
     }//GEN-LAST:event_btnActualizarDocsActionPerformed
 
     private void btnSubDocModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubDocModActionPerformed
@@ -3787,21 +3789,32 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             pytoDocsMod.setVerDoc(txtVersionMod.getText());
             pytoDocsMod.setObservac(txtObsMod.getText());
 
-            pytoDocsMod.setRutaDoc((rutaDocumentoMod != null) ? rutaDocumentoMod.getName() : pytoDocsMod.getRutaDoc());
+            String idArchivo = DriveConnection.getInstance().actualizarArchivo(
+                    rutaDocumentoMod,
+                    DriveConstants.DRIVE_TYPES.get(((TipoDoc) cmbTDocMod.getModel().getSelectedItem()).getDesTDoc()),
+                    pytoDocsMod.getRutaDoc()
+            );
 
-            String msj = PytoDocsController.getInstance().actualizarPytoDocs(pytoDocsMod);
-            if (msj.equals("Actualización realizada correctamente")) {
-                CopiarArchivos.getInstance().copiarArchivos(rutaDocumentoMod);
-                JOptionPane.showMessageDialog(panelSoporte, msj);
-                panelInsertar.setVisible(false);
-                panelBuscar.setVisible(true);
-                panelMantenimiento.setVisible(false);
-                panelModificar.setVisible(false);
-                llenarTabla(PytoDocsDAOImple.getInstance().listar());
+            if (idArchivo != null) {
+
+                String msj = PytoDocsController.getInstance().actualizarPytoDocs(pytoDocsMod);
+
+                if (msj.equals("Actualización realizada correctamente")) {
+
+                    JOptionPane.showMessageDialog(panelSoporte, msj);
+                    panelInsertar.setVisible(false);
+                    panelBuscar.setVisible(true);
+                    panelMantenimiento.setVisible(false);
+                    panelModificar.setVisible(false);
+                    llenarTabla(PytoDocsDAOImple.getInstance().listar());
+                    resetFormModificar();
+                } else {
+                    JOptionPane.showMessageDialog(panelSoporte, msj, "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
             } else {
-                JOptionPane.showMessageDialog(panelSoporte, msj, "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(panelSoporte, "No se pudo subir el archivo", "Error", JOptionPane.ERROR_MESSAGE);
             }
-
         }
     }//GEN-LAST:event_btnIngresar1MouseClicked
 
@@ -3922,6 +3935,29 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         cmbTDocMod.removeAllItems();
     }
 
+    private void resetFormIngresar() {
+        cmbProyecto.setSelectedIndex(0);
+        cmbEstado.setSelectedIndex(0);
+        spnFInicio.setValue(new Date());
+        spnFFin.setValue(new Date());
+        txtCostoEstimado.setText(null);
+        cmbTDoc.setSelectedIndex(0);
+        txtVersion.setText(null);
+        txtObs.setText(null);
+        cmbTEntregable.setSelectedIndex(0);
+        rutaDocumento = null;
+    }
+
+    private void resetFormModificar() {
+        
+    
+        spnFFinMod.setValue(new Date());
+        txtCostoEstimadoMod.setText(null);
+        cmbTDocMod.setSelectedIndex(0);
+        txtVersionMod.setText(null);
+        txtObsMod.setText(null);
+        rutaDocumentoMod = null;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel EdicionEntregables;
     private javax.swing.JPanel EdicionEstado;

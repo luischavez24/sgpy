@@ -22,7 +22,8 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     // Crea una instancia de la clase al momento de lanzar la apliacion
     private static final PytoDocsDAOImple PYTODOCSDAO = new PytoDocsDAOImple();
-    // Recoge el objeto DAOConnection
+    
+// Recoge el objeto DAOConnection
     private final DAOConnection miDao = DAOConnection.getInstance();
 
     public static PytoDocsDAOImple getInstance() {

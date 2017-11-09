@@ -296,7 +296,7 @@ create or replace procedure sp_update_pytodocs(
   as begin
       update pytodocs set 
         COSTOEST = py_COSTOEST,
-        fechafin = py_FECFIN,
+        fecfin = py_FECFIN,
         rutadoc = py_RUTADOC,
         coddoc = py_coddoc,
         verdoc = py_VERDOC,
