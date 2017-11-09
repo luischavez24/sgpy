@@ -3799,7 +3799,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
                 String msj = PytoDocsController.getInstance().actualizarPytoDocs(pytoDocsMod);
 
-                if (msj.equals("Actualización realizada correctamente")) {
+                if (msj.equals("Documento actualizado correctamente")) {
 
                     JOptionPane.showMessageDialog(panelSoporte, msj);
                     panelInsertar.setVisible(false);
@@ -3808,6 +3808,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                     panelModificar.setVisible(false);
                     llenarTabla(PytoDocsDAOImple.getInstance().listar());
                     resetFormModificar();
+                    
                 } else {
                     JOptionPane.showMessageDialog(panelSoporte, msj, "Error", JOptionPane.ERROR_MESSAGE);
                 }

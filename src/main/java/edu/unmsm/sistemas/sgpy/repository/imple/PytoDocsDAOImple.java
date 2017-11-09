@@ -77,7 +77,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public String insertar(PytoDocs nuevo) {
-        String msj = "Inserción ralizada correctamente";
+        String msj = "Documento registrado correctamente";
         Connection conn = miDao.getConexion();
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
         try {
@@ -115,7 +115,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     @Override
     public String actualizar(PytoDocs modificacion) {
-        String msj = "Actualización realizada correctamente";
+        String msj = "Documento actualizado correctamente";
         Connection conn = miDao.getConexion();
         String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?) }";
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");

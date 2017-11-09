@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import oracle.jdbc.OracleCallableStatement;
 import oracle.jdbc.OracleTypes;
+import org.apache.commons.logging.*;
 
 /**
  *
@@ -25,6 +26,7 @@ public class TipoEntregDAOImple implements TipoEntregDAO{
  private static final TipoEntregDAO TIPOENTREGDAO = new TipoEntregDAOImple();
     // Recoge el objeto DAOConnection
     private final DAOConnection miDao = DAOConnection.getInstance();
+    private static final Log LOG = LogFactory.getLog(TipoEntregDAOImple.class);
 
     public static TipoEntregDAO getInstance() {
         return TIPOENTREGDAO;
@@ -46,9 +48,8 @@ public class TipoEntregDAOImple implements TipoEntregDAO{
 
                 try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(1)) {
 
-                    TipoEntreg tipoEntreg = new TipoEntreg();
-
                     while (resultado.next()) {
+                        TipoEntreg tipoEntreg = new TipoEntreg();
                         tipoEntreg.setTipoEntreg(resultado.getInt("TIPOENTREG"));
                         tipoEntreg.setDeEntreg(resultado.getString("DESENTREG"));
                         tipoEntreg.setVigencia(resultado.getString("VIGENCIA"));
@@ -61,6 +62,7 @@ public class TipoEntregDAOImple implements TipoEntregDAO{
         } finally {
             miDao.close();
         }
+        LOG.info("Esta es la lista " + misTipoEntreg);
         return misTipoEntreg;
     }
 
