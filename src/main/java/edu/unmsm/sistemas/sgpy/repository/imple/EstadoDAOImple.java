@@ -42,7 +42,7 @@ public class EstadoDAOImple implements EstadoDAO {
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_ESTADOPYTO
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_ESTADOPYTO (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL LISTAR.SP_LIST_ESTADOPYTO (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
@@ -78,7 +78,7 @@ public class EstadoDAOImple implements EstadoDAO {
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_ESTADOE
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_ESTADOE (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL LISTAR.SP_LIST_ESTADOE (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
@@ -111,7 +111,7 @@ public class EstadoDAOImple implements EstadoDAO {
 
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERT_ESTADOPYTO (?,?,?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL INSERTAR.SP_INSERT_ESTADOPYTO (?,?,?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodFase());
                 consulta.setInt(2, nuevo.getCodNivel());
                 consulta.setInt(3, nuevo.getEstPyto());
@@ -137,7 +137,7 @@ public class EstadoDAOImple implements EstadoDAO {
         Connection conn = miDao.getConexion();
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{CALL SP_UPDATE_ESTADOPYTO (?,?,?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{CALL UPDATES.SP_UPDATE_ESTADOPYTO (?,?,?,?,?) }")) {
                 consulta.setInt(1, modificacion.getCodFase());
                 consulta.setInt(2, modificacion.getCodNivel());
                 consulta.setInt(3, modificacion.getEstPyto());
@@ -162,7 +162,7 @@ public class EstadoDAOImple implements EstadoDAO {
         Connection conn = miDao.getConexion();
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_DELETE_ENTREGABLES (?,?)}")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL DELETES.SP_DELETE_ENTREGABLES (?,?)}")) {
                 consulta.setInt(1, cod_fase);
                 consulta.setInt(2, cod_nivel);
                 consulta.setInt(3, est_pyto);

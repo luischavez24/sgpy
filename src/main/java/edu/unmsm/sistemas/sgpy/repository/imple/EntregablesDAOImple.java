@@ -36,7 +36,7 @@ public class EntregablesDAOImple implements EntregablesDAO{
         try {
             Connection conn = acceso.getConexion();
             
-            try(CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_ENTREGABLES (?) }")){
+            try(CallableStatement consulta = conn.prepareCall("{ CALL LISTAR.SP_LIST_ENTREGABLES (?) }")){
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 consulta.execute();
                 try(ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(1)){
@@ -69,7 +69,7 @@ public class EntregablesDAOImple implements EntregablesDAO{
         Connection conn = acceso.getConexion();
         try {
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{CALL SP_INSERT_ENTREGABLES (?,?,?,?)}")){
+            try(CallableStatement consulta = conn.prepareCall("{CALL INSERTAR.SP_INSERT_ENTREGABLES (?,?,?,?)}")){
                 consulta.setInt(1, nuevo.getTipoEntreg());
                 consulta.setInt(2, nuevo.getCorrEntreg());
                 consulta.setString(3, nuevo.getDesEntreg());
@@ -93,7 +93,7 @@ public class EntregablesDAOImple implements EntregablesDAO{
         Connection conn = acceso.getConexion();
         try{
             conn.setAutoCommit(false);
-             try (CallableStatement consulta = conn.prepareCall("{CALL SP_UPDATE_ENTREGABLES (?,?,?,?) }")){
+             try (CallableStatement consulta = conn.prepareCall("{CALL UPDATES.SP_UPDATE_ENTREGABLES (?,?,?,?) }")){
                 consulta.setInt(1, actualizacion.getTipoEntreg());
                 consulta.setInt(2, actualizacion.getCorrEntreg());
                 consulta.setString(3, actualizacion.getDesEntreg());
@@ -119,7 +119,7 @@ public class EntregablesDAOImple implements EntregablesDAO{
         Connection conn = acceso.getConexion();
         try{
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{ CALL SP_DELETE_ENTREGABLES (?,?)}")){
+            try(CallableStatement consulta = conn.prepareCall("{ CALL DELETES.SP_DELETE_ENTREGABLES (?,?)}")){
                 consulta.setInt(1, TipoEntreg);
                 consulta.setInt(2, CorrEntreg);
                 consulta.execute();

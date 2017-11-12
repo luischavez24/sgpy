@@ -38,7 +38,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
             // Obtener la conexion
             Connection conn = miDao.getConexion();
             // Se llama al procedimiento almacenado SP_LISTAR_PYTODOCS
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_PYTODOCS (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL LISTAR.SP_LIST_PYTODOCS (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
@@ -82,7 +82,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERT_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL INSERTAR.SP_INSERT_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodPyto());
                 consulta.setInt(2, nuevo.getCodFase());
                 consulta.setInt(3, nuevo.getCodNivel());
@@ -117,7 +117,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
     public String actualizar(PytoDocs modificacion) {
         String msj = "Documento actualizado correctamente";
         Connection conn = miDao.getConexion();
-        String sql = "{ CALL SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?) }";
+        String sql = "{ CALL UPDATES.SP_UPDATE_PYTODOCS (?,?,?,?,?,?,?,?,?,?,?) }";
         SimpleDateFormat format_fecha = new SimpleDateFormat("dd/MM/yy");
 
         try {
@@ -152,7 +152,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
     public String eliminar(int cod_pyto, int cod_doc) {
         String msj = "Eliminacion Correcta";
         Connection conn = miDao.getConexion();
-        String sql = "{ CALL SP_DELETE_PYTODOCS (?,?) }";
+        String sql = "{ CALL DELETES.SP_DELETE_PYTODOCS (?,?) }";
 
         try {
             conn.setAutoCommit(false);
@@ -178,7 +178,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
             // Obtener la conexion
             Connection conn = miDao.getConexion();
             // Se llama al procedimiento almacenado SP_LISTAR_PYTODOCS
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_BUSCAR_PYTODOCS (?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL BUSQUEDAS.SP_BUSCAR_PYTODOCS (?,?,?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.setInt(1, cod_pyto);
                 consulta.setInt(2, corr_docs);

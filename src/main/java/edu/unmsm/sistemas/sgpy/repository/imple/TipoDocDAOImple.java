@@ -39,7 +39,7 @@ public class TipoDocDAOImple implements TipoDocDAO{
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_PYTODOCS
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_TIPODOC (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL LISTAR.SP_LIST_TIPODOC (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta
@@ -79,7 +79,7 @@ public class TipoDocDAOImple implements TipoDocDAO{
 
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERT_TIPODOC (?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL INSERTAR.SP_INSERT_TIPODOC (?,?,?) }")) {
                 consulta.setInt(1, nuevo.getCodDoc());
                 consulta.setString(2, nuevo.getDesTDoc());
                 consulta.setString(3, nuevo.getVigente());
@@ -99,7 +99,7 @@ public class TipoDocDAOImple implements TipoDocDAO{
     public String actualizar(TipoDoc modificacion) {
         String msj = "Se actualizaron los datos correctamente.";
         Connection conn = miDao.getConexion();
-        String sql = "{ CALL SP_UPDATE_TIPODOC (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        String sql = "{ CALL UPDATES.SP_UPDATE_TIPODOC (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
 
         try {
             conn.setAutoCommit(false);
@@ -123,7 +123,7 @@ public class TipoDocDAOImple implements TipoDocDAO{
     public String eliminar(int cod_doc) {
         String msj = "Se eliminaron los datos correctamente.";
         Connection conn = miDao.getConexion();
-        String sql = "{ CALL SP_DELETE_TIPODOC (?) }";
+        String sql = "{ CALL DELETES.SP_DELETE_TIPODOC (?) }";
 
         try {
             conn.setAutoCommit(false);

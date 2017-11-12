@@ -36,7 +36,7 @@ public class NivelDAOImple implements NivelDAO {
         try{
             Connection conn = acceso.getConexion();
             
-            try(CallableStatement consulta = conn.prepareCall(" { CALL SP_LIST_NIVEL (?) } ")){
+            try(CallableStatement consulta = conn.prepareCall(" { CALL LISTAR.SP_LIST_NIVEL (?) } ")){
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 consulta.execute();
                 
@@ -68,7 +68,7 @@ public class NivelDAOImple implements NivelDAO {
         Connection conn = acceso.getConexion();
         try {
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{CALL SP_INSERT_NIVEL (?,?,?,?,?)}")){
+            try(CallableStatement consulta = conn.prepareCall("{CALL INSERTAR.SP_INSERT_NIVEL (?,?,?,?,?)}")){
                 consulta.setInt(1, nuevo.getCodFase());
                 consulta.setInt(2, nuevo.getCodNivel());
                 consulta.setString(3, nuevo.getDesNivel());
@@ -92,7 +92,7 @@ public class NivelDAOImple implements NivelDAO {
         Connection conn = acceso.getConexion();
         try {
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{CALL SP_UPDATE_NIVEL (?,?,?,?,?) }")){
+            try(CallableStatement consulta = conn.prepareCall("{CALL UPDATES.SP_UPDATE_NIVEL (?,?,?,?,?) }")){
             consulta.setInt(1, actualizacion.getCodFase());
             consulta.setInt(2, actualizacion.getCodNivel());
             consulta.setString(3, actualizacion.getDesNivel());
@@ -116,7 +116,7 @@ public class NivelDAOImple implements NivelDAO {
         Connection conn = acceso.getConexion();
         try {
             conn.setAutoCommit(false);
-            try(CallableStatement consulta = conn.prepareCall("{CALL SP_DELETE_NIVEL (?,?)}")){
+            try(CallableStatement consulta = conn.prepareCall("{CALL DELETES.SP_DELETE_NIVEL (?,?)}")){
                 consulta.setInt(1, CodFase);
                 consulta.setInt(2, CodNivel);
                 consulta.execute();

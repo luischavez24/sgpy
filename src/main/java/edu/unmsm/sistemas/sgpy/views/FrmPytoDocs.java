@@ -14,6 +14,7 @@ import edu.unmsm.sistemas.sgpy.entities.PytoDocs;
 import edu.unmsm.sistemas.sgpy.entities.PytoDocsView;
 import edu.unmsm.sistemas.sgpy.entities.TipoDoc;
 import edu.unmsm.sistemas.sgpy.entities.TipoEntreg;
+import edu.unmsm.sistemas.sgpy.model.Progreso;
 import edu.unmsm.sistemas.sgpy.repository.PytoDocsDAO;
 import edu.unmsm.sistemas.sgpy.repository.drive.CopiarArchivos;
 import edu.unmsm.sistemas.sgpy.repository.drive.DriveConnection;
@@ -2695,7 +2696,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                     rutaDocumento,
                     DriveConstants.DRIVE_TYPES.get(((TipoDoc) cmbTDoc.getModel().getSelectedItem()).getDesTDoc())
             );
-
+            
             if (idArchivo != null) {
                 PytoDocs pytoDocs = new PytoDocs();
                 pytoDocs.setCodPyto((int) cmbProyecto.getSelectedItem());
@@ -2740,7 +2741,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             return "";
         }
     }
-    
+
     private void btnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseEntered
         // TODO add your handling code here:
         hoverOff((JPanel) evt.getSource(), new java.awt.Color(26, 35, 126));
@@ -3744,7 +3745,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             rutaDocumento = new File(pytoDocsMod.getRutaDoc());
 
         }
-        
+
     }//GEN-LAST:event_btnActualizarDocsActionPerformed
 
     private void btnSubDocModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubDocModActionPerformed
@@ -3808,7 +3809,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                     panelModificar.setVisible(false);
                     llenarTabla(PytoDocsDAOImple.getInstance().listar());
                     resetFormModificar();
-                    
+
                 } else {
                     JOptionPane.showMessageDialog(panelSoporte, msj, "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -3950,8 +3951,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     }
 
     private void resetFormModificar() {
-        
-    
+
         spnFFinMod.setValue(new Date());
         txtCostoEstimadoMod.setText(null);
         cmbTDocMod.setSelectedIndex(0);

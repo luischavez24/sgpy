@@ -31,7 +31,7 @@ public class FaseDAOImple implements ModeloIDAO<Fase, Fase> {
         List<Fase> miLista = new ArrayList<>();
         try {
             Connection conn = miDao.getConexion();
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LISTAR_FASES (?) }")){
+            try (CallableStatement consulta = conn.prepareCall("{ CALL LISTAR.SP_LISTAR_FASES (?) }")){
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 consulta.execute();
                 try (ResultSet resultado = ((OracleCallableStatement)consulta).getCursor(1)){
@@ -56,7 +56,7 @@ public class FaseDAOImple implements ModeloIDAO<Fase, Fase> {
         String rpta = "Insercion Completada";
         Connection conn = miDao.getConexion();
         
-        try (CallableStatement consulta = conn.prepareCall("{ CALL SP_INSERTAR_FASE (?,?,?) }")){
+        try (CallableStatement consulta = conn.prepareCall("{ CALL INSERTAR.SP_INSERTAR_FASE (?,?,?) }")){
 
             consulta.setInt(1, nuevo.getCodFase());
             consulta.setString(2, nuevo.getDesFase());
@@ -77,7 +77,7 @@ public class FaseDAOImple implements ModeloIDAO<Fase, Fase> {
         String rpta = "Actualización Completada";
         Connection conn = miDao.getConexion();
         
-        try (CallableStatement comando = conn.prepareCall("{ CALL SP_UPDATE_FASE (?,?,?) }")){
+        try (CallableStatement comando = conn.prepareCall("{ CALL UPDATES.SP_UPDATE_FASE (?,?,?) }")){
             
             comando.setInt(1, actualizacion.getCodFase());
             comando.setString(3, actualizacion.getDesFase());
@@ -98,7 +98,7 @@ public class FaseDAOImple implements ModeloIDAO<Fase, Fase> {
         String rpta = "Eliminacion Completada";
         Connection conn = miDao.getConexion();
         
-        try (CallableStatement consulta = conn.prepareCall("{ CALL SP_DELETE_FASE (?) }")) {
+        try (CallableStatement consulta = conn.prepareCall("{ CALL DELETES.SP_DELETE_FASE (?) }")) {
             consulta.setInt(1, codFase);
             consulta.execute();
         } catch (SQLException ex) {

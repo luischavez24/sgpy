@@ -40,7 +40,7 @@ public class TipoEntregDAOImple implements TipoEntregDAO{
             Connection conn = miDao.getConexion();
 
             // Se llama al procedimiento almacenado SP_LISTAR_ESTADOE
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_LIST_TIPOENTREG (?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL LISTAR.SP_LIST_TIPOENTREG (?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.registerOutParameter(1, OracleTypes.CURSOR);
                 // Se ejecuta la consulta

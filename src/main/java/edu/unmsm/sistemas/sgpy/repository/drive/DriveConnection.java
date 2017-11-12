@@ -6,6 +6,7 @@ import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.googleapis.media.MediaHttpUploader;
 import com.google.api.client.http.FileContent;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -24,15 +25,16 @@ import java.util.Collections;
 import java.util.List;
 
 public class DriveConnection {
-    
+
     private static DriveConnection INSTANCE = new DriveConnection();
-    
-    private DriveConnection() { }
-    
+
+    private DriveConnection() {
+    }
+
     public static DriveConnection getInstance() {
         return INSTANCE;
     }
-    
+
     /**
      * Application name.
      */
@@ -100,7 +102,7 @@ public class DriveConnection {
                 .setDataStoreFactory(DATA_STORE_FACTORY)
                 .setAccessType("offline")
                 .build();
-        
+
         Credential credential = new AuthorizationCodeInstalledApp(
                 flow, new LocalServerReceiver()).authorize("user");
         System.out.println(
@@ -123,57 +125,72 @@ public class DriveConnection {
     }
 
     public String subirArchivo(java.io.File filePath, String type) {
-        
+
         String fileId = null;
-        
+
         try {
-            
+
             Drive service = getDriveService();
 
             File fileMetadata = new File();
 
             fileMetadata.setName(filePath.getName());
-            
+
             fileMetadata.setParents(Collections.singletonList(CARPETA_PROYECTO));
-           
+
             FileContent mediaContent = new FileContent(type, filePath);
 
-            File file = service.files().create(fileMetadata, mediaContent)
-                    .setFields("id")
-                    .execute();
+            Drive.Files.Create createFile = service.files().create(fileMetadata, mediaContent);
             
+            setProgressListener(createFile.getMediaHttpUploader());
+            
+            File file = createFile.setFields("id").execute();
+
             fileId = file.getId();
-            
-        } catch(IOException e) {
+
+        } catch (IOException e) {
             System.out.println(e);
         }
 
         return fileId;
     }
-    
+
     public String actualizarArchivo(java.io.File filePath, String type, String idArchivo) {
-        
+
         String fileId = null;
-        
+
         try {
-            
+
             Drive service = getDriveService();
 
             File fileMetadata = new File();
 
             fileMetadata.setName(filePath.getName());
-            
-            FileContent mediaContent = new FileContent(type, filePath);
 
-            File file = service.files().update(idArchivo, fileMetadata, mediaContent).execute();
-           
-            fileId = file.getId();
+            FileContent mediaContent = new FileContent(type, filePath);
             
-        } catch(IOException e) {
+            Drive.Files.Update updateFile = service.files().update(idArchivo, fileMetadata, mediaContent);
+            
+            setProgressListener(updateFile.getMediaHttpUploader());
+            
+            File file = updateFile.execute();
+
+            fileId = file.getId();
+
+        } catch (IOException e) {
             System.out.println(e);
         }
 
         return fileId;
     }
-  
+
+    private void setProgressListener(MediaHttpUploader uploader) {
+       
+
+        uploader.setDirectUploadEnabled(false);
+
+        uploader.setChunkSize(MediaHttpUploader.MINIMUM_CHUNK_SIZE);
+
+        uploader.setProgressListener(new CargaListener());
+    }
 }
