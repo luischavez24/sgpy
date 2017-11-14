@@ -6,7 +6,9 @@ public class TipoEntreg {
     private String deEntreg;
     private String vigencia;
     
-    public TipoEntreg () { }
+    public TipoEntreg() {
+        
+    }
     public TipoEntreg(int tipoEntreg, String deEntreg, String vigencia) {
         this.tipoEntreg = tipoEntreg;
         this.deEntreg = deEntreg;
@@ -41,5 +43,4 @@ public class TipoEntreg {
     public String toString() {
         return deEntreg;
     }
-
 }

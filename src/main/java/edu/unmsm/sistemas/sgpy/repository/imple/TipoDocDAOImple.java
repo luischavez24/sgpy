@@ -99,7 +99,7 @@ public class TipoDocDAOImple implements TipoDocDAO{
     public String actualizar(TipoDoc modificacion) {
         String msj = "Se actualizaron los datos correctamente.";
         Connection conn = miDao.getConexion();
-        String sql = "{ CALL UPDATES.SP_UPDATE_TIPODOC (?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        String sql = "{ CALL UPDATES.SP_UPDATE_TIPODOC (?,?,?) }";
 
         try {
             conn.setAutoCommit(false);

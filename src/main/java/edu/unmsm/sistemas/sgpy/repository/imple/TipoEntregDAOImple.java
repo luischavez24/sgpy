@@ -50,9 +50,11 @@ public class TipoEntregDAOImple implements TipoEntregDAO{
 
                     while (resultado.next()) {
                         TipoEntreg tipoEntreg = new TipoEntreg();
+                        
                         tipoEntreg.setTipoEntreg(resultado.getInt("TIPOENTREG"));
                         tipoEntreg.setDeEntreg(resultado.getString("DESENTREG"));
                         tipoEntreg.setVigencia(resultado.getString("VIGENCIA"));
+                        
                         misTipoEntreg.add(tipoEntreg);
                     }
                 }

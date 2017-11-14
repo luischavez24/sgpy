@@ -58,8 +58,11 @@
             <artifactId>org.apache.commons.logging</artifactId>
             <version>1.1.1</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.5.2</version>
+        </dependency>
     </dependencies>
     <!-- Repositorio del driver de oracle -->
     <repositories>

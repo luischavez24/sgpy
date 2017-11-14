@@ -162,7 +162,7 @@ public class EstadoDAOImple implements EstadoDAO {
         Connection conn = miDao.getConexion();
         try {
             conn.setAutoCommit(false);
-            try (CallableStatement consulta = conn.prepareCall("{ CALL DELETES.SP_DELETE_ENTREGABLES (?,?)}")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL DELETES.SP_DELETE_ESTADOPYTO (?,?,?)}")) {
                 consulta.setInt(1, cod_fase);
                 consulta.setInt(2, cod_nivel);
                 consulta.setInt(3, est_pyto);
