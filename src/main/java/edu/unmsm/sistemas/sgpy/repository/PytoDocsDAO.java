@@ -18,5 +18,6 @@ public interface PytoDocsDAO {
     public String actualizar(PytoDocs modificacion);
     public String eliminar(int cod_pyto, int cod_doc);
     public PytoDocs buscar(int cod_pyto, int corr_docs);
-    public PytoDocsView buscar2(int cod_pyto, int corr_docs);   
+    public PytoDocsView buscar2(int cod_pyto, int corr_docs);  
+    public List<PytoDocsView> buscarTodos(int cod_pyto);
 }

@@ -22,8 +22,8 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
     // Crea una instancia de la clase al momento de lanzar la apliacion
     private static final PytoDocsDAOImple PYTODOCSDAO = new PytoDocsDAOImple();
-    
-// Recoge el objeto DAOConnection
+
+    // Recoge el objeto DAOConnection
     private final DAOConnection miDao = DAOConnection.getInstance();
 
     public static PytoDocsDAOImple getInstance() {
@@ -216,15 +216,15 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
         return pytoDocs;
     }
-    
+
     @Override
     public PytoDocsView buscar2(int cod_pyto, int corr_docs) {
-         PytoDocsView temp = null;
+        PytoDocsView temp = null;
         try {
             // Obtener la conexion
             Connection conn = miDao.getConexion();
             // Se llama al procedimiento almacenado SP_BUSCAR_PYTODOCSDETAILS
-            try (CallableStatement consulta = conn.prepareCall("{ CALL SP_BUSCAR_PYTODOCSDETAILS (?,?,?) }")) {
+            try (CallableStatement consulta = conn.prepareCall("{ CALL BUSQUEDAS.SP_BUSCAR_PYTODOCSDETAILS (?,?,?) }")) {
                 // Se pasa por parametro el cursor
                 consulta.setInt(1, cod_pyto);
                 consulta.setInt(2, corr_docs);
@@ -233,7 +233,6 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                 consulta.execute();
                 try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(3)) {
 
-                   
                     String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
                     int codPyto, corrdocs;
                     Date fecIni, fecFin;
@@ -252,7 +251,7 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
                         desEntreg = resultado.getString("DesEntreg");
                         temp = new PytoDocsView(codPyto, corrdocs, fecIni, fecFin, costoEst,
                                 verDoc, vigente, desFase, desNivel, desTDoc, desEntreg);
-                        
+
                     }
                 }
             }
@@ -264,5 +263,53 @@ public class PytoDocsDAOImple implements PytoDocsDAO {
 
         return temp;
     }
-
+    
+    @Override
+    public List<PytoDocsView> buscarTodos(int cod_pyto) {
+        List<PytoDocsView> listaDocs = new ArrayList<>();
+        
+        try {
+            // Obtener la conexion
+            Connection conn = miDao.getConexion();
+            // Se llama al procedimiento almacenado SP_BUSCAR_PYTODOCSDETAILS
+            try (CallableStatement consulta = conn.prepareCall("{ CALL BUSQUEDAS.SP_BUSCARTODOS_PYTODOCS (?,?) }")) {
+                // Se pasa por parametro el cursor
+                consulta.setInt(1, cod_pyto);
+                consulta.registerOutParameter(2, OracleTypes.CURSOR);
+                // Se ejecuta la consulta
+                consulta.execute();
+               
+                try (ResultSet resultado = ((OracleCallableStatement) consulta).getCursor(2)) {
+                    PytoDocsView temp;
+                    String verDoc, vigente, desFase, desNivel, desTDoc, desEntreg;
+                    int codPyto, corrdocs;
+                    Date fecIni, fecFin;
+                    double costoEst;
+                    while (resultado.next()) {
+                        codPyto = resultado.getInt("CodPyto");
+                        corrdocs = resultado.getInt("Corrdocs");
+                        fecIni = resultado.getDate("FecIni");
+                        fecFin = resultado.getDate("FecFin");
+                        costoEst = resultado.getDouble("CostoEst");  //
+                        verDoc = resultado.getString("VerDoc");   //version documentos
+                        vigente = resultado.getString("Vigente");
+                        desFase = resultado.getString("DesFase");
+                        desNivel = resultado.getString("DesNivel");
+                        desTDoc = resultado.getString("DesTDoc");
+                        desEntreg = resultado.getString("DesEntreg");
+                        temp = new PytoDocsView(codPyto, corrdocs, fecIni, fecFin, costoEst,
+                                verDoc, vigente, desFase, desNivel, desTDoc, desEntreg);
+                        listaDocs.add(temp);
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            listaDocs = null;
+            System.out.println(ex.getMessage());
+        } finally {
+            miDao.close();
+        }
+        
+        return listaDocs;
+    }
 }
