@@ -70,17 +70,70 @@ public class TipoEntregDAOImple implements TipoEntregDAO{
 
     @Override
     public String insertar(TipoEntreg nuevo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String msj = "Se insertaron los datos correctamente.";
+        Connection conn = miDao.getConexion();
+
+        try {
+            conn.setAutoCommit(false);
+            try (CallableStatement consulta = conn.prepareCall("{ CALL INSERTAR.SP_INSERT_TIPOENTREG (?,?,?) }")) {
+                consulta.setInt(1, nuevo.getTipoEntreg());
+                consulta.setString(2, nuevo.getDeEntreg());
+                consulta.setString(3, nuevo.getVigencia());
+
+                consulta.execute();
+            } 
+            conn.commit();  
+        } catch (SQLException ex) {
+            msj = ex.getMessage();
+        } finally{
+            miDao.close();
+        }
+        return msj;
     }
 
     @Override
     public String actualizar(TipoEntreg modificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String msj = "Se actualizaron los datos correctamente.";
+        Connection conn = miDao.getConexion();
+        String sql = "{ CALL UPDATES.SP_UPDATE_TIPOENTREG (?,?,?) }";
+
+        try {
+            conn.setAutoCommit(false);
+            try (CallableStatement consulta = conn.prepareCall(sql)) {
+                consulta.setInt(1, modificacion.getTipoEntreg());
+                consulta.setString(2, modificacion.getDeEntreg());
+                consulta.setString(3, modificacion.getVigencia());
+
+                consulta.execute();
+            } 
+            conn.commit();  
+        } catch (SQLException ex) {
+            msj = ex.getMessage();
+        } finally{
+            miDao.close();
+        }
+        return msj;
     }
 
     @Override
     public String eliminar(int tipoEntreg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String msj = "Se eliminaron los datos correctamente.";
+        Connection conn = miDao.getConexion();
+        String sql = "{ CALL DELETES.SP_DELETE_TIPOENTREG (?) }";
+
+        try {
+            conn.setAutoCommit(false);
+            try (CallableStatement consulta = conn.prepareCall(sql)) {
+                consulta.setInt(1, tipoEntreg);
+                consulta.execute();
+            } 
+            conn.commit();  
+        } catch (SQLException ex) {
+            msj = ex.getMessage();
+        } finally{
+            miDao.close();
+        }
+        return msj;
     }
     
 }
