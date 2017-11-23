@@ -56,6 +56,7 @@ public class NivelDAOImple implements NivelDAO {
                 }
             }
         } catch (SQLException ex) {
+            System.out.println(ex);
         } finally {
             acceso.close();
         }

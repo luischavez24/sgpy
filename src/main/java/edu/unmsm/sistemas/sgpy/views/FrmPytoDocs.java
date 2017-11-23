@@ -58,6 +58,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
     private Entregables objEntregables;
     private PytoDocs pytoDocsMod;
     private PytoDocsDAO pytoDocsDAO = PytoDocsDAOImple.getInstance();
+    private String idArchivoDetalle = "";
 
     public FrmPytoDocs() {
         initComponents();
@@ -503,7 +504,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         panelBuscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setBorder(null);
 
         tablaDocs.setAutoCreateRowSorter(true);
         tablaDocs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -555,7 +555,6 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         caja_busqueda.setBackground(new java.awt.Color(159, 168, 218));
         caja_busqueda.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         caja_busqueda.setForeground(new java.awt.Color(255, 255, 255));
-        caja_busqueda.setBorder(null);
         header.add(caja_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 620, 29));
 
         btnQuery.setBackground(new java.awt.Color(255, 255, 255));
@@ -2399,7 +2398,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         jScrollPane22.setViewportView(txt_obsDocPyto);
 
         btn_abrirdoc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btn_abrirdoc.setText("Abrir Documento");
+        btn_abrirdoc.setText("Guardar Documento");
         btn_abrirdoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_abrirdocActionPerformed(evt);
@@ -2438,8 +2437,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_abrirdoc)
-                .addGap(110, 110, 110))
+                .addComponent(btn_abrirdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2456,8 +2455,8 @@ public class FrmPytoDocs extends javax.swing.JFrame {
                 .addComponent(jLabel79)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(btn_abrirdoc)
+                .addGap(18, 18, 18)
+                .addComponent(btn_abrirdoc, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2846,7 +2845,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
             PytoDocsView pytoDocsView = pytoDocsDAO.buscar2(codPyto, corrPyto);
-
+            idArchivoDetalle = pytoDocsDAO.buscar(codPyto, corrPyto).getRutaDoc();
             panelInsertar.setVisible(false);
             panelBuscar.setVisible(false);
             panelMantenimiento.setVisible(false);
@@ -2896,7 +2895,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             objTipoEntreg = new TipoEntreg(tipoEntreg, desEntreg, vigencia);
 
-            TipoEntregDAOImple.getInstance().insertar(objTipoEntreg);
+            String respuesta = TipoEntregDAOImple.getInstance().insertar(objTipoEntreg);
 
             TipoEntregTextField1.setText("");
             TipoEntregTextArea1.setText("");
@@ -2904,7 +2903,7 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
             llenarTablaTipoEntreg(TipoEntregDAOImple.getInstance().listarEntity());
 
-            JOptionPane.showMessageDialog(null, "Registro Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, respuesta, "Correcto", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, mensaje, "Incorrecto", JOptionPane.ERROR_MESSAGE);
         }
@@ -2940,11 +2939,11 @@ public class FrmPytoDocs extends javax.swing.JFrame {
         if (fila > -1) {
             int tipoEntreg = (Integer) tTipoEntreg.getValueAt(fila, 1);
 
-            TipoEntregDAOImple.getInstance().eliminar(tipoEntreg);
+            String mensaje = TipoEntregDAOImple.getInstance().eliminar(tipoEntreg);
 
             llenarTablaTipoEntreg(TipoEntregDAOImple.getInstance().listarEntity());
 
-            JOptionPane.showMessageDialog(null, "Borrado Exitoso", "Correcto", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, mensaje, "Correcto", JOptionPane.INFORMATION_MESSAGE);
 
         } else {
             JOptionPane.showMessageDialog(null, "Debe elegir un elemento de la tabla", "Incorrecto", JOptionPane.ERROR_MESSAGE);
@@ -3778,6 +3777,16 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
         return (opcion == JFileChooser.APPROVE_OPTION) ? exploradorArchivos.getSelectedFile() : null;
     }
+
+    private File displayParentChooser() {
+        JFileChooser exploradorArchivos = new JFileChooser(System.getProperty("user.desktop"));
+        exploradorArchivos.setMultiSelectionEnabled(false);
+        exploradorArchivos.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        exploradorArchivos.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        int opcion = exploradorArchivos.showSaveDialog(this);
+
+        return (opcion == JFileChooser.APPROVE_OPTION) ? exploradorArchivos.getSelectedFile() : null;
+    }
     private void txtVersionModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVersionModActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVersionModActionPerformed
@@ -3840,7 +3849,21 @@ public class FrmPytoDocs extends javax.swing.JFrame {
 
     private void btn_abrirdocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_abrirdocActionPerformed
         // TODO add your handling code here:
-
+        File carpFile = displayParentChooser();
+        int comprobacion = DriveConnection.getInstance().descargarArchivo(
+                carpFile, 
+                idArchivoDetalle
+        );
+       if(comprobacion == 1) {
+           JOptionPane.showMessageDialog(rootPane, "Descarga correcta");
+                   
+       } else {
+           JOptionPane.showMessageDialog(rootPane, 
+                   "Error al descargar", 
+                   "Error", 
+                   JOptionPane.ERROR_MESSAGE
+           );
+       }
         //abrir documento
     }//GEN-LAST:event_btn_abrirdocActionPerformed
 

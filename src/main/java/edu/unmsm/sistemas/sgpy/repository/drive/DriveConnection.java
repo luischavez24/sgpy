@@ -16,13 +16,20 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.*;
 import com.google.api.services.drive.Drive;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DriveConnection {
 
@@ -141,9 +148,9 @@ public class DriveConnection {
             FileContent mediaContent = new FileContent(type, filePath);
 
             Drive.Files.Create createFile = service.files().create(fileMetadata, mediaContent);
-            
+
             setProgressListener(createFile.getMediaHttpUploader());
-            
+
             File file = createFile.setFields("id").execute();
 
             fileId = file.getId();
@@ -168,11 +175,11 @@ public class DriveConnection {
             fileMetadata.setName(filePath.getName());
 
             FileContent mediaContent = new FileContent(type, filePath);
-            
+
             Drive.Files.Update updateFile = service.files().update(idArchivo, fileMetadata, mediaContent);
-            
+
             setProgressListener(updateFile.getMediaHttpUploader());
-            
+
             File file = updateFile.execute();
 
             fileId = file.getId();
@@ -184,8 +191,45 @@ public class DriveConnection {
         return fileId;
     }
 
+    public int descargarArchivo(java.io.File archivoSalida, String idDocumento) {
+
+        try {
+            
+            Drive service = getDriveService();
+            File fileMetadata = service.files().get(idDocumento).execute();
+            System.out.println(archivoSalida.getAbsoluteFile());
+            System.out.println(archivoSalida.getAbsolutePath());
+            try (OutputStream outputStream = new FileOutputStream(archivoSalida.getAbsolutePath() + "\\" + fileMetadata.getName())) {
+                
+                getDriveService().files().get(fileMetadata.getId())
+                        .executeMediaAndDownloadTo(outputStream);
+                return 1;
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        
+        return 0;
+    }
+
+    public void goToURL(String URL) {
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+            if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+                try {
+                    java.net.URI uri = new java.net.URI(URL);
+                    desktop.browse(uri);
+                } catch (URISyntaxException | IOException ex) {
+                    System.out.println(ex);
+                }
+            }
+        }
+    }
+
     private void setProgressListener(MediaHttpUploader uploader) {
-       
 
         uploader.setDirectUploadEnabled(false);
 
