@@ -19,7 +19,7 @@
             <scope>compile</scope>
         </dependency>
         
-        <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-drive -->
+        <!-- Google Drive API Dependencies -->
         <dependency>
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-drive</artifactId>
@@ -37,14 +37,13 @@
             <artifactId>google-oauth-client</artifactId>
             <version>1.23.0</version>
         </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
+  
         <dependency>
             <groupId>com.google.oauth-client</groupId>
             <artifactId>google-oauth-client-jetty</artifactId>
             <version>1.23.0</version>
         </dependency>
-
+        <!-- End -->
         <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
         <dependency>
             <groupId>org.netbeans.external</groupId>
@@ -52,7 +51,7 @@
             <version>RELEASE74</version>
         </dependency>
         
-        <!-- https://mvnrepository.com/artifact/org.apache.directory.studio/org.apache.commons.logging -->
+        <!-- Apache Commons - Logging -->
         <dependency>
             <groupId>org.apache.directory.studio</groupId>
             <artifactId>org.apache.commons.logging</artifactId>
@@ -63,7 +62,43 @@
             <artifactId>eclipselink</artifactId>
             <version>2.5.2</version>
         </dependency>
+        
+        <!-- Auto Complete -->
+        <dependency>
+            <groupId>com.fifesoft</groupId>
+            <artifactId>autocomplete</artifactId>
+            <version>2.5.8</version>
+        </dependency>
+        <!-- End -->
+        
+        <!-- JCalendar -->
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
+        
+        <!-- API Mail -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.guis</groupId>
+            <artifactId>DateChooser</artifactId>
+            <version>1.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.guis</groupId>
+            <artifactId>edisoncorSX</artifactId>
+            <version>1.0</version>
+        </dependency>
+        
     </dependencies>
+    
     <!-- Repositorio del driver de oracle -->
     <repositories>
         <repository>
