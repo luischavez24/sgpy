@@ -45,9 +45,7 @@ public class DriveConnection {
     /**
      * Application name.
      */
-    private static final String APPLICATION_NAME = "SGPY";
 
-    private static final String CARPETA_PROYECTO = "1Q8v9FMhze9KaCDGuJqJpliTHq6_DVG_f";
 
     /**
      * Directory to store user credentials for this application.
@@ -127,7 +125,7 @@ public class DriveConnection {
         Credential credential = authorize();
         return new Drive.Builder(
                 HTTP_TRANSPORT, JSON_FACTORY, credential)
-                .setApplicationName(APPLICATION_NAME)
+                .setApplicationName(DriveConstants.APPLICATION_NAME)
                 .build();
     }
 
@@ -143,7 +141,7 @@ public class DriveConnection {
 
             fileMetadata.setName(filePath.getName());
 
-            fileMetadata.setParents(Collections.singletonList(CARPETA_PROYECTO));
+            fileMetadata.setParents(Collections.singletonList(DriveConstants.CARPETA_PROYECTO));
 
             FileContent mediaContent = new FileContent(type, filePath);
 

@@ -28,4 +28,3 @@ cd ${projectBase}\SGPY\lib
 mvn install:install-file -Dfile=DateChooser.jar -DgroupId=com.guis -DartifactId=DateChooser -Dversion=1.0 -Dpackaging=jar
 mvn install:install-file -Dfile=edisoncorSX.jar -DgroupId=com.guis -DartifactId=edisoncorSX -Dversion=1.0 -Dpackaging=jar
 ```
-
